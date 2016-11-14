@@ -1,0 +1,919 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Wince," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="Wince连接Mysql数据库
+Wince连接Mysql数据库所用dll:mysql.data.cf.dll
+Wince操作注册表
+Wince 同步/异步 播放声音">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Wince开发用Utils">
+<meta property="og:url" content="http://blog.sxin.me/2016/05/30/wincedevutils/index.html">
+<meta property="og:site_name" content="SxinBoss的个人博客">
+<meta property="og:description" content="Wince连接Mysql数据库
+Wince连接Mysql数据库所用dll:mysql.data.cf.dll
+Wince操作注册表
+Wince 同步/异步 播放声音">
+<meta property="og:updated_time" content="2016-11-14T14:07:14.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Wince开发用Utils">
+<meta name="twitter:description" content="Wince连接Mysql数据库
+Wince连接Mysql数据库所用dll:mysql.data.cf.dll
+Wince操作注册表
+Wince 同步/异步 播放声音">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '6301601506558739000',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://blog.sxin.me/2016/05/30/wincedevutils/"/>
+
+
+
+
+
+  <title> Wince开发用Utils | SxinBoss的个人博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?88cd40e8367ccacfae1dddc2d9fab3a0";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=59452241";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">SxinBoss的个人博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">一个慢慢成长的小昕猿</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://blog.sxin.me/2016/05/30/wincedevutils/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="SxinBoss">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="http://7xskk8.com1.z0.glb.clouddn.com/blog_touxiang.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="SxinBoss的个人博客">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="SxinBoss的个人博客" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Wince开发用Utils
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-05-30T00:00:00+08:00">
+              2016-05-30
+            </time>
+
+            &nbsp;|&nbsp;
+
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-check-o"></i>
+            </span>
+            <time title="Post modified" itemprop="dateModified" datetime="2016-11-14T22:07:14+08:00">
+              2016-11-14
+            </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/嵌入式/" itemprop="url" rel="index">
+                    <span itemprop="name">嵌入式</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/嵌入式/Wince/" itemprop="url" rel="index">
+                    <span itemprop="name">Wince</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/05/30/wincedevutils/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/30/wincedevutils/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/05/30/wincedevutils/" class="leancloud_visitors" data-flag-title="Wince开发用Utils">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><a href="http://download.csdn.net/detail/sxinboss/9535598" title="连接Mysql数据库" target="_blank" rel="external">Wince连接Mysql数据库</a></p>
+<p><a href="http://download.csdn.net/detail/sxinboss/9535594" title="mysql.data.cf.dll" target="_blank" rel="external">Wince连接Mysql数据库所用dll:mysql.data.cf.dll</a></p>
+<p><a href="http://download.csdn.net/download/sxinboss/9535609" title="Wince操作注册表" target="_blank" rel="external">Wince操作注册表</a></p>
+<p><a href="http://download.csdn.net/detail/sxinboss/9535641" title="Wince 同步/异步 播放声音" target="_blank" rel="external">Wince 同步/异步 播放声音</a></p>
+<a id="more"></a>
+<p>记录日志:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">public static void writeLog(string sql)</div><div class="line">&#123;</div><div class="line">	try</div><div class="line">	&#123;</div><div class="line">		String CodePath = System.Reflection.Assembly.GetExecutingAssembly().GetName().CodeBase;</div><div class="line">		CodePath = CodePath.Substring(0, CodePath.LastIndexOf(@&quot;\&quot;));</div><div class="line">		String filePathName = CodePath + &quot;\\log.txt&quot;;</div><div class="line"></div><div class="line">		FileInfo file = new FileInfo(filePathName);</div><div class="line">		if (!file.Exists)</div><div class="line">			file.Create();</div><div class="line">		StreamWriter sw = file.AppendText();</div><div class="line">		sw.WriteLine(sql);</div><div class="line">		sw.Flush();</div><div class="line">		sw.Close();</div><div class="line">	&#125;</div><div class="line">	catch (Exception) &#123; &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>###<strong>Wince直连数据库</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div><div class="line">183</div><div class="line">184</div><div class="line">185</div><div class="line">186</div><div class="line">187</div><div class="line">188</div><div class="line">189</div><div class="line">190</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">using System;</div><div class="line"></div><div class="line">using System.Collections.Generic;</div><div class="line">using System.Text;</div><div class="line">using MySql.Data.MySqlClient;</div><div class="line">using System.Data;</div><div class="line"></div><div class="line">namespace JPPDA.utils</div><div class="line">&#123;</div><div class="line">    public class DBUtil</div><div class="line">    &#123;</div><div class="line">        private string connStr = string.Empty;</div><div class="line"></div><div class="line">        private MySqlConnection conn;</div><div class="line"></div><div class="line">        private MySqlCommand cmd;</div><div class="line"></div><div class="line">        private MySqlTransaction tran;</div><div class="line"></div><div class="line">        public DBUtil()</div><div class="line">        &#123;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        public DBUtil(string dbType, string dbIP, string dbUser, string dbPass, string dbName,string dbPort)</div><div class="line">        &#123;</div><div class="line">            if (dbType.ToUpper().Equals(&quot;MYSQL&quot;))</div><div class="line">            &#123;</div><div class="line">                this.connStr = string.Concat(new string[]</div><div class="line">				&#123;</div><div class="line">					&quot;database=&quot;,</div><div class="line">					dbName,</div><div class="line">					&quot;;Port=&quot;,</div><div class="line">                    dbPort,</div><div class="line">                    &quot;;Password=&quot;,</div><div class="line">					dbPass,</div><div class="line">					&quot;;User ID=&quot;,</div><div class="line">					dbUser,</div><div class="line">					&quot;;server=&quot;,</div><div class="line">					dbIP,</div><div class="line">					&quot;;charset=utf8;AllowZeroDatetime=true;default command timeout=100;&quot;</div><div class="line">				&#125;);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        public bool TestConn()</div><div class="line">        &#123;</div><div class="line">            bool result;</div><div class="line">            try</div><div class="line">            &#123;</div><div class="line">                if (this.conn == null)</div><div class="line">                &#123;</div><div class="line">                    this.conn = new MySqlConnection(this.connStr);</div><div class="line">                &#125;</div><div class="line">                if (this.conn.State == ConnectionState.Closed)</div><div class="line">                &#123;</div><div class="line">                    this.conn.Open();</div><div class="line">                    this.conn.Close();</div><div class="line">                &#125;</div><div class="line">                result = true;</div><div class="line">            &#125;</div><div class="line">            catch</div><div class="line">            &#123;</div><div class="line">                result = false;</div><div class="line">            &#125;</div><div class="line">            return result;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        public void Open()</div><div class="line">        &#123;</div><div class="line">            try</div><div class="line">            &#123;</div><div class="line">                if (this.conn == null)</div><div class="line">                &#123;</div><div class="line">                    this.conn = new MySqlConnection(this.connStr);</div><div class="line">                &#125;</div><div class="line">                if (this.conn.State == ConnectionState.Closed)</div><div class="line">                &#123;</div><div class="line">                    this.conn.Open();</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            catch (DbException ex)</div><div class="line">            &#123;</div><div class="line">                throw new Exception(ex.Message);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        public void Close()</div><div class="line">        &#123;</div><div class="line">            if (this.conn.State == ConnectionState.Open)</div><div class="line">            &#123;</div><div class="line">                this.conn.Close();</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        public DataSet GetDataSet(string sql)</div><div class="line">        &#123;</div><div class="line">            this.Open();</div><div class="line">            MySqlDataAdapter mySqlDataAdapter = new MySqlDataAdapter();</div><div class="line">            this.cmd = this.conn.CreateCommand();</div><div class="line">            this.cmd.CommandText = sql;</div><div class="line">            mySqlDataAdapter.SelectCommand = this.cmd;</div><div class="line">            DataSet dataSet = new DataSet();</div><div class="line">            mySqlDataAdapter.Fill(dataSet);</div><div class="line">            this.Close();</div><div class="line">            return dataSet;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        public MySqlCommand getCommand()</div><div class="line">        &#123;</div><div class="line">            return conn.CreateCommand();</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        public DataTable GetDataTable(string sql)</div><div class="line">        &#123;</div><div class="line">            this.Open();</div><div class="line">            MySqlDataAdapter mySqlDataAdapter = new MySqlDataAdapter();</div><div class="line">            this.cmd = this.conn.CreateCommand();</div><div class="line">            this.cmd.CommandText = sql;</div><div class="line">            mySqlDataAdapter.SelectCommand = this.cmd;</div><div class="line">            DataSet dataSet = new DataSet();</div><div class="line">            mySqlDataAdapter.Fill(dataSet);</div><div class="line">            this.Close();</div><div class="line">            return dataSet.Tables[0];</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        public int Execute(string sql)</div><div class="line">        &#123;</div><div class="line">            int res=0;</div><div class="line">            this.Open();</div><div class="line">            this.cmd = this.conn.CreateCommand();</div><div class="line">            this.tran = this.conn.BeginTransaction();</div><div class="line">            try</div><div class="line">            &#123;</div><div class="line">                this.cmd.Transaction = this.tran;</div><div class="line">                this.cmd.CommandText = sql;</div><div class="line">                res = this.cmd.ExecuteNonQuery();</div><div class="line">                this.tran.Commit();</div><div class="line">            &#125;</div><div class="line">            catch (Exception ex)</div><div class="line">            &#123;</div><div class="line">                res = -1;</div><div class="line">                this.tran.Rollback();</div><div class="line">                throw new Exception(ex.Message);</div><div class="line">            &#125;</div><div class="line">            finally</div><div class="line">            &#123;</div><div class="line">                this.conn.Close();</div><div class="line">            &#125;</div><div class="line">            return res;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        public void Transaction()</div><div class="line">        &#123;</div><div class="line">            this.Open();</div><div class="line">            this.cmd = this.conn.CreateCommand();</div><div class="line">            this.tran = this.conn.BeginTransaction();</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        public DataTable GetDataTableNotClose(string sql)</div><div class="line">        &#123;</div><div class="line">            MySqlDataAdapter mySqlDataAdapter = new MySqlDataAdapter();</div><div class="line">            this.cmd = this.conn.CreateCommand();</div><div class="line">            this.cmd.CommandText = sql;</div><div class="line">            mySqlDataAdapter.SelectCommand = this.cmd;</div><div class="line">            DataSet dataSet = new DataSet();</div><div class="line">            mySqlDataAdapter.Fill(dataSet);</div><div class="line">            return dataSet.Tables[0];</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        public void ExecuteNotTran(string sql)</div><div class="line">        &#123;</div><div class="line">            this.cmd.Transaction = this.tran;</div><div class="line">            this.cmd.CommandText = sql;</div><div class="line">            this.cmd.ExecuteNonQuery();</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        public void Commit()</div><div class="line">        &#123;</div><div class="line">            this.tran.Commit();</div><div class="line">            this.Close();</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        public void Rollback()</div><div class="line">        &#123;</div><div class="line">            this.tran.Rollback();</div><div class="line">            this.Close();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>###<strong>Wince操作注册表</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div></pre></td><td class="code"><pre><div class="line">using System;</div><div class="line">using System.Collections.Generic;</div><div class="line">using System.ComponentModel;</div><div class="line">using System.Data;</div><div class="line">using System.Drawing;</div><div class="line">using System.Text;</div><div class="line">using System.Windows.Forms;</div><div class="line"></div><div class="line">using System.Reflection;</div><div class="line">using System.Runtime.InteropServices;</div><div class="line">using System.IO;</div><div class="line">using Microsoft.Win32;</div><div class="line"></div><div class="line">namespace PDA.Utils</div><div class="line">&#123;</div><div class="line">    class RegeditUtils</div><div class="line">    &#123;</div><div class="line"></div><div class="line"></div><div class="line">        public static void writeReg(String name, String data)</div><div class="line">        &#123;</div><div class="line">         /*   RegistryKey OurKey = Registry.LocalMachine;  //根路径为 HKEY_LOCAL_MACHINE </div><div class="line">            OurKey = OurKey.OpenSubKey(Command.RegPath, true); //注册表中项的路径，按实现修改  </div><div class="line">            OurKey.SetValue(name, data, RegistryValueKind.String); //更新指定键的值。如果键不存在，就会直接新增。</div><div class="line">*/</div><div class="line">            RegistryKey rsg = Registry.LocalMachine;                         //声明一个变量</div><div class="line">            if (Registry.LocalMachine.OpenSubKey(Command.RegPath) == null)</div><div class="line">            &#123;</div><div class="line">                Registry.LocalMachine.CreateSubKey(Command.RegPath);</div><div class="line">                //创建</div><div class="line">            &#125;</div><div class="line">            rsg = Registry.LocalMachine.OpenSubKey(Command.RegPath, true);    //true表可以修改</div><div class="line">            rsg.SetValue(name, data);       //写入</div><div class="line">            rsg.Close();</div><div class="line"></div><div class="line">        &#125;</div><div class="line"></div><div class="line">        public static String readReg(String name)</div><div class="line">        &#123;</div><div class="line">            if (Registry.LocalMachine.OpenSubKey(Command.RegPath) == null)</div><div class="line">            &#123;</div><div class="line">                Registry.LocalMachine.CreateSubKey(Command.RegPath);</div><div class="line">                //创建</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            RegistryKey OurKey = Registry.LocalMachine;  //根路径为 HKEY_LOCAL_MACHINE </div><div class="line">            OurKey = OurKey.OpenSubKey(Command.RegPath, true); //注册表中项的路径，按实现修改  </div><div class="line">            return (String)OurKey.GetValue(name,null);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>###<strong>Wince同步/异步 播放声音</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div></pre></td><td class="code"><pre><div class="line">using System.Collections.Generic;</div><div class="line">using System.Text;</div><div class="line">using System;</div><div class="line">using System.IO;</div><div class="line">using System.Reflection;</div><div class="line">using System.Runtime.InteropServices;</div><div class="line">using System.Windows.Forms;</div><div class="line"></div><div class="line">namespace PDA.Utils</div><div class="line">&#123;</div><div class="line">    public class Sound</div><div class="line">    &#123;</div><div class="line"></div><div class="line">        private byte[] m_soundBytes;</div><div class="line"></div><div class="line">        private string m_fileName;</div><div class="line"></div><div class="line">        private enum Flags</div><div class="line">        &#123;</div><div class="line">            SND_SYNC = 0x0000,  /* play synchronously (default) */</div><div class="line">            SND_ASYNC = 0x0001,  /* play asynchronously */</div><div class="line">            SND_NODEFAULT = 0x0002,  /* silence (!default) if sound not found */</div><div class="line">            SND_MEMORY = 0x0004,  /* pszSound points to a memory file */</div><div class="line">            SND_LOOP = 0x0008,  /* loop the sound until next sndPlaySound */</div><div class="line">            SND_NOSTOP = 0x0010,  /* don&apos;t stop any currently playing sound */</div><div class="line">            SND_NOWAIT = 0x00002000, /* don&apos;t wait if the driver is busy */</div><div class="line">            SND_ALIAS = 0x00010000, /* name is a registry alias */</div><div class="line">            SND_ALIAS_ID = 0x00110000, /* alias is a predefined ID */</div><div class="line">            SND_FILENAME = 0x00020000, /* name is file name */</div><div class="line">            SND_RESOURCE = 0x00040004  /* name is resource name or atom */</div><div class="line">        &#125;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">        [DllImport(&quot;CoreDll.DLL&quot;, EntryPoint = &quot;PlaySound&quot;, SetLastError = true)]</div><div class="line">        private extern static int WCE_PlaySound(string szSound, IntPtr hMod, int flags);</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">        [DllImport(&quot;CoreDll.DLL&quot;, EntryPoint = &quot;PlaySound&quot;, SetLastError = true)]</div><div class="line">        private extern static int WCE_PlaySoundBytes(byte[] szSound, IntPtr hMod, int flags);</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">        /// &lt;summary&gt;  </div><div class="line">        /// Construct the Sound object to play sound data from the specified file.  </div><div class="line">        /// &lt;/summary&gt;  </div><div class="line">        public Sound(string fileName)</div><div class="line">        &#123;</div><div class="line">            m_fileName = fileName;</div><div class="line">        &#125;</div><div class="line"></div><div class="line"></div><div class="line">        /// &lt;summary&gt;  </div><div class="line">        /// Construct the Sound object to play sound data from the specified stream.  </div><div class="line">        /// &lt;/summary&gt;  </div><div class="line">        public Sound(Stream stream)</div><div class="line">        &#123;</div><div class="line">            // read the data from the stream  </div><div class="line">            m_soundBytes = new byte[stream.Length];</div><div class="line">            stream.Read(m_soundBytes, 0, (int)stream.Length);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        /// &lt;summary&gt;  </div><div class="line">        /// Play the sound  </div><div class="line">        /// &lt;/summary&gt;  </div><div class="line">        public void Play()</div><div class="line">        &#123;</div><div class="line">            // if a file name has been registered, call WCE_PlaySound,  </div><div class="line">            //  otherwise call WCE_PlaySoundBytes  </div><div class="line">            if (m_fileName != null)</div><div class="line">                WCE_PlaySound(m_fileName, IntPtr.Zero, (int)(Flags.SND_ASYNC | Flags.SND_FILENAME));</div><div class="line">            else</div><div class="line">                WCE_PlaySoundBytes(m_soundBytes, IntPtr.Zero, (int)(Flags.SND_ASYNC | Flags.SND_MEMORY));</div><div class="line">        &#125;</div><div class="line"></div><div class="line"></div><div class="line">        public void PlaySync()</div><div class="line">        &#123;</div><div class="line">            // if a file name has been registered, call WCE_PlaySound,  </div><div class="line">            //  otherwise call WCE_PlaySoundBytes  </div><div class="line">            if (m_fileName != null)</div><div class="line">                WCE_PlaySound(m_fileName, IntPtr.Zero, (int)(Flags.SND_SYNC | Flags.SND_FILENAME));</div><div class="line">            else</div><div class="line">                WCE_PlaySoundBytes(m_soundBytes, IntPtr.Zero, (int)(Flags.SND_SYNC | Flags.SND_MEMORY));</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        public void PlayASync()</div><div class="line">        &#123;</div><div class="line">            // if a file name has been registered, call WCE_PlaySound,  </div><div class="line">            //  otherwise call WCE_PlaySoundBytes  </div><div class="line">            if (m_fileName != null)</div><div class="line">                WCE_PlaySound(m_fileName, IntPtr.Zero, (int)(Flags.SND_ASYNC | Flags.SND_FILENAME  |Flags.SND_NOSTOP));</div><div class="line">            else</div><div class="line">                WCE_PlaySoundBytes(m_soundBytes, IntPtr.Zero, (int)(Flags.SND_ASYNC | Flags.SND_MEMORY  | Flags.SND_NOSTOP));</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        public static void playASync(String name)</div><div class="line">        &#123;</div><div class="line">            Sound sound = new Sound(Command.ExePath + &quot;\\wav\\&quot; + name + &quot;.wav&quot;);</div><div class="line">            sound.PlayASync();</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        public static void playSync(String name)</div><div class="line">        &#123;</div><div class="line">            Sound sound = new Sound(Command.ExePath + &quot;\\wav\\&quot; + name + &quot;.wav&quot;);</div><div class="line">            sound.PlaySync();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="http://7xskk8.com1.z0.glb.clouddn.com/weixin-reward-image.jpg" alt="SxinBoss WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="http://7xskk8.com1.z0.glb.clouddn.com/alipay-reward-image.jpg" alt="SxinBoss Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Wince/" rel="tag"># Wince</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/05/30/winceconnectmysqlquestion/" rel="next" title="Wince直连Mysql 坑">
+                <i class="fa fa-chevron-left"></i> Wince直连Mysql 坑
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/06/16/dockeroperationmanual/" rel="prev" title="Docker操作手册">
+                Docker操作手册 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/05/30/wincedevutils/"
+           data-title="Wince开发用Utils" data-url="http://blog.sxin.me/2016/05/30/wincedevutils/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://7xskk8.com1.z0.glb.clouddn.com/blog_touxiang.png"
+               alt="SxinBoss" />
+          <p class="site-author-name" itemprop="name">SxinBoss</p>
+          <p class="site-description motion-element" itemprop="description">本博客为个人博客,记载开发中的心得,经验和踩过的各种坑...</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">31</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">26</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/SxinBoss" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/5860272971" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://jtthink.com" title="程序员在囧途" target="_blank">程序员在囧途</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.hadxu.cn" title="HadXu's Blog" target="_blank">HadXu's Blog</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">SxinBoss</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"SxinBoss"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      
+      <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      <script src="/js/src/hook-duoshuo.js?v=5.1.0"></script>
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("1Fdk5Xf5PH79uSH6tz7ulvdF-gzGzoHsz", "kFmhRxOyuzpUuwJVjUy3bV0h");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+
+</body>
+</html>
