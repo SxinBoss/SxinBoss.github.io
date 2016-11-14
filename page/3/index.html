@@ -278,6 +278,1395 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://blog.sxin.me/2016/08/17/quicklearnbsdev6/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="SxinBoss">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="http://7xskk8.com1.z0.glb.clouddn.com/blog_touxiang.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="SxinBoss的个人博客">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="SxinBoss的个人博客" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/08/17/quicklearnbsdev6/" itemprop="url">
+                  第六课-gulp快速上手
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-08-17T00:00:00+08:00">
+              2016-08-17
+            </time>
+
+            &nbsp;|&nbsp;
+
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-check-o"></i>
+            </span>
+            <time title="Post modified" itemprop="dateModified" datetime="2016-11-14T20:40:50+08:00">
+              2016-11-14
+            </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端专区/" itemprop="url" rel="index">
+                    <span itemprop="name">前端专区</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端专区/前端速学成财/" itemprop="url" rel="index">
+                    <span itemprop="name">前端速学成财</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/17/quicklearnbsdev6/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/17/quicklearnbsdev6/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/08/17/quicklearnbsdev6/" class="leancloud_visitors" data-flag-title="第六课-gulp快速上手">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>本节知识点:</p>
+<p>1.快速理解gulp</p>
+<p>2.安装和测试</p>
+<p>3.执行我们第一个任务</p>
+<p>通过便面的”开脑”课时,我们会发现:</p>
+<p>在前段开发过程中有很多事是我们”纯手工”很难或者很麻烦才能搞定的,因此需要借助一些优秀的第三方工具.</p>
+<p>1.譬如JS文件的”编译”(这里还包含了不同语法的兼容)</p>
+<p>2.JS和CSS的合并</p>
+<p>3.文件的压缩</p>
+<p>4.多人协作开发</p>
+<p>5.即时运行和监听等</p>
+<p>gulp只是一个主框架,他还要和许多插件配合使用.</p>
+<p>生成package.json:<code>npm init</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">npm install -g</div><div class="line">如果不加-g 则会安装到当前目录下</div><div class="line">加上-g就会安装到一个全局目录里</div><div class="line">我们可以通过npm config get prefix 查看全局目录</div><div class="line">也可以通过npm config set prefix &quot;目录路径&quot; 来设置</div><div class="line">一般来说,工具性模块:我们需要在任意目录都想用的工具,使用全局安装.</div></pre></td></tr></table></figure></p>
+<h4 id="安装gulp"><a href="#安装gulp" class="headerlink" title="安装gulp"></a><strong>安装gulp</strong></h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">npm install -g gulp</div><div class="line">npm install gulp --save-dev</div></pre></td></tr></table></figure>
+<h4 id="gulp配置文件"><a href="#gulp配置文件" class="headerlink" title="gulp配置文件"></a><strong>gulp配置文件</strong></h4><p>要正确运行首先要建一个配置文件.</p>
+<p>在当前项目目录下创建gulpfile.js(这个所谓的配置文件是可以写代码的,不是想文本配置文件那样)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var gp=require(&quot;gulp&quot;);</div><div class="line">gp.task(&quot;mytask&quot;,function()&#123;</div><div class="line">	console.log(&quot;my first gulp task&quot;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<h4 id="执行gulp任务"><a href="#执行gulp任务" class="headerlink" title="执行gulp任务"></a><strong>执行gulp任务</strong></h4><p><code>gulp mytask</code></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://blog.sxin.me/2016/08/17/quicklearnbsdev5/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="SxinBoss">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="http://7xskk8.com1.z0.glb.clouddn.com/blog_touxiang.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="SxinBoss的个人博客">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="SxinBoss的个人博客" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/08/17/quicklearnbsdev5/" itemprop="url">
+                  第五课-图片也能"编译"?
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-08-17T00:00:00+08:00">
+              2016-08-17
+            </time>
+
+            &nbsp;|&nbsp;
+
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-check-o"></i>
+            </span>
+            <time title="Post modified" itemprop="dateModified" datetime="2016-11-14T20:40:42+08:00">
+              2016-11-14
+            </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端专区/" itemprop="url" rel="index">
+                    <span itemprop="name">前端专区</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端专区/前端速学成财/" itemprop="url" rel="index">
+                    <span itemprop="name">前端速学成财</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/17/quicklearnbsdev5/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/17/quicklearnbsdev5/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/08/17/quicklearnbsdev5/" class="leancloud_visitors" data-flag-title="第五课-图片也能"编译"?">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>本节知识点:</p>
+<p>1.CSS图片引用</p>
+<p>2.NodeJs读取图片</p>
+<p>3.把图片替换成Base64编码</p>
+<p>回顾:<br>上节课我们自己模拟了一种粗糙的自己模拟的”编译”概念:</p>
+<p>当我们应用CSS的时候，就用NODEJS读取，然后写入JS中</p>
+<p>(目前我们的做法完全是为了后面的学习打基础、开脑。请大家不要过于执着)</p>
+<p>正文:</p>
+<p>如果我的css里面有图片的应用，譬如</p>
+<p><code>*{color:red;background:url(&quot;./s.png&quot;)}</code></p>
+<p>我们首先要知道，在实际网站运行中，一个图片也会增加一次http请求。那怎么处理比较好呢？</p>
+<p>我们可以把图片变成Base64编码来加载.</p>
+<p>第一步：用正则取出图片路径<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var pattern=/[&apos;|&quot;](.*\.png)[&apos;|&quot;]/g;</div><div class="line">var res;</div><div class="line">while(res=pattern.exec(data.toString()))</div><div class="line">&#123;</div><div class="line">    //res[0] 包含双(单)引号 res[1]不包含</div><div class="line">    console.log(res[1]);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>上节课读文件readFile是用的异步的,此时 我们要用同步的方式来读图片<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">file.readFile(&apos;./test.css&apos;,&apos;utf-8&apos;,function(err,data)&#123;</div><div class="line">    if(err)&#123;</div><div class="line">    &#125;else&#123;</div><div class="line">		var pattern=/[&apos;|&quot;](.*\.png)[&apos;|&quot;]/g;</div><div class="line">		var res;</div><div class="line">		while(res=pattern.exec(data.toString())) &#123;</div><div class="line">            //res[0] 包含双(单)引号 res[1]不包含</div><div class="line">            var getImg = file.readFileSync(res[1]).toString(&quot;base64&quot;);</div><div class="line">            data=data.toString().replace(res[1],&quot;data:image/jpg;base64,&quot;+getImg);</div><div class="line">            file.appendFile(&apos;build.js&apos;,&quot;document.write(&apos;&lt;style&gt;&quot;+data+&quot;&lt;/style&gt;&apos;)&quot;);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p>用Base64编码代替图片的好处和注意点:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">1.减少服务器的请求(变成Base64编码会缓存到本地,再次刷新访问 不会去请求服务器)</div><div class="line">2.写入CSS后,可以压缩(gzip,各种方法)</div><div class="line">3.如果是频繁需要更新的图片不建议这么做</div><div class="line">4.IE6、7是不支持的</div></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://blog.sxin.me/2016/08/12/scatteredknowledge6/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="SxinBoss">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="http://7xskk8.com1.z0.glb.clouddn.com/blog_touxiang.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="SxinBoss的个人博客">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="SxinBoss的个人博客" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/08/12/scatteredknowledge6/" itemprop="url">
+                  零散知识点:简单理解回调函数
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-08-12T00:00:00+08:00">
+              2016-08-12
+            </time>
+
+            &nbsp;|&nbsp;
+
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-check-o"></i>
+            </span>
+            <time title="Post modified" itemprop="dateModified" datetime="2016-11-14T23:39:50+08:00">
+              2016-11-14
+            </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/零散知识点/" itemprop="url" rel="index">
+                    <span itemprop="name">零散知识点</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/12/scatteredknowledge6/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/12/scatteredknowledge6/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/08/12/scatteredknowledge6/" class="leancloud_visitors" data-flag-title="零散知识点:简单理解回调函数">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>为什么用回调函数？</p>
+<p>1、异步</p>
+<p>2、不知道参数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div></pre></td><td class="code"><pre><div class="line">【讲师】沈逸(6******9) 23:14:12</div><div class="line">回调 就是把 函数B 当做 字符串、数字这样的参数传给函数A</div><div class="line">函数A 理论上会在它执行完成后，手动 执行函数B。 但是如果我的函数A 乱调用 也是可以的</div><div class="line">【讲师】沈逸(6******9) 23:16:26</div><div class="line">function fuck(callback)</div><div class="line">&#123;</div><div class="line">  callbak();//手动调用了</div><div class="line">&#125;</div><div class="line">function shit()</div><div class="line">&#123;</div><div class="line">  shit本身也是一个函数</div><div class="line">&#125;</div><div class="line"></div><div class="line">执行的时候 这么调用 fuck(shit)  //注意shit绝对不能加小括号，否则传的就不是函数，而是“不知道的一个什么玩意儿”</div><div class="line">Fl**r(25******69) 23:21:25</div><div class="line">叔，回调函数可不可以调用在执行它的函数之前？</div><div class="line">【讲师】沈逸(6******9) 23:21:41</div><div class="line">随你啊</div><div class="line">【讲师】沈逸(6******9) 23:22:03</div><div class="line">fuck(callbak)</div><div class="line">&#123;</div><div class="line">  xxoo 执行完后调用 callbak()</div><div class="line">&#125;</div><div class="line">【讲师】沈逸(6******9) 23:22:34</div><div class="line">但是你可以 故意反人类  </div><div class="line">fuck(callbak)</div><div class="line">&#123;</div><div class="line">callbak() //老子就要先调用 这个回调</div><div class="line">  xxoo 再执行 xxoo</div><div class="line">&#125;</div><div class="line">【讲师】沈逸(6******9) 23:23:44</div><div class="line">一般来说 我们懒得抽筋， 连shit都不高兴写 。于是就变成了</div><div class="line">fuck(function()&#123;</div><div class="line">    这里面就是shit的内容 </div><div class="line">&#125;)</div><div class="line">【讲师】沈逸(6******9) 23:24:28</div><div class="line">这也叫做 匿名函数 传参</div><div class="line">【讲师】沈逸(6******9) 23:24:41</div><div class="line">其实就是 连名字老子  都不高兴写 的传参方式 </div><div class="line">【讲师】沈逸(6******9) 23:25:18</div><div class="line">世界上根本不存在  “回调”。 都是人类 发明出来的名词。 如果 我在fuck里面不手工调用传过来的函数， 回死了也没用</div><div class="line">【讲师】沈逸(6******9) 23:27:10</div><div class="line">还有一种是有参数的回调</div><div class="line">fuck(callbak)</div><div class="line">&#123;</div><div class="line"> var xxoo=&apos;fuck&apos;;</div><div class="line">  callback(xxoo);</div><div class="line">&#125;</div><div class="line">function shit(bb)</div><div class="line">&#123;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">看这里调用 fuck(shit)</div><div class="line">【讲师】沈逸(6******9) 23:28:03</div><div class="line">演化成匿名函数 这就是为何 像jquery的ajax方法有n个参数</div><div class="line">$.post(&apos;url&apos;,function(fuck)&#123;</div><div class="line">  这里是回调</div><div class="line">&#125;);</div><div class="line">【讲师】沈逸(6******9) 23:28:20</div><div class="line">这就都是 主函数 在手动调用时，强迫传给你的</div><div class="line">【讲师】沈逸(6******9) 23:29:20</div><div class="line">搞清楚了这个 ，一下子把 所谓的“回调”逼格 全部降下来了 </div><div class="line">【讲师】沈逸(6******9) 23:30:07</div><div class="line">这个再讲个技巧 </div><div class="line">【讲师】沈逸(6******9) 23:31:52</div><div class="line">一般我们写函数应该这么写</div><div class="line"> function bb(fuck)</div><div class="line">&#123;</div><div class="line">  if(fuck==对象)</div><div class="line">    执行某个事情</div><div class="line">  if(fuck==数组)</div><div class="line">   执行另外的事情</div><div class="line">&#125;</div><div class="line"></div><div class="line">这样  我们队友调用我们的bb函数时 既可以</div><div class="line">1、bb(&#123;name:&quot;shenyi&quot;)&#125;</div><div class="line"></div><div class="line">也可以</div><div class="line">bb([&apos;shenyi&apos;]);</div><div class="line">【讲师】沈逸(6******9) 23:31:57</div><div class="line">逼格一下子 提高了N倍</div><div class="line">Fl**r(25******69) 23:32:25</div><div class="line">双击查看原图</div><div class="line">【讲师】沈逸(6******9) 23:33:06</div><div class="line">这就是为何老外的 库，参数 又可以是字符串 又可以是对象 又可以是数组。 看起来好有逼格</div><div class="line"></div><div class="line">其实 就是一个 “障眼法”，没啥稀奇的</div><div class="line">【讲师】沈逸(6******9) 23:34:57</div><div class="line">这种做法的最大好处是 兼容性</div><div class="line"></div><div class="line">以前的函数 譬如 参数只能是数组，现在升级了，为了兼容老的程序，加个 对象参数模式</div><div class="line"></div><div class="line">换汤不换药，继续 装逼</div><div class="line">【讲师】沈逸(6******9) 23:42:24</div><div class="line">function fuck()</div><div class="line">&#123;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">fuck就是函数（注意：没有写小括号）</div><div class="line">fuck() (这里我加了小括号，这就不是函数了，而是执行该函数，不知道是”啥玩意儿，如果没有return ,啥玩意儿都不是）</div><div class="line">【讲师】沈逸(6******9) 23:43:45</div><div class="line">很多同学 搞错了概念。 以为fuck()才是函数</div><div class="line">【讲师】沈逸(6******9) 23:46:52</div><div class="line">callback(xxoo);</div><div class="line">【讲师】沈逸(6******9) 23:47:23</div><div class="line">这里就是 母体(fuck函数就是母亲，手工调用了callbak,而这个callbak 就是shit)</div><div class="line">【讲师】沈逸(6******9) 23:47:56</div><div class="line">callback(xxoo);  就等于 执行了 shit(xxoo)</div><div class="line">【讲师】沈逸(6******9) 23:48:49</div><div class="line">1、fuck(shit)</div><div class="line"></div><div class="line">2、fuck(function(xxoo)&#123;&#125;)</div><div class="line">【讲师】沈逸(6******9) 23:48:57</div><div class="line">如果实在理解不了 就强记</div><div class="line">【讲师】沈逸(6******9) 23:54:02</div><div class="line">你在调用 fuck 的时候（譬如 fuck 就是 ajax ) 你事先知道 响应结果？</div><div class="line">【讲师】沈逸(6******9) 23:54:16</div><div class="line">明显只有 母体 执行 某个事情后 才知道结果，才能传给 shit </div><div class="line">【讲师】沈逸(6******9) 23:55:50</div><div class="line">永远要记住  fuck(shit); 你调用的是啥函数？</div><div class="line">注意：不是 shit，而是调用了 fuck</div><div class="line">【讲师】沈逸(6******9) 23:56:38</div><div class="line">你在调用fuck函数时，根本不知道 得到什么结果，所以只能把 shit函数 传给fuck.</div><div class="line">让fuck得到 结果后，反过来调用shit(这就得到了参数）</div><div class="line">【讲师】沈逸(6******9) 23:58:32</div><div class="line">你只能等待 fuck去 调用shit时 传参 </div><div class="line">【讲师】沈逸(6******9) 0:01:54</div><div class="line">干嘛要回调？</div><div class="line">1、异步</div><div class="line">2、不知道参数</div><div class="line">【讲师】沈逸(6******9) 0:02:07</div><div class="line">否则 传来传去干啥，太空?</div><div class="line">学**尽(17***4***5) 0:03:49</div><div class="line">演化成匿名函数 这就是为何 像jquery的ajax方法有n个参数</div><div class="line">$.post(&apos;url&apos;,function(fuck)&#123;</div><div class="line">  这里是回调</div><div class="line">&#125;);</div><div class="line">学**尽(17***4***5) 0:04:16</div><div class="line">function(fuck是回调函数把)</div><div class="line">【讲师】沈逸(6******9) 0:04:17</div><div class="line">$.post(&apos;url&apos;,function(fuck)&#123;</div><div class="line">  这里的fuck就是 母体通过各种 复杂的事情得到的 </div><div class="line">&#125;);</div><div class="line">【讲师】沈逸(6******9) 0:04:32</div><div class="line">function(fuck) 就是shit函数 </div><div class="line">学**尽(17***4***5) 0:04:57</div><div class="line">那fuck是一个参数</div><div class="line">【讲师】沈逸(6******9) 0:05:00</div><div class="line">function shit(fuck)  把名字（ shit)去掉后 就是 function(fuck)</div><div class="line">【讲师】沈逸(6******9) 0:05:26</div><div class="line">fuck就是一个参数 只不过你事先不知道 是啥</div><div class="line">【讲师】沈逸(6******9) 0:05:40</div><div class="line">你需要 等待 $.post 这个 函数得到结果后，传给 你的匿名函数</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://blog.sxin.me/2016/08/12/scatteredknowledge7/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="SxinBoss">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="http://7xskk8.com1.z0.glb.clouddn.com/blog_touxiang.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="SxinBoss的个人博客">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="SxinBoss的个人博客" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/08/12/scatteredknowledge7/" itemprop="url">
+                  零散知识点:什么样才能称得上是"不错的PHP程序员"
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-08-12T00:00:00+08:00">
+              2016-08-12
+            </time>
+
+            &nbsp;|&nbsp;
+
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-check-o"></i>
+            </span>
+            <time title="Post modified" itemprop="dateModified" datetime="2016-11-14T23:41:09+08:00">
+              2016-11-14
+            </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/零散知识点/" itemprop="url" rel="index">
+                    <span itemprop="name">零散知识点</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/12/scatteredknowledge7/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/12/scatteredknowledge7/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/08/12/scatteredknowledge7/" class="leancloud_visitors" data-flag-title="零散知识点:什么样才能称得上是"不错的PHP程序员"">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>1、Linux会了没？</p>
+<p>2、JS掌握的如何</p>
+<p>3、正则会不会(大多数人的痛)</p>
+<p>4、其他语言是否掌握1-2门</p>
+<p>5、c是否会一点 </p>
+<p>6、架构是否懂一点,譬如至少会负载均衡的简单配置</p>
+<p>7、第三方的东西会了没 ,譬如memcached、redis</p>
+<p>8、流行的技术是否懂一点,譬如docker</p>
+<p>9、是否能完整的设计一个 业务功能。譬如大数据用户表怎么设计</p>
+<p>10、进阶的,是否懂分布式开发 </p>
+<p>以上均了解，才能称得上是 “不错的PHP程序员”</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://blog.sxin.me/2016/08/08/scatteredknowledge5/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="SxinBoss">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="http://7xskk8.com1.z0.glb.clouddn.com/blog_touxiang.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="SxinBoss的个人博客">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="SxinBoss的个人博客" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/08/08/scatteredknowledge5/" itemprop="url">
+                  零散知识点:到底在Windows还是Linux上开发(部署)?
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-08-08T00:00:00+08:00">
+              2016-08-08
+            </time>
+
+            &nbsp;|&nbsp;
+
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-check-o"></i>
+            </span>
+            <time title="Post modified" itemprop="dateModified" datetime="2016-11-14T23:38:33+08:00">
+              2016-11-14
+            </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/零散知识点/" itemprop="url" rel="index">
+                    <span itemprop="name">零散知识点</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/08/scatteredknowledge5/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/08/scatteredknowledge5/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/08/08/scatteredknowledge5/" class="leancloud_visitors" data-flag-title="零散知识点:到底在Windows还是Linux上开发(部署)?">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">【讲师】沈逸</div><div class="line">未来 用PHP 做 socket服务器将会是一个很正常的事 。然而，这些高级特性，一律不支持Windows</div><div class="line">【讲师】沈逸 2016-08-08 14:30:53</div><div class="line">这就是为啥 微软火急火燎的要在win10内核里加入 ubuntu </div><div class="line">【讲师】沈逸 2016-08-08 14:31:00</div><div class="line">不加 就是等死的节奏</div><div class="line">【讲师】沈逸 2016-08-08 14:31:21</div><div class="line">话有点绝对 。但是也是希望大家有精力 一定不要抗拒Linux的学习</div><div class="line">【讲师】沈逸 2016-08-08 14:31:24</div><div class="line">哪怕是上手</div><div class="line">14:33:55</div><div class="line">【讲师】沈逸 2016-08-08 14:33:55</div><div class="line">前端开发 课程 到后面部分，我也会演示 某些高级功能，只有Linux才支持。</div></pre></td></tr></table></figure>
+<p>童鞋们 乖乖来玩Linux吧。。。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://blog.sxin.me/2016/08/03/quicklearnbsdev4/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="SxinBoss">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="http://7xskk8.com1.z0.glb.clouddn.com/blog_touxiang.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="SxinBoss的个人博客">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="SxinBoss的个人博客" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/08/03/quicklearnbsdev4/" itemprop="url">
+                  第四课-粗糙的玩一玩css的"编译"
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-08-03T12:00:00+08:00">
+              2016-08-03
+            </time>
+
+            &nbsp;|&nbsp;
+
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-check-o"></i>
+            </span>
+            <time title="Post modified" itemprop="dateModified" datetime="2016-11-14T20:40:35+08:00">
+              2016-11-14
+            </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端专区/" itemprop="url" rel="index">
+                    <span itemprop="name">前端专区</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端专区/前端速学成财/" itemprop="url" rel="index">
+                    <span itemprop="name">前端速学成财</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/03/quicklearnbsdev4/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/03/quicklearnbsdev4/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/08/03/quicklearnbsdev4/" class="leancloud_visitors" data-flag-title="第四课-粗糙的玩一玩css的"编译"">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>1.读取文件的函数</p>
+<p>2.发明个编译CSS的过程</p>
+<p>上节课我们模拟了一个所以的”JS编译”,今天的问题是:如果是CSS文件咋办？</p>
+<p>我们先新建个test.css<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">*&#123;color:red&#125;</div></pre></td></tr></table></figure></p>
+<p>如果正常引用<br>那么网页文字全部变成红色.</p>
+<p>如果我们按照上节课的思路.require css文件进来</p>
+<p>发现会报错的.它会把require进来的文件当前脚本来解析。</p>
+<p>那么CSS到底要怎么”编译”呢?</p>
+<p>很简单，为了简化思路我们做如下步骤。<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">1、如果是js文件，正常的require</div><div class="line">2、如果是css文件，则直接读取文件内容</div><div class="line">3、然后往编译文件里写个脚本“加入style”</div></pre></td></tr></table></figure></p>
+<p>以上只不过是 一个思路借鉴。不要太过于纠结</p>
+<p>最后代码:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">var getlib=require(&apos;sxin&apos;);</div><div class="line">var getage=require(&quot;./bb&quot;);</div><div class="line">var file=require(&apos;fs&apos;);</div><div class="line"></div><div class="line">function genCode(key,value)</div><div class="line">&#123;</div><div class="line">    return &apos;var &apos;+key+&apos;=&apos;+value+&apos;;\n&apos;;</div><div class="line">&#125;</div><div class="line"></div><div class="line">file.writeFile(&quot;build.js&quot;,&quot;&quot;);</div><div class="line"></div><div class="line">for(var i=0;i&lt; global.process.mainModule.children.length;i++)</div><div class="line">&#123;</div><div class="line">    var child=global.process.mainModule.children[i];</div><div class="line">    for(var bb in child.exports)// child.exports就是我们导出的属性</div><div class="line">        file.appendFile(&apos;build.js&apos;,genCode(bb,child.exports[bb]));</div><div class="line">&#125;</div><div class="line"></div><div class="line">file.readFile(&apos;./test.css&apos;,&apos;utf-8&apos;,function(err,data)&#123;</div><div class="line">    if(err)&#123;</div><div class="line">    &#125;else&#123;</div><div class="line">        file.appendFile(&apos;build.js&apos;,&quot;document.write(&apos;&lt;style&gt;&quot;+data+&quot;&lt;/style&gt;&apos;)&quot;);</div><div class="line">    &#125;</div><div class="line">&#125;)</div><div class="line"></div><div class="line">console.log(&quot;生成成功&quot;);</div></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://blog.sxin.me/2016/07/31/quicklearnbsdev3/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="SxinBoss">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="http://7xskk8.com1.z0.glb.clouddn.com/blog_touxiang.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="SxinBoss的个人博客">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="SxinBoss的个人博客" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/07/31/quicklearnbsdev3/" itemprop="url">
+                  第三课-粗糙的玩一玩javascript的"编译"
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-07-31T13:09:00+08:00">
+              2016-07-31
+            </time>
+
+            &nbsp;|&nbsp;
+
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-check-o"></i>
+            </span>
+            <time title="Post modified" itemprop="dateModified" datetime="2016-11-14T20:40:27+08:00">
+              2016-11-14
+            </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端专区/" itemprop="url" rel="index">
+                    <span itemprop="name">前端专区</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端专区/前端速学成财/" itemprop="url" rel="index">
+                    <span itemprop="name">前端速学成财</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/07/31/quicklearnbsdev3/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/31/quicklearnbsdev3/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/07/31/quicklearnbsdev3/" class="leancloud_visitors" data-flag-title="第三课-粗糙的玩一玩javascript的"编译"">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>1.学会对象属性获取</p>
+<p>2.NodeJS的FS模块使用</p>
+<p>3.发明个”编译”JS的过程</p>
+<p>4.简单了解global对象</p>
+<p>1.根据前两节课我们发现<br>js文件需要考node来解析才能运行,那这个和我们发开前端有什么关系呢?</p>
+<p>比如:我们新建一个HTML(index.html) ,然后在代码里 引用我们上节课的aa.js</p>
+<p><code>&lt;script src=&quot;aa.js&quot;&gt;&lt;/script&gt;</code></p>
+<p>然后我们发现并不能运行。</p>
+<p><code>ReferenceError: require is not defined</code></p>
+<p>因为 目前为止 浏览器里还不支持require(不代表未来不支持)</p>
+<p>我们开动大脑想一想：</p>
+<pre><code>既然node能运行aa.js,name我们是否通过nodejs把require出来的东西给生成一个js文件呢
+</code></pre><p>首先我们把<code>var getlib=require(&#39;./slib&#39;);</code> 这里的getlib打印出来 看看他是什么.</p>
+<p><code>{ age: 20, showName: [Function] }</code><br>
+          <!--noindex-->
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/07/31/quicklearnbsdev3/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://blog.sxin.me/2016/07/30/quicklearnbsdev2/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="SxinBoss">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="http://7xskk8.com1.z0.glb.clouddn.com/blog_touxiang.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="SxinBoss的个人博客">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="SxinBoss的个人博客" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/07/30/quicklearnbsdev2/" itemprop="url">
+                  第二课-知识点速学
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-07-30T10:00:00+08:00">
+              2016-07-30
+            </time>
+
+            &nbsp;|&nbsp;
+
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-check-o"></i>
+            </span>
+            <time title="Post modified" itemprop="dateModified" datetime="2016-11-14T20:40:21+08:00">
+              2016-11-14
+            </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端专区/" itemprop="url" rel="index">
+                    <span itemprop="name">前端专区</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端专区/前端速学成财/" itemprop="url" rel="index">
+                    <span itemprop="name">前端速学成财</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/07/30/quicklearnbsdev2/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/30/quicklearnbsdev2/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/07/30/quicklearnbsdev2/" class="leancloud_visitors" data-flag-title="第二课-知识点速学">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>1、学会外部文件引用</p>
+<p>2、NPM的初步使用</p>
+<p>3、自己创建一个模块</p>
+<p><strong>1.基本语法(不用理解,死记硬背即可):</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">外部引用时 建议写法:</div><div class="line">exports.函数名 = function()</div><div class="line">&#123;</div><div class="line">    //xxoo</div><div class="line">&#125;</div><div class="line">或</div><div class="line">module.exports.函数名</div></pre></td></tr></table></figure></p>
+<p>新建文件 aa.js(后缀随意,通常用js)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var getlib=require(&apos;./slib&apos;);</div><div class="line">getlib.showName();</div><div class="line">console.log(getlib.age);</div></pre></td></tr></table></figure></p>
+<p>新建文件 slib.js(后缀随意,通常用js)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">exports.age=20;</div><div class="line">exports.showName=function()</div><div class="line">&#123;</div><div class="line">	console.log(&quot;name&quot;);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><strong>2.NPM:<code>包管理工具(类似:Maven,Composer)</code></strong><br>
+          <!--noindex-->
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/07/30/quicklearnbsdev2/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
   <link itemprop="mainEntityOfPage" href="http://blog.sxin.me/2016/07/30/quicklearnbsdev1/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -618,1430 +2007,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://blog.sxin.me/2016/07/23/javacustomtag/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="SxinBoss">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="http://7xskk8.com1.z0.glb.clouddn.com/blog_touxiang.png">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="SxinBoss的个人博客">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="SxinBoss的个人博客" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/07/23/javacustomtag/" itemprop="url">
-                  JAVA：自定义标签
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-07-23T00:00:00+08:00">
-              2016-07-23
-            </time>
-
-            &nbsp;|&nbsp;
-
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-check-o"></i>
-            </span>
-            <time title="Post modified" itemprop="dateModified" datetime="2016-11-14T22:45:37+08:00">
-              2016-11-14
-            </time>
-            
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/编程语言/" itemprop="url" rel="index">
-                    <span itemprop="name">编程语言</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/编程语言/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/07/23/javacustomtag/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/23/javacustomtag/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/07/23/javacustomtag/" class="leancloud_visitors" data-flag-title="JAVA：自定义标签">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-          
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>仿照JSTL out自定义标签</p>
-<p>WEB-INF(其他目录也可以)下新建 JSP Tag Library Descriptor(IDEA-&gt;New-&gt;XML Configuration File) : sxin.tld (名字随意)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;short-name&gt;god&lt;/shortname&gt;</div><div class="line">&lt;uri&gt;http://xin.mrsong&lt;/uri&gt;</div></pre></td></tr></table></figure></p>
-<p>新建一个Class : SxinTag.java (名字随意)</p>
-<p>extends TagSupport</p>
-<p>Generate-&gt;Override-&gt;doEndTag<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">private String value;</div><div class="line"></div><div class="line">    public void setValue(String value) &#123;</div><div class="line">        this.value = value;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public int doEndTag() throws JspException &#123;</div><div class="line">        JspWriter jw = pageContext.getOut();</div><div class="line">        try &#123;</div><div class="line">            jw.write(pageContext.getRequest().getAttribute(this.value).toString());</div><div class="line">        &#125; catch (IOException e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125;</div><div class="line">        return EVAL_PAGE;</div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
-<p><hr><br>返回 sxin.tld </p>
-<p>Generate-&gt;JSP Tag-&gt;选择刚才创建的SxinTag<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;tag&gt;</div><div class="line">	&lt;name&gt;out&lt;/name&gt;</div><div class="line">    &lt;tag-class&gt;test.SxinTag&lt;/tag-class&gt;</div><div class="line">    &lt;body-content&gt;empty&lt;/body-content&gt;</div><div class="line">    &lt;attribute&gt;</div><div class="line">	    &lt;name&gt;value&lt;/name&gt;</div><div class="line">        &lt;required&gt;true&lt;/required&gt;</div><div class="line">    &lt;/attribute&gt;</div><div class="line">&lt;/tag&gt;</div></pre></td></tr></table></figure></p>
-<hr>
-<p>在JSP页面<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">1.引用我们的标签  &lt;%@ taglib uri=&quot;http://xin.mrsong&quot; prefix=&quot;s&quot;%&gt;</div><div class="line">2.使用标签</div><div class="line">&lt;s:out value=&quot;name&quot;&gt;&lt;/s:out&gt;</div></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://blog.sxin.me/2016/07/08/andorid-remove-titlebar-except/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="SxinBoss">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="http://7xskk8.com1.z0.glb.clouddn.com/blog_touxiang.png">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="SxinBoss的个人博客">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="SxinBoss的个人博客" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/07/08/andorid-remove-titlebar-except/" itemprop="url">
-                  Android去掉标题栏后报错
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-07-08T00:00:00+08:00">
-              2016-07-08
-            </time>
-
-            &nbsp;|&nbsp;
-
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-check-o"></i>
-            </span>
-            <time title="Post modified" itemprop="dateModified" datetime="2016-11-14T22:05:29+08:00">
-              2016-11-14
-            </time>
-            
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/移动端/" itemprop="url" rel="index">
-                    <span itemprop="name">移动端</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/移动端/Android/" itemprop="url" rel="index">
-                    <span itemprop="name">Android</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/07/08/andorid-remove-titlebar-except/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/08/andorid-remove-titlebar-except/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/07/08/andorid-remove-titlebar-except/" class="leancloud_visitors" data-flag-title="Android去掉标题栏后报错">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-          
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>资料：<a href="http://blog.csdn.net/liuzhidong123/article/details/7818531" title="Android去掉标题栏方法" target="_blank" rel="external">Android去掉标题栏方法</a></p>
-<p>1.在代码里实现</p>
-<p><code>this.requestWindowFeature(Window.FEATURE_NO_TITLE);//这句代码要写在setContentView()前面</code></p>
-<p>2.在清单文件（manifest.xml）里面实现<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;application android:icon=&quot;@drawable/icon&quot;   </div><div class="line">    android:label=&quot;@string/app_name&quot;   </div><div class="line">    android:theme=&quot;@android:style/Theme.NoTitleBar&quot;&gt;</div></pre></td></tr></table></figure></p>
-<p>3.在style.xml文件里定义<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;  </div><div class="line">&lt;resources&gt;  </div><div class="line">    &lt;style name=&quot;notitle&quot;&gt;  </div><div class="line">        &lt;item name=&quot;android:windowNoTitle&quot;&gt;true&lt;/item&gt;  </div><div class="line">    &lt;/style&gt;   </div><div class="line">&lt;/resources&gt;</div></pre></td></tr></table></figure></p>
-<p>然后面manifest.xml中引用就可以了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;application android:icon=&quot;@drawable/icon&quot;   </div><div class="line">        android:label=&quot;@string/app_name&quot;   </div><div class="line">        android:theme=&quot;@style/notitle&quot;&gt;</div></pre></td></tr></table></figure></p>
-<p>然后我按着三个方法试了下，结果：</p>
-<p>方法1  没效果</p>
-<p>方法2,3报错</p>
-<p>最后发现xxxActivity 继承的是AppCompatActivity，改为继承Activity就好了。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://blog.sxin.me/2016/07/05/mysql-knowledge-1/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="SxinBoss">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="http://7xskk8.com1.z0.glb.clouddn.com/blog_touxiang.png">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="SxinBoss的个人博客">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="SxinBoss的个人博客" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/07/05/mysql-knowledge-1/" itemprop="url">
-                  循环累加一个字段,并逗号分隔|大数据量计算表记录数
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-07-05T00:00:00+08:00">
-              2016-07-05
-            </time>
-
-            &nbsp;|&nbsp;
-
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-check-o"></i>
-            </span>
-            <time title="Post modified" itemprop="dateModified" datetime="2016-11-14T22:22:06+08:00">
-              2016-11-14
-            </time>
-            
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/数据库专区/" itemprop="url" rel="index">
-                    <span itemprop="name">数据库专区</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/数据库专区/Mysql/" itemprop="url" rel="index">
-                    <span itemprop="name">Mysql</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/07/05/mysql-knowledge-1/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/05/mysql-knowledge-1/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/07/05/mysql-knowledge-1/" class="leancloud_visitors" data-flag-title="循环累加一个字段,并逗号分隔|大数据量计算表记录数">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-          
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><strong>注:本零散知识点系列所有内容均来自 “程序猿在囧途”系列群  聊天记录</strong></p>
-<p><strong>循环累加一个 字段 并用逗号分隔</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">select shit from( select 要累加的字段, @tt:=CONCAT(@tt,&apos;,&apos;,a.要累加的字段) as shit from 某表 a,(select @tt:=&apos;&apos;) b ) c ORDER BY LENGTH(c.shit) desc limit 0,1</div></pre></td></tr></table></figure></p>
-<p><strong>问答</strong></p>
-<p><code>用户表 :包含id主键索引，用户名字段和用户密码 还有用户入库时间</code></p>
-<p><code>问题1、这张表一般加索引的有哪几个字段</code></p>
-<p><code>问题2、如果这表 有百万数据。那么 我要获取该表的总记录数 ，怎写sql?</code></p>
-<p><code>问题3、如果我的数据 有几个亿 。那么 怎么利用 各种手段 计算表的记录数</code></p>
-<p><code>1.user_name</code></p>
-<p><code>2:select count(*) from table USE INDEX(PRIMARY);</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">3:思路是必须结合shell script</div><div class="line">系统初始化时利用 shell把每个表的记录 保存在缓存里</div><div class="line">当程序 对表进行操作时， 利用程序 让该条缓存失效</div><div class="line">shell设置成定时任务。 一旦发生某个缓存失效，就重新计算count(*)</div><div class="line">并再次插入缓存</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">大家注意， 我刚才提了两个问题</div><div class="line">1、该表常见索引会在哪。 大家都回答是user_name。这是对的</div><div class="line">2、如果没有建立user_name索引，那么count(*) 确实不要做任何手脚</div><div class="line">3、但是如果你在第一步建立了user_name索引。那么cout(*)的时候 就要加上use index(PRIMARY)</div><div class="line">因为 如果 你不加。mysql这傻缺 会默认用你的user_name 作为扫描主键</div><div class="line">每一次连接都会慢 所谓的0.0x秒</div><div class="line">如果并发高、PV大 数据量大。 服务器就崩溃了</div><div class="line"></div><div class="line">如果你的 user_name字段值很长。 那么必定是比主键慢 （主键因为是数字）</div><div class="line">往往很多表的主键 用的不是数字 ，而是 guid 很多位的那种</div></pre></td></tr></table></figure>
-<p><code>USE INDEX(PRIMARY)  如何解？</code><br><code>代表 强制使用 主键索引</code></p>
-<p>好。 本题我们 发现几个现象</p>
-<p>1、上述功能和PHP或框架有关系吗？   ：没有</p>
-<p>2、做一个系统，到了进阶，哪些知识点是最重要的？  :Linux  Mysql</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://blog.sxin.me/2016/06/28/shell4centos6andubuntuinstalllamp/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="SxinBoss">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="http://7xskk8.com1.z0.glb.clouddn.com/blog_touxiang.png">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="SxinBoss的个人博客">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="SxinBoss的个人博客" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/06/28/shell4centos6andubuntuinstalllamp/" itemprop="url">
-                  SHELL实现CentOS6,Ubuntu16下自动下载,编译安装LAMP
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-06-28T00:00:00+08:00">
-              2016-06-28
-            </time>
-
-            &nbsp;|&nbsp;
-
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-check-o"></i>
-            </span>
-            <time title="Post modified" itemprop="dateModified" datetime="2016-11-14T19:49:12+08:00">
-              2016-11-14
-            </time>
-            
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux专区/" itemprop="url" rel="index">
-                    <span itemprop="name">Linux专区</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux专区/Centos/" itemprop="url" rel="index">
-                    <span itemprop="name">Centos</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/06/28/shell4centos6andubuntuinstalllamp/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/28/shell4centos6andubuntuinstalllamp/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/06/28/shell4centos6andubuntuinstalllamp/" class="leancloud_visitors" data-flag-title="SHELL实现CentOS6,Ubuntu16下自动下载,编译安装LAMP">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-          
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>shell暂时没时间去写了， 等有时间慢慢来~  未完待续。。。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">目前第一版:</div><div class="line">本人在Centos6上运行成功。 </div><div class="line">使用方法：先用root账号运行install脚本,然后用普通账号运行init(root账户也可以，不过我没试过).</div><div class="line">init 参数说明:</div><div class="line">--install-path  安装目录,**当前执行的用户必须有这个目录的权限！！！并且不可使用相对目录！**</div><div class="line">比如:</div><div class="line"></div><div class="line">./init --install-path=/home/sxin/soft    这个是对的</div><div class="line">./init --install-path=~/soft             这个是错的</div></pre></td></tr></table></figure>
-<p>目前存在的问题:<br>mysql编译安装完执行生成data目录的随机密码暂时获取不到,以及mysql配置文件的内容没有修改.<br>
-          <!--noindex-->
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/06/28/shell4centos6andubuntuinstalllamp/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://blog.sxin.me/2016/06/28/centosinstallconfigsubversion/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="SxinBoss">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="http://7xskk8.com1.z0.glb.clouddn.com/blog_touxiang.png">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="SxinBoss的个人博客">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="SxinBoss的个人博客" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/06/28/centosinstallconfigsubversion/" itemprop="url">
-                  Centos安装配置Subversion
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-06-28T00:00:00+08:00">
-              2016-06-28
-            </time>
-
-            &nbsp;|&nbsp;
-
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-check-o"></i>
-            </span>
-            <time title="Post modified" itemprop="dateModified" datetime="2016-11-14T19:46:04+08:00">
-              2016-11-14
-            </time>
-            
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux专区/" itemprop="url" rel="index">
-                    <span itemprop="name">Linux专区</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux专区/Centos/" itemprop="url" rel="index">
-                    <span itemprop="name">Centos</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/06/28/centosinstallconfigsubversion/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/28/centosinstallconfigsubversion/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/06/28/centosinstallconfigsubversion/" class="leancloud_visitors" data-flag-title="Centos安装配置Subversion">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-          
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="安装Subversion"><a href="#安装Subversion" class="headerlink" title="安装Subversion"></a>安装Subversion</h3><p><code>#yum install -y subversion</code></p>
-<p><code>iptables -I INPUT -p tcp --dport 3690 -j ACCEPT</code></p>
-<p><code>service iptables save</code></p>
-<h4 id="创建svn版本库目录"><a href="#创建svn版本库目录" class="headerlink" title="创建svn版本库目录"></a><strong>创建svn版本库目录</strong></h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$mkdir -p ~/svn/</div><div class="line">$mkdir ~/svn/test</div><div class="line">$cd ~/svn</div><div class="line">$svnadmin create test</div><div class="line">$cd test/conf</div></pre></td></tr></table></figure>
-          <!--noindex-->
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/06/28/centosinstallconfigsubversion/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://blog.sxin.me/2016/06/27/centos6bulid-php-httpd-mysql-md/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="SxinBoss">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="http://7xskk8.com1.z0.glb.clouddn.com/blog_touxiang.png">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="SxinBoss的个人博客">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="SxinBoss的个人博客" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/06/27/centos6bulid-php-httpd-mysql-md/" itemprop="url">
-                  CentOS6下的PHP,Httpd,Mysql等环境搭建
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-06-27T00:00:00+08:00">
-              2016-06-27
-            </time>
-
-            &nbsp;|&nbsp;
-
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-check-o"></i>
-            </span>
-            <time title="Post modified" itemprop="dateModified" datetime="2016-11-14T19:46:24+08:00">
-              2016-11-14
-            </time>
-            
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux专区/" itemprop="url" rel="index">
-                    <span itemprop="name">Linux专区</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux专区/Centos/" itemprop="url" rel="index">
-                    <span itemprop="name">Centos</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/06/27/centos6bulid-php-httpd-mysql-md/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/27/centos6bulid-php-httpd-mysql-md/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/06/27/centos6bulid-php-httpd-mysql-md/" class="leancloud_visitors" data-flag-title="CentOS6下的PHP,Httpd,Mysql等环境搭建">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-          
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>腾讯云重装了CentOS系统，记录下重装后的环境搭建步骤。</p>
-<p><code>#yum install -y gcc g++ gcc-c++</code></p>
-<h5 id="新建用户"><a href="#新建用户" class="headerlink" title="新建用户"></a><strong>新建用户</strong></h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">#useradd sxin</div><div class="line">#passwd sxin</div></pre></td></tr></table></figure>
-          <!--noindex-->
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/06/27/centos6bulid-php-httpd-mysql-md/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://blog.sxin.me/2016/06/26/php-devil-level-training-assignment/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="SxinBoss">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="http://7xskk8.com1.z0.glb.clouddn.com/blog_touxiang.png">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="SxinBoss的个人博客">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="SxinBoss的个人博客" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/06/26/php-devil-level-training-assignment/" itemprop="url">
-                  PHP魔鬼训练班课后作业
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-06-26T00:00:00+08:00">
-              2016-06-26
-            </time>
-
-            &nbsp;|&nbsp;
-
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-check-o"></i>
-            </span>
-            <time title="Post modified" itemprop="dateModified" datetime="2016-11-14T23:11:47+08:00">
-              2016-11-14
-            </time>
-            
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/编程语言/" itemprop="url" rel="index">
-                    <span itemprop="name">编程语言</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/编程语言/PHP/" itemprop="url" rel="index">
-                    <span itemprop="name">PHP</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/编程语言/PHP/PHP魔鬼训练班/" itemprop="url" rel="index">
-                    <span itemprop="name">PHP魔鬼训练班</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/06/26/php-devil-level-training-assignment/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/26/php-devil-level-training-assignment/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/06/26/php-devil-level-training-assignment/" class="leancloud_visitors" data-flag-title="PHP魔鬼训练班课后作业">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-          
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>第一课：</p>
-<p>要求：写一个PHP程序,当参数带有-v 输出版本信息,如果没有参数 则什么都不输出。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">#!/usr/local/sxin/php7/bin/php</div><div class="line">&lt;?php</div><div class="line">    $result=&apos;&apos;;</div><div class="line">    $argc &gt; 1 &amp;&amp; array_search(&quot;-v&quot;,$argv) &amp;&amp; $result=&apos;god version is 1.0&apos;;</div><div class="line">    echo $result.PHP_EOL;</div></pre></td></tr></table></figure></p>
-<p>第二节课</p>
-<p>god<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">#!/usr/local/sxin/php7/bin/php</div><div class="line">&lt;?php</div><div class="line">    require(&apos;god_func&apos;.substr(PHP_VERSION,0,1));</div><div class="line">    $result=&apos;&apos;;</div><div class="line">    $argc &gt; 1 &amp;&amp; (array_search(&quot;-v&quot;,$argv) &amp;&amp; $result=&apos;god version is 1.0&apos;) || (array_search(&quot;init&quot;,$argv) &amp;&amp; $result=initConfig());</div><div class="line">    echo $result.PHP_EOL;</div></pre></td></tr></table></figure></p>
-<p>god_func7<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;?php</div><div class="line">    function initConfig():string</div><div class="line">    &#123;</div><div class="line">        return file_put_contents(getcwd().&apos;/god.json&apos;,&apos;&#123;&#125;&apos;).&apos; of bytes is written&apos;.PHP_EOL.&apos;god config is created&apos;;</div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
-          <!--noindex-->
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/06/26/php-devil-level-training-assignment/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://blog.sxin.me/2016/06/26/quicklearnubuntu6/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="SxinBoss">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="http://7xskk8.com1.z0.glb.clouddn.com/blog_touxiang.png">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="SxinBoss的个人博客">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="SxinBoss的个人博客" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/06/26/quicklearnubuntu6/" itemprop="url">
-                  速学Ubuntu系列六:Composer学习(3):超简单的实现ORM框架的依赖加载
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-06-26T00:00:00+08:00">
-              2016-06-26
-            </time>
-
-            &nbsp;|&nbsp;
-
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-check-o"></i>
-            </span>
-            <time title="Post modified" itemprop="dateModified" datetime="2016-11-14T20:11:15+08:00">
-              2016-11-14
-            </time>
-            
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux专区/" itemprop="url" rel="index">
-                    <span itemprop="name">Linux专区</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux专区/Ubuntu/" itemprop="url" rel="index">
-                    <span itemprop="name">Ubuntu</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/06/26/quicklearnubuntu6/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/26/quicklearnubuntu6/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/06/26/quicklearnubuntu6/" class="leancloud_visitors" data-flag-title="速学Ubuntu系列六:Composer学习(3):超简单的实现ORM框架的依赖加载">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-          
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><a href="http://pkg.phpcomposer.com" title="Packagist / Composer" target="_blank" rel="external">Packagist / Composer 使用</a></p>
-<p>以NotORM为例,去官网 <a href="https://packagist.org/" target="_blank" rel="external">https://packagist.org/</a> 搜索 notorm</p>
-<p><code>vrana/notorm</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">进入项目根目录,执行:</div><div class="line">composer config repo.packagist composer https://packagist.phpcomposer.com</div></pre></td></tr></table></figure></p>
-<p>修改composer.json-&gt;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&quot;requies&quot; : &#123;</div><div class="line">    &quot;vrana/notorm&quot; : &quot;dev-master&quot;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p><code>composer install</code></p>
-<p>简单测试NotORM<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$pdo = new PDO(&quot;mysql:dbname=test;host=localhost&quot;,&apos;root&apos;,&apos;123456&apos;);</div><div class="line">$db = new NotORM($pdo);</div><div class="line"></div><div class="line">foreach ($db-&gt;tbl_user() as $user) &#123;</div><div class="line">    echo &quot;$user[username]\n&quot;; </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -2082,7 +2052,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">46</span>
+              <span class="site-state-item-count">59</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -2090,7 +2060,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">21</span>
+                <span class="site-state-item-count">22</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -2099,7 +2069,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">38</span>
+                <span class="site-state-item-count">40</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
