@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Wince," />
+  <meta name="keywords" content="零散知识点,Mysql," />
 
 
 
@@ -84,37 +84,19 @@
 
 
 
-<meta name="description" content="最近一个项目要用Wince 直连Mysql数据库进行操作。 
-测试时connStr中的host 是写的域名。 
-都没有问题
-等全部好了 把host改成了ip ,结果 尼玛 数据库连接不上！
-在PC端用Navicat for MySQL无论是域名还是IP 都是没有问题的。 
-于是网上各种找资料。  无果。
-最后发现是远程服务器的Mysql问题。  
-我换了个本地搭建的Mysql数据库  用IP成功连">
+<meta name="description" content="注:本零散知识点系列所有内容均来自 “程序猿在囧途”系列群  聊天记录
+循环累加一个 字段 并用逗号分隔1select shit from( select 要累加的字段, @tt:=CONCAT(@tt,&amp;apos;,&amp;apos;,a.要累加的字段) as shit from 某表 a,(select @tt:=&amp;apos;&amp;apos;) b ) c ORDER BY LENGTH(c.shit)">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Wince直连Mysql 坑">
-<meta property="og:url" content="http://blog.sxin.me/2016/05/30/winceconnectmysqlquestion/index.html">
+<meta property="og:title" content="循环累加一个字段,并逗号分隔|大数据量计算表记录数">
+<meta property="og:url" content="http://blog.sxin.me/2016/07/05/mysql-knowledge-1/index.html">
 <meta property="og:site_name" content="SxinBoss的个人博客">
-<meta property="og:description" content="最近一个项目要用Wince 直连Mysql数据库进行操作。 
-测试时connStr中的host 是写的域名。 
-都没有问题
-等全部好了 把host改成了ip ,结果 尼玛 数据库连接不上！
-在PC端用Navicat for MySQL无论是域名还是IP 都是没有问题的。 
-于是网上各种找资料。  无果。
-最后发现是远程服务器的Mysql问题。  
-我换了个本地搭建的Mysql数据库  用IP成功连">
-<meta property="og:updated_time" content="2016-11-14T14:09:16.000Z">
+<meta property="og:description" content="注:本零散知识点系列所有内容均来自 “程序猿在囧途”系列群  聊天记录
+循环累加一个 字段 并用逗号分隔1select shit from( select 要累加的字段, @tt:=CONCAT(@tt,&amp;apos;,&amp;apos;,a.要累加的字段) as shit from 某表 a,(select @tt:=&amp;apos;&amp;apos;) b ) c ORDER BY LENGTH(c.shit)">
+<meta property="og:updated_time" content="2016-11-14T14:22:06.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Wince直连Mysql 坑">
-<meta name="twitter:description" content="最近一个项目要用Wince 直连Mysql数据库进行操作。 
-测试时connStr中的host 是写的域名。 
-都没有问题
-等全部好了 把host改成了ip ,结果 尼玛 数据库连接不上！
-在PC端用Navicat for MySQL无论是域名还是IP 都是没有问题的。 
-于是网上各种找资料。  无果。
-最后发现是远程服务器的Mysql问题。  
-我换了个本地搭建的Mysql数据库  用IP成功连">
+<meta name="twitter:title" content="循环累加一个字段,并逗号分隔|大数据量计算表记录数">
+<meta name="twitter:description" content="注:本零散知识点系列所有内容均来自 “程序猿在囧途”系列群  聊天记录
+循环累加一个 字段 并用逗号分隔1select shit from( select 要累加的字段, @tt:=CONCAT(@tt,&amp;apos;,&amp;apos;,a.要累加的字段) as shit from 某表 a,(select @tt:=&amp;apos;&amp;apos;) b ) c ORDER BY LENGTH(c.shit)">
 
 
 
@@ -142,13 +124,13 @@
 
 
 
-  <link rel="canonical" href="http://blog.sxin.me/2016/05/30/winceconnectmysqlquestion/"/>
+  <link rel="canonical" href="http://blog.sxin.me/2016/07/05/mysql-knowledge-1/"/>
 
 
 
 
 
-  <title> Wince直连Mysql 坑 | SxinBoss的个人博客 </title>
+  <title> 循环累加一个字段,并逗号分隔|大数据量计算表记录数 | SxinBoss的个人博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -298,7 +280,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://blog.sxin.me/2016/05/30/winceconnectmysqlquestion/">
+  <link itemprop="mainEntityOfPage" href="http://blog.sxin.me/2016/07/05/mysql-knowledge-1/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="SxinBoss">
@@ -322,7 +304,7 @@
             
             
               
-                Wince直连Mysql 坑
+                循环累加一个字段,并逗号分隔|大数据量计算表记录数
               
             
           </h1>
@@ -334,8 +316,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-05-30T00:00:00+08:00">
-              2016-05-30
+            <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-07-05T00:00:00+08:00">
+              2016-07-05
             </time>
 
             &nbsp;|&nbsp;
@@ -343,7 +325,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-check-o"></i>
             </span>
-            <time title="Post modified" itemprop="dateModified" datetime="2016-11-14T22:09:16+08:00">
+            <time title="Post modified" itemprop="dateModified" datetime="2016-11-14T22:22:06+08:00">
               2016-11-14
             </time>
             
@@ -358,8 +340,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/移动端/" itemprop="url" rel="index">
-                    <span itemprop="name">移动端</span>
+                  <a href="/categories/数据库专区/" itemprop="url" rel="index">
+                    <span itemprop="name">数据库专区</span>
                   </a>
                 </span>
 
@@ -370,8 +352,8 @@
 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/移动端/Wince/" itemprop="url" rel="index">
-                    <span itemprop="name">Wince</span>
+                  <a href="/categories/数据库专区/Mysql/" itemprop="url" rel="index">
+                    <span itemprop="name">Mysql</span>
                   </a>
                 </span>
 
@@ -386,8 +368,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/05/30/winceconnectmysqlquestion/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/30/winceconnectmysqlquestion/" itemprop="commentCount"></span>
+                <a href="/2016/07/05/mysql-knowledge-1/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/05/mysql-knowledge-1/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -397,7 +379,7 @@
 
           
           
-             <span id="/2016/05/30/winceconnectmysqlquestion/" class="leancloud_visitors" data-flag-title="Wince直连Mysql 坑">
+             <span id="/2016/07/05/mysql-knowledge-1/" class="leancloud_visitors" data-flag-title="循环累加一个字段,并逗号分隔|大数据量计算表记录数">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -422,19 +404,21 @@
       
 
       
-        <p>最近一个项目要用Wince 直连Mysql数据库进行操作。 </p>
-<p>测试时connStr中的host 是写的域名。 </p>
-<p>都没有问题</p>
-<p>等全部好了 把host改成了ip ,结果 尼玛 数据库连接不上！</p>
-<p>在PC端用Navicat for MySQL无论是域名还是IP 都是没有问题的。 </p>
-<p>于是网上各种找资料。  无果。</p>
-<p>最后发现是远程服务器的Mysql问题。  </p>
-<p>我换了个本地搭建的Mysql数据库  用IP成功连接、</p>
-<p>只不过 到底是远程主机的Mysql什么问题 还未找到。。。等找到了在和大家分享吧</p>
-<p>下面是在网上找到的一些相关资料</p>
-<p><a href="https://support.microsoft.com/en-us/kb/199370" title="How to load host entries into Windows CE device" target="_blank" rel="external">How to load host entries into Windows CE device</a></p>
-<p><a href="http://stackoverflow.com/questions/8975852/unable-to-connect-to-any-of-the-specified-mysql-hosts-in-smart-device-project" target="_blank" rel="external">“Unable to connect to any of the specified MySQL hosts.” in Smart Device Projects VS2008</a></p>
-<p><a href="http://stackoverflow.com/questions/19536847/how-to-connecting-to-mysql-server-using-mysql-data-cf-from-windows-mobile" title="how to connecting to mysql server using mysql.data.cf from windows mobile" target="_blank" rel="external">How to connecting to MySQL Server using MySQL.Data.CF from windows mobile</a></p>
+        <p><strong>注:本零散知识点系列所有内容均来自 “程序猿在囧途”系列群  聊天记录</strong></p>
+<p><strong>循环累加一个 字段 并用逗号分隔</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">select shit from( select 要累加的字段, @tt:=CONCAT(@tt,&apos;,&apos;,a.要累加的字段) as shit from 某表 a,(select @tt:=&apos;&apos;) b ) c ORDER BY LENGTH(c.shit) desc limit 0,1</div></pre></td></tr></table></figure></p>
+<p><strong>问答</strong></p>
+<p><code>用户表 :包含id主键索引，用户名字段和用户密码 还有用户入库时间</code></p>
+<p><code>问题1、这张表一般加索引的有哪几个字段</code></p>
+<p><code>问题2、如果这表 有百万数据。那么 我要获取该表的总记录数 ，怎写sql?</code></p>
+<p><code>问题3、如果我的数据 有几个亿 。那么 怎么利用 各种手段 计算表的记录数</code></p>
+<p><code>1.user_name</code></p>
+<p><code>2:select count(*) from table USE INDEX(PRIMARY);</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">3:思路是必须结合shell script</div><div class="line">系统初始化时利用 shell把每个表的记录 保存在缓存里</div><div class="line">当程序 对表进行操作时， 利用程序 让该条缓存失效</div><div class="line">shell设置成定时任务。 一旦发生某个缓存失效，就重新计算count(*)</div><div class="line">并再次插入缓存</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">大家注意， 我刚才提了两个问题</div><div class="line">1、该表常见索引会在哪。 大家都回答是user_name。这是对的</div><div class="line">2、如果没有建立user_name索引，那么count(*) 确实不要做任何手脚</div><div class="line">3、但是如果你在第一步建立了user_name索引。那么cout(*)的时候 就要加上use index(PRIMARY)</div><div class="line">因为 如果 你不加。mysql这傻缺 会默认用你的user_name 作为扫描主键</div><div class="line">每一次连接都会慢 所谓的0.0x秒</div><div class="line">如果并发高、PV大 数据量大。 服务器就崩溃了</div><div class="line"></div><div class="line">如果你的 user_name字段值很长。 那么必定是比主键慢 （主键因为是数字）</div><div class="line">往往很多表的主键 用的不是数字 ，而是 guid 很多位的那种</div></pre></td></tr></table></figure>
+<p><code>USE INDEX(PRIMARY)  如何解？</code><br><code>代表 强制使用 主键索引</code></p>
+<p>好。 本题我们 发现几个现象</p>
+<p>1、上述功能和PHP或框架有关系吗？   ：没有</p>
+<p>2、做一个系统，到了进阶，哪些知识点是最重要的？  :Linux  Mysql</p>
 
       
     </div>
@@ -479,7 +463,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Wince/" rel="tag"># Wince</a>
+            <a href="/tags/零散知识点/" rel="tag"># 零散知识点</a>
+          
+            <a href="/tags/Mysql/" rel="tag"># Mysql</a>
           
         </div>
       
@@ -488,8 +474,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/05/30/wincedevutils/" rel="next" title="Wince开发用Utils">
-                <i class="fa fa-chevron-left"></i> Wince开发用Utils
+              <a href="/2016/06/28/centosinstallconfigsubversion/" rel="next" title="Centos安装配置Subversion">
+                <i class="fa fa-chevron-left"></i> Centos安装配置Subversion
               </a>
             
           </div>
@@ -498,8 +484,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/06/16/dockeroperationmanual/" rel="prev" title="Docker操作手册">
-                Docker操作手册 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/07/08/andorid-remove-titlebar-except/" rel="prev" title="Android去掉标题栏后报错">
+                Android去掉标题栏后报错 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -526,8 +512,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/05/30/winceconnectmysqlquestion/"
-           data-title="Wince直连Mysql 坑" data-url="http://blog.sxin.me/2016/05/30/winceconnectmysqlquestion/">
+      <div class="ds-thread" data-thread-key="2016/07/05/mysql-knowledge-1/"
+           data-title="循环累加一个字段,并逗号分隔|大数据量计算表记录数" data-url="http://blog.sxin.me/2016/07/05/mysql-knowledge-1/">
       </div>
     
   </div>
