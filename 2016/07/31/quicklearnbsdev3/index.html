@@ -84,16 +84,34 @@
 
 
 
-<meta name="description" content="本博客为个人博客,记载开发中的各种心得,经验和踩过的坑...">
+<meta name="description" content="1.学会对象属性获取
+2.NodeJS的FS模块使用
+3.发明个”编译”JS的过程
+4.简单了解global对象
+1.根据前两节课我们发现js文件需要考node来解析才能运行,那这个和我们发开前端有什么关系呢?
+比如:我们新建一个HTML(index.html) ,然后在代码里 引用我们上节课的aa.js
+&amp;lt;script src=&amp;quot;aa.js&amp;quot;&amp;gt;&amp;lt;/scrip">
 <meta property="og:type" content="article">
 <meta property="og:title" content="前端速学成财:第三课-粗糙的玩一玩javascript的"编译"">
 <meta property="og:url" content="http://blog.sxin.me/2016/07/31/quicklearnbsdev3/index.html">
 <meta property="og:site_name" content="SxinBoss的个人博客">
-<meta property="og:description" content="本博客为个人博客,记载开发中的各种心得,经验和踩过的坑...">
-<meta property="og:updated_time" content="2016-11-14T12:22:04.000Z">
+<meta property="og:description" content="1.学会对象属性获取
+2.NodeJS的FS模块使用
+3.发明个”编译”JS的过程
+4.简单了解global对象
+1.根据前两节课我们发现js文件需要考node来解析才能运行,那这个和我们发开前端有什么关系呢?
+比如:我们新建一个HTML(index.html) ,然后在代码里 引用我们上节课的aa.js
+&amp;lt;script src=&amp;quot;aa.js&amp;quot;&amp;gt;&amp;lt;/scrip">
+<meta property="og:updated_time" content="2016-11-14T12:28:23.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端速学成财:第三课-粗糙的玩一玩javascript的"编译"">
-<meta name="twitter:description" content="本博客为个人博客,记载开发中的各种心得,经验和踩过的坑...">
+<meta name="twitter:description" content="1.学会对象属性获取
+2.NodeJS的FS模块使用
+3.发明个”编译”JS的过程
+4.简单了解global对象
+1.根据前两节课我们发现js文件需要考node来解析才能运行,那这个和我们发开前端有什么关系呢?
+比如:我们新建一个HTML(index.html) ,然后在代码里 引用我们上节课的aa.js
+&amp;lt;script src=&amp;quot;aa.js&amp;quot;&amp;gt;&amp;lt;/scrip">
 
 
 
@@ -322,7 +340,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-check-o"></i>
             </span>
-            <time title="Post modified" itemprop="dateModified" datetime="2016-11-14T20:22:04+08:00">
+            <time title="Post modified" itemprop="dateModified" datetime="2016-11-14T20:28:23+08:00">
               2016-11-14
             </time>
             
@@ -401,7 +419,36 @@
       
 
       
-        
+        <p>1.学会对象属性获取</p>
+<p>2.NodeJS的FS模块使用</p>
+<p>3.发明个”编译”JS的过程</p>
+<p>4.简单了解global对象</p>
+<p>1.根据前两节课我们发现<br>js文件需要考node来解析才能运行,那这个和我们发开前端有什么关系呢?</p>
+<p>比如:我们新建一个HTML(index.html) ,然后在代码里 引用我们上节课的aa.js</p>
+<p><code>&lt;script src=&quot;aa.js&quot;&gt;&lt;/script&gt;</code></p>
+<p>然后我们发现并不能运行。</p>
+<p><code>ReferenceError: require is not defined</code></p>
+<p>因为 目前为止 浏览器里还不支持require(不代表未来不支持)</p>
+<p>我们开动大脑想一想：</p>
+<pre><code>既然node能运行aa.js,name我们是否通过nodejs把require出来的东西给生成一个js文件呢
+</code></pre><p>首先我们把<code>var getlib=require(&#39;./slib&#39;);</code> 这里的getlib打印出来 看看他是什么.</p>
+<p><code>{ age: 20, showName: [Function] }</code><br><a id="more"></a><br>我们会发现 其实他就是一个对象格式。</p>
+<p>我们来用循环的方式来打印出getlib里的属性名和值<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">for(var obj in getlib)&#123;</div><div class="line">    console.log(obj+&quot;=&quot;+getlib[obj]);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>结果:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">age=20</div><div class="line">showName=function ()</div><div class="line">&#123;</div><div class="line">        console.log(&quot;sxin&quot;);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>PS:如果<code>getlib[obj]()</code> 加个小括号 可以执行函数.</p>
+<p>2.fs模块:<code>专门用来处理文件的内置模块</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var file=require(&apos;js&apos;);</div><div class="line">file.readFile   //读文件</div><div class="line">file.writeFile  //写文件,每次都会覆盖</div><div class="line">file.appendFile //追加文件</div></pre></td></tr></table></figure></p>
+<p>最后代码:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">var getlib=require(&apos;sxin&apos;);</div><div class="line"></div><div class="line">var file=require(&apos;fs&apos;);</div><div class="line"></div><div class="line">function genCode(key,value)</div><div class="line">&#123;</div><div class="line">    return &apos;var &apos;+key+&apos;=&apos;+value+&apos;;\n&apos;;</div><div class="line">&#125;</div><div class="line"></div><div class="line">file.writeFile(&quot;build.js&quot;,&quot;&quot;);</div><div class="line"></div><div class="line">for(var obj in getlib)&#123;</div><div class="line">    file.appendFile(&quot;build.js&quot;,genCode(obj,getlib[obj]));</div><div class="line">&#125;</div><div class="line">file.appendFile(&quot;build.js&quot;,&quot;showName();\n&quot;);</div></pre></td></tr></table></figure></p>
+<p>然后我们把index.html里的aa.js 改成build.js<br>然后运行。 ok。</p>
+<p>这个呢就是我们一个简单的 所谓的”编译”。当然 真正的使用一些复杂的方法 模块，还是很复杂的。 现在只是把思路捋一捋。</p>
+<p>扩展:<br>我们现在通过自己写死的一个getlib加载的脚本文件。 如果我们加载了很多js文件， 那我们是不是要一个一个循环呢?</p>
+<p>4.NodeJS的global对象</p>
+<p>如果我们用浏览器运行javascript，他有个window顶级对象。</p>
+<p>那NodeJS呢？肯定也是有的，他叫做global</p>
+<p>我们可以用console.log(global);来查看</p>
+<p>PS:看看(瞄一眼)就行.</p>
+<p>获取当前脚本的所有对象:<code>只需要循环,global.process.mainModule.children  这个子对象就行</code></p>
+<p>最后代码:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">var getlib=require(&apos;sxin&apos;);</div><div class="line"></div><div class="line">var file=require(&apos;fs&apos;);</div><div class="line"></div><div class="line">function genCode(key,value)</div><div class="line">&#123;</div><div class="line">    return &apos;var &apos;+key+&apos;=&apos;+value+&apos;;\n&apos;;</div><div class="line">&#125;</div><div class="line"></div><div class="line">file.writeFile(&quot;build.js&quot;,&quot;&quot;);</div><div class="line"></div><div class="line">for(var i=0;i&lt; global.process.mainModule.children.length;i++)</div><div class="line"> &#123;</div><div class="line">   var child=global.process.mainModule.children[i];</div><div class="line">   for(var bb in child.exports)// child.exports就是我们导出的属性</div><div class="line">	   file.appendFile(&apos;build.js&apos;,genCode(bb,child.exports[bb]));</div><div class="line"> &#125;</div></pre></td></tr></table></figure></p>
+
       
     </div>
 
@@ -458,8 +505,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/07/30/quicklearnbsdev8/" rel="next" title="前端速学成财:第八课-速玩JS文件合并和压缩">
-                <i class="fa fa-chevron-left"></i> 前端速学成财:第八课-速玩JS文件合并和压缩
+              <a href="/2016/07/30/quicklearnbsdev13/" rel="next" title="第十三课-实战演练:用gulp+EJS像CMS那样生成完整新闻内容面">
+                <i class="fa fa-chevron-left"></i> 第十三课-实战演练:用gulp+EJS像CMS那样生成完整新闻内容面
               </a>
             
           </div>

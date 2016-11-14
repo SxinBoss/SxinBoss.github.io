@@ -84,16 +84,37 @@
 
 
 
-<meta name="description" content="本博客为个人博客,记载开发中的各种心得,经验和踩过的坑...">
+<meta name="description" content="1.gulp插件(这是一个可以无比方便的关联gulp和webpack的插件)
+npm install gulp-webpack --save-dev
+2.我们设定一个需求
+1、首先使用CommonJS规范编写代码
+2、利用webpack编译JS文件
+3、编译好后用gulp压缩
+注意:需要一次性完成,而不是敲两次命令
+gulpfile.js123456789101112131415var gp =">
 <meta property="og:type" content="article">
 <meta property="og:title" content="第十课-混合篇:webpack和gulp"勾结"初步">
 <meta property="og:url" content="http://blog.sxin.me/2016/08/18/quicklearnbsdev10/index.html">
 <meta property="og:site_name" content="SxinBoss的个人博客">
-<meta property="og:description" content="本博客为个人博客,记载开发中的各种心得,经验和踩过的坑...">
-<meta property="og:updated_time" content="2016-11-14T12:25:11.000Z">
+<meta property="og:description" content="1.gulp插件(这是一个可以无比方便的关联gulp和webpack的插件)
+npm install gulp-webpack --save-dev
+2.我们设定一个需求
+1、首先使用CommonJS规范编写代码
+2、利用webpack编译JS文件
+3、编译好后用gulp压缩
+注意:需要一次性完成,而不是敲两次命令
+gulpfile.js123456789101112131415var gp =">
+<meta property="og:updated_time" content="2016-11-14T12:30:31.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第十课-混合篇:webpack和gulp"勾结"初步">
-<meta name="twitter:description" content="本博客为个人博客,记载开发中的各种心得,经验和踩过的坑...">
+<meta name="twitter:description" content="1.gulp插件(这是一个可以无比方便的关联gulp和webpack的插件)
+npm install gulp-webpack --save-dev
+2.我们设定一个需求
+1、首先使用CommonJS规范编写代码
+2、利用webpack编译JS文件
+3、编译好后用gulp压缩
+注意:需要一次性完成,而不是敲两次命令
+gulpfile.js123456789101112131415var gp =">
 
 
 
@@ -322,7 +343,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-check-o"></i>
             </span>
-            <time title="Post modified" itemprop="dateModified" datetime="2016-11-14T20:25:11+08:00">
+            <time title="Post modified" itemprop="dateModified" datetime="2016-11-14T20:30:31+08:00">
               2016-11-14
             </time>
             
@@ -401,7 +422,24 @@
       
 
       
-        
+        <p>1.gulp插件(这是一个可以无比方便的关联gulp和webpack的插件)</p>
+<p><code>npm install gulp-webpack --save-dev</code></p>
+<p>2.我们设定一个需求</p>
+<p>1、首先使用CommonJS规范编写代码</p>
+<p>2、利用webpack编译JS文件</p>
+<p>3、编译好后用gulp压缩</p>
+<p>注意:需要一次性完成,而不是敲两次命令</p>
+<p>gulpfile.js<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">var gp = require(&quot;gulp&quot;);</div><div class="line">var gulp_concat = require(&quot;gulp-concat&quot;);</div><div class="line">var gulp_uglify = require(&quot;gulp-uglify&quot;);</div><div class="line"></div><div class="line">var gulp_webpack=require(&quot;gulp-webpack&quot;);</div><div class="line"></div><div class="line">gp.task(&quot;mytask&quot;, function () &#123;</div><div class="line">    gp.src([&apos;sxin.js&apos;])</div><div class="line">        .pipe(gulp_webpack())</div><div class="line">        .pipe(gulp_uglify())</div><div class="line">        .pipe(gp.dest(&apos;./build/js&apos;));</div><div class="line">    gp.src([&apos;*.css&apos;])</div><div class="line">        .pipe(gulp_concat(&quot;main.css&quot;))</div><div class="line">        .pipe(gp.dest(&apos;./build/css&apos;));</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>gulp mytask</p>
+<p>运行后发现，生成的文件名是随机的.</p>
+<p>然后我们可以发现</p>
+<p>1、没有加载webpack配置文件</p>
+<p>2、同事并没有调用我们上节课独立安装的webpack(请注意,gulp-webpack插件中有个webpack)</p>
+<p>事实上,项目开发中我们肯定是需要调用我们自己”独立”安装的webpack(版本可控)<br><a id="more"></a><br><strong>手动传入webpack配置:</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">var gp = require(&quot;gulp&quot;);</div><div class="line">var gulp_concat = require(&quot;gulp-concat&quot;);</div><div class="line">var gulp_uglify = require(&quot;gulp-uglify&quot;);</div><div class="line"></div><div class="line">var gulp_webpack=require(&quot;gulp-webpack&quot;);</div><div class="line">var webpack_config=require(&quot;./webpack.config&quot;);</div><div class="line"></div><div class="line">gp.task(&quot;mytask&quot;, function () &#123;</div><div class="line">    gp.src([&apos;sxin.js&apos;])</div><div class="line">        .pipe(gulp_webpack(webpack_config))</div><div class="line">        .pipe(gulp_uglify())</div><div class="line">        .pipe(gp.dest(&apos;./build/js&apos;));</div><div class="line">    gp.src([&apos;*.css&apos;])</div><div class="line">        .pipe(gulp_concat(&quot;main.css&quot;))</div><div class="line">        .pipe(gp.dest(&apos;./build/css&apos;));</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p><strong>使用我们独立安装的webpack:</strong></p>
+<p><code>npm install -g webpack</code></p>
+<p><code>npm install webpack --save-dev</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">var gp = require(&quot;gulp&quot;);</div><div class="line">var gulp_concat = require(&quot;gulp-concat&quot;);</div><div class="line">var gulp_uglify = require(&quot;gulp-uglify&quot;);</div><div class="line"></div><div class="line">var gulp_webpack=require(&quot;gulp-webpack&quot;);</div><div class="line">var webpack_config=require(&quot;./webpack.config&quot;);</div><div class="line"></div><div class="line">var webpack=require(&quot;webpack&quot;);</div><div class="line"></div><div class="line">gp.task(&quot;mytask&quot;, function () &#123;</div><div class="line">    gp.src([&apos;sxin.js&apos;])</div><div class="line">        .pipe(gulp_webpack(webpack_config,webpack))</div><div class="line">        .pipe(gulp_uglify())</div><div class="line">        .pipe(gp.dest(&apos;./build/js&apos;));</div><div class="line">    gp.src([&apos;*.css&apos;])</div><div class="line">        .pipe(gulp_concat(&quot;main.css&quot;))</div><div class="line">        .pipe(gp.dest(&apos;./build/css&apos;));</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+
       
     </div>
 
@@ -458,8 +496,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/08/18/quicklearnbsdev11/" rel="next" title="第十一课-实战演练:用gulp 构建前端页面(1)—静态构建">
-                <i class="fa fa-chevron-left"></i> 第十一课-实战演练:用gulp 构建前端页面(1)—静态构建
+              <a href="/2016/08/17/quicklearnbsdev6/" rel="next" title="前端速学成财:第六课-gulp快速上手">
+                <i class="fa fa-chevron-left"></i> 前端速学成财:第六课-gulp快速上手
               </a>
             
           </div>

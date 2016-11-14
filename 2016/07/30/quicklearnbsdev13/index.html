@@ -84,16 +84,34 @@
 
 
 
-<meta name="description" content="本博客为个人博客,记载开发中的各种心得,经验和踩过的坑...">
+<meta name="description" content="EJS 
+npm install ejs --save-dev
+这是一个功能很经典而且使用非常简单的JS模板引擎.
+gulp-ejs插件
+npm install gulp-ejs --save-dev
+首先创建个html模板.
+ejs.html1234567891011121314151617&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html lang=&amp;quot;en&amp;quot;&amp;gt;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="第十三课-实战演练:用gulp+EJS像CMS那样生成完整新闻内容面">
 <meta property="og:url" content="http://blog.sxin.me/2016/07/30/quicklearnbsdev13/index.html">
 <meta property="og:site_name" content="SxinBoss的个人博客">
-<meta property="og:description" content="本博客为个人博客,记载开发中的各种心得,经验和踩过的坑...">
-<meta property="og:updated_time" content="2016-11-14T12:26:15.000Z">
+<meta property="og:description" content="EJS 
+npm install ejs --save-dev
+这是一个功能很经典而且使用非常简单的JS模板引擎.
+gulp-ejs插件
+npm install gulp-ejs --save-dev
+首先创建个html模板.
+ejs.html1234567891011121314151617&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html lang=&amp;quot;en&amp;quot;&amp;gt;">
+<meta property="og:updated_time" content="2016-11-14T12:31:25.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第十三课-实战演练:用gulp+EJS像CMS那样生成完整新闻内容面">
-<meta name="twitter:description" content="本博客为个人博客,记载开发中的各种心得,经验和踩过的坑...">
+<meta name="twitter:description" content="EJS 
+npm install ejs --save-dev
+这是一个功能很经典而且使用非常简单的JS模板引擎.
+gulp-ejs插件
+npm install gulp-ejs --save-dev
+首先创建个html模板.
+ejs.html1234567891011121314151617&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html lang=&amp;quot;en&amp;quot;&amp;gt;">
 
 
 
@@ -322,7 +340,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-check-o"></i>
             </span>
-            <time title="Post modified" itemprop="dateModified" datetime="2016-11-14T20:26:15+08:00">
+            <time title="Post modified" itemprop="dateModified" datetime="2016-11-14T20:31:25+08:00">
               2016-11-14
             </time>
             
@@ -401,7 +419,17 @@
       
 
       
-        
+        <p>EJS </p>
+<p><code>npm install ejs --save-dev</code></p>
+<p>这是一个功能很经典而且使用非常简单的JS模板引擎.</p>
+<p>gulp-ejs插件</p>
+<p><code>npm install gulp-ejs --save-dev</code></p>
+<p>首先创建个html模板.</p>
+<p>ejs.html<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html lang=&quot;en&quot;&gt;</div><div class="line">&lt;head&gt;</div><div class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</div><div class="line">    &lt;title&gt;&lt;%=title %&gt;&lt;/title&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">&lt;%=content %&gt;</div><div class="line">&lt;hr/&gt;</div><div class="line">相关新闻:&lt;br /&gt;</div><div class="line">&lt;ul&gt;</div><div class="line">    &lt;% for (var i in relate)&#123; %&gt;</div><div class="line">    &lt;li&gt;&lt;%= relate[i].title%&gt;&lt;/li&gt;</div><div class="line">    &lt;% &#125; %&gt;</div><div class="line">&lt;/ul&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<p>gulpfile.js<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">var gp_ejs=require(&apos;gulp-ejs&apos;);</div><div class="line">gp.task(&apos;news2&apos;,function () &#123;</div><div class="line">    var gNews=require(&apos;sxin&apos;);</div><div class="line">    gNews.getNews(function (body) &#123;</div><div class="line">        var news=JSON.parse(body);</div><div class="line">        gp.src([&quot;ejs.html&quot;])</div><div class="line">            .pipe(gp_tpl(news))</div><div class="line">            .pipe(gp_rename(news.id+&apos;.html&apos;))</div><div class="line">            .pipe(gp.dest(&quot;./build/html&quot;));</div><div class="line">    &#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>news.php<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">&lt;?php</div><div class="line">    $news= new stdClass();</div><div class="line">    $news-&gt;id=123;</div><div class="line">    $news-&gt;title=&apos;标题&apos;;</div><div class="line">    $news-&gt;content=&apos;内容&apos;;</div><div class="line"></div><div class="line">    $relate1= new stdClass();</div><div class="line">    $relate1-&gt;title=&apos;相关新闻1&apos;;</div><div class="line"></div><div class="line">    $relate2= new stdClass();</div><div class="line">    $relate2-&gt;title=&apos;相关新闻1&apos;;</div><div class="line"></div><div class="line">    $news-&gt;relate=array($relate1,$relate2);</div><div class="line"></div><div class="line">    exit(json_encode($news));</div></pre></td></tr></table></figure></p>
+
       
     </div>
 
@@ -458,8 +486,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/07/30/quicklearnbsdev1/" rel="next" title="前端速学成财:第一课-JavaScript历史">
-                <i class="fa fa-chevron-left"></i> 前端速学成财:第一课-JavaScript历史
+              <a href="/2016/07/30/quicklearnbsdev8/" rel="next" title="前端速学成财:第八课-速玩JS文件合并和压缩">
+                <i class="fa fa-chevron-left"></i> 前端速学成财:第八课-速玩JS文件合并和压缩
               </a>
             
           </div>
@@ -468,8 +496,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/07/30/quicklearnbsdev8/" rel="prev" title="前端速学成财:第八课-速玩JS文件合并和压缩">
-                前端速学成财:第八课-速玩JS文件合并和压缩 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/07/31/quicklearnbsdev3/" rel="prev" title="前端速学成财:第三课-粗糙的玩一玩javascript的"编译"">
+                前端速学成财:第三课-粗糙的玩一玩javascript的"编译" <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>

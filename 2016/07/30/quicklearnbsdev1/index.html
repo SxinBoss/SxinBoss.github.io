@@ -84,16 +84,28 @@
 
 
 
-<meta name="description" content="本博客为个人博客,记载开发中的各种心得,经验和踩过的坑...">
+<meta name="description" content="本系列为看 前端开发速学成财(nodejs+gulp+webpack基础实战篇) 教程所做的笔记
+JavaScript是 Netscape (网景)联合Sun在1995年发布的JavaScript 1.0
+随后微软克隆(chao xi)并命名为jscript.
+那么问题来了。 如果有各种各样的版本，那就乱套了。
+于是,Netscape等公司向ECMP欧洲计算机制造商协会提交草案，正式形成了ECMA">
 <meta property="og:type" content="article">
 <meta property="og:title" content="前端速学成财:第一课-JavaScript历史">
 <meta property="og:url" content="http://blog.sxin.me/2016/07/30/quicklearnbsdev1/index.html">
 <meta property="og:site_name" content="SxinBoss的个人博客">
-<meta property="og:description" content="本博客为个人博客,记载开发中的各种心得,经验和踩过的坑...">
-<meta property="og:updated_time" content="2016-11-14T12:21:11.000Z">
+<meta property="og:description" content="本系列为看 前端开发速学成财(nodejs+gulp+webpack基础实战篇) 教程所做的笔记
+JavaScript是 Netscape (网景)联合Sun在1995年发布的JavaScript 1.0
+随后微软克隆(chao xi)并命名为jscript.
+那么问题来了。 如果有各种各样的版本，那就乱套了。
+于是,Netscape等公司向ECMP欧洲计算机制造商协会提交草案，正式形成了ECMA">
+<meta property="og:updated_time" content="2016-11-14T12:27:26.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端速学成财:第一课-JavaScript历史">
-<meta name="twitter:description" content="本博客为个人博客,记载开发中的各种心得,经验和踩过的坑...">
+<meta name="twitter:description" content="本系列为看 前端开发速学成财(nodejs+gulp+webpack基础实战篇) 教程所做的笔记
+JavaScript是 Netscape (网景)联合Sun在1995年发布的JavaScript 1.0
+随后微软克隆(chao xi)并命名为jscript.
+那么问题来了。 如果有各种各样的版本，那就乱套了。
+于是,Netscape等公司向ECMP欧洲计算机制造商协会提交草案，正式形成了ECMA">
 
 
 
@@ -322,7 +334,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-check-o"></i>
             </span>
-            <time title="Post modified" itemprop="dateModified" datetime="2016-11-14T20:21:11+08:00">
+            <time title="Post modified" itemprop="dateModified" datetime="2016-11-14T20:27:26+08:00">
               2016-11-14
             </time>
             
@@ -401,7 +413,21 @@
       
 
       
-        
+        <p>本系列为看 <strong><a href="http://www.jtthink.com/course/39" title="前端开发速学成财(nodejs+gulp+webpack基础实战篇)" target="_blank" rel="external">前端开发速学成财(nodejs+gulp+webpack基础实战篇)</a></strong> 教程所做的笔记</p>
+<p>JavaScript是 Netscape (网景)联合Sun在1995年发布的JavaScript 1.0</p>
+<p>随后微软克隆(chao xi)并命名为jscript.</p>
+<p>那么问题来了。 如果有各种各样的版本，那就乱套了。</p>
+<p>于是,Netscape等公司向ECMP欧洲计算机制造商协会提交草案，正式形成了ECMAScript标准<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">PS:之前的javascript是Netscape联合Sun单独发布的,微软肯定不会认滴</div><div class="line">后来形成了ECMAScript标准 那微软就不得不认了</div><div class="line">但是 微软在自己的浏览器里面捆绑式的对ECMAScript或其他标准做了一些自定义的个性化的修改</div><div class="line">所以IE才那么奇葩 导致了开发者都不考虑兼容IE</div></pre></td></tr></table></figure></p>
+<p>所以我们现在用的JavaScript只是实现ECMAScript标准,JavaScript也不是只有在浏览器才能运行</p>
+<p>JavaScript由三部分组成:ECMAScript,DOM,BOM</p>
+<p>通常来说:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">1、ECMAScript定义了javascript语法</div><div class="line">2、DOM定义了文档对象--由W3C来定义标准</div><div class="line">3、BOM浏览器对象模型(没有同一的标准,由各个浏览器厂商决定)</div></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">对于一个浏览器来说：</div><div class="line">首先需要一个运行(解释)JavaScript的引擎、包括各种DOM渲染、BOM对象交互。</div><div class="line"></div><div class="line">其中特别有名的就是google chrome的v8引擎(开源:http://code.google.com/p/v8/downloads/list)</div></pre></td></tr></table></figure>
+<p>NodeJS就是借助V8引擎 并进行封装、优化和模块的增加(比如:http模块)</p>
+<p>增加的http模块让他可以作后端(生产环境)</p>
+<p><strong>但是并不推荐用NodeJS做后端。</strong></p>
+<p>引用沈逸老师的一段话:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">原本NODEJS借助V8引擎 打算横扫后端</div><div class="line">但是算盘打错了。 能够超越NODEJS 做后端的语言太多了</div><div class="line">拼性能拼不过golang</div><div class="line">拼方便程度 干不过PHP7（注意PHP和PHP7是两码事）</div><div class="line">拼完善程度 干不过java</div><div class="line">最后 大家发现，开发 前端用NODEJS 是必须（注意用词，是必须）</div></pre></td></tr></table></figure></p>
+
       
     </div>
 
@@ -458,8 +484,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/07/30/quicklearnbsdev2/" rel="next" title="前端速学成财:第二课-知识点速学">
-                <i class="fa fa-chevron-left"></i> 前端速学成财:第二课-知识点速学
+              <a href="/2016/06/28/shell4centos6andubuntuinstalllamp/" rel="next" title="SHELL实现CentOS6,Ubuntu16下自动下载,编译安装LAMP">
+                <i class="fa fa-chevron-left"></i> SHELL实现CentOS6,Ubuntu16下自动下载,编译安装LAMP
               </a>
             
           </div>
@@ -468,8 +494,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/07/30/quicklearnbsdev13/" rel="prev" title="第十三课-实战演练:用gulp+EJS像CMS那样生成完整新闻内容面">
-                第十三课-实战演练:用gulp+EJS像CMS那样生成完整新闻内容面 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/07/30/quicklearnbsdev2/" rel="prev" title="前端速学成财:第二课-知识点速学">
+                前端速学成财:第二课-知识点速学 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>

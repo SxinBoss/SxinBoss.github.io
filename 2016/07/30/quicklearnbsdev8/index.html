@@ -84,16 +84,40 @@
 
 
 
-<meta name="description" content="本博客为个人博客,记载开发中的各种心得,经验和踩过的坑...">
+<meta name="description" content="本节知识点:
+1、设置淘宝镜像源
+2、合并插件
+3、压缩插件
+1:设置镜像源
+来到nodejs安装目录-&amp;gt;node_modules-&amp;gt;npm-&amp;gt;npmrc(Linux:.npmrc)
+加上 registry=https://registry.npm.taobao.org
+2.合并插件
+npm install gulp-concat --save-dev12345678910var">
 <meta property="og:type" content="article">
 <meta property="og:title" content="前端速学成财:第八课-速玩JS文件合并和压缩">
 <meta property="og:url" content="http://blog.sxin.me/2016/07/30/quicklearnbsdev8/index.html">
 <meta property="og:site_name" content="SxinBoss的个人博客">
-<meta property="og:description" content="本博客为个人博客,记载开发中的各种心得,经验和踩过的坑...">
-<meta property="og:updated_time" content="2016-11-14T12:24:16.000Z">
+<meta property="og:description" content="本节知识点:
+1、设置淘宝镜像源
+2、合并插件
+3、压缩插件
+1:设置镜像源
+来到nodejs安装目录-&amp;gt;node_modules-&amp;gt;npm-&amp;gt;npmrc(Linux:.npmrc)
+加上 registry=https://registry.npm.taobao.org
+2.合并插件
+npm install gulp-concat --save-dev12345678910var">
+<meta property="og:updated_time" content="2016-11-14T12:29:52.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端速学成财:第八课-速玩JS文件合并和压缩">
-<meta name="twitter:description" content="本博客为个人博客,记载开发中的各种心得,经验和踩过的坑...">
+<meta name="twitter:description" content="本节知识点:
+1、设置淘宝镜像源
+2、合并插件
+3、压缩插件
+1:设置镜像源
+来到nodejs安装目录-&amp;gt;node_modules-&amp;gt;npm-&amp;gt;npmrc(Linux:.npmrc)
+加上 registry=https://registry.npm.taobao.org
+2.合并插件
+npm install gulp-concat --save-dev12345678910var">
 
 
 
@@ -322,7 +346,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-check-o"></i>
             </span>
-            <time title="Post modified" itemprop="dateModified" datetime="2016-11-14T20:24:16+08:00">
+            <time title="Post modified" itemprop="dateModified" datetime="2016-11-14T20:29:52+08:00">
               2016-11-14
             </time>
             
@@ -401,7 +425,18 @@
       
 
       
-        
+        <p>本节知识点:</p>
+<p>1、设置淘宝镜像源</p>
+<p>2、合并插件</p>
+<p>3、压缩插件</p>
+<p>1:设置镜像源</p>
+<p>来到nodejs安装目录-&gt;node_modules-&gt;npm-&gt;npmrc(Linux:.npmrc)</p>
+<p>加上 registry=<a href="https://registry.npm.taobao.org" target="_blank" rel="external">https://registry.npm.taobao.org</a></p>
+<p>2.合并插件</p>
+<p><code>npm install gulp-concat --save-dev</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">var gp=require(&quot;gulp&quot;);</div><div class="line">var gulp_concat = require(&quot;gulp-concat&quot;);</div><div class="line">gp.task(&quot;mytask&quot;,function () &#123;</div><div class="line">    gp.src([&apos;*.js&apos;,&apos;!gulpfile.js&apos;])</div><div class="line">        .pipe(gulp_concat(&quot;main.js&quot;))</div><div class="line">        .pipe(gp.dest(&apos;./build/js&apos;));</div><div class="line">    gp.src([&apos;*.css&apos;])</div><div class="line">        .pipe(concat(&quot;main.css&quot;))</div><div class="line">        .pipe(gp.dest(&apos;./build/css&apos;));</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>3.压缩插件</p>
+<p><code>npm install gulp-uglify --save-dev</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">var gp = require(&quot;gulp&quot;);</div><div class="line">var gulp_concat = require(&quot;gulp-concat&quot;);</div><div class="line">var gulp_uglify = require(&quot;gulp-uglify&quot;);</div><div class="line"></div><div class="line">gp.task(&quot;mytask&quot;, function () &#123;</div><div class="line">    gp.src([&apos;*.js&apos;, &apos;!gulpfile.js&apos;])</div><div class="line">        .pipe(gulp_concat(&quot;main.js&quot;))</div><div class="line">        .pipe(gulp_uglify())</div><div class="line">        .pipe(gp.dest(&apos;./build/js&apos;));</div><div class="line">    gp.src([&apos;*.css&apos;])</div><div class="line">        .pipe(gulp_concat(&quot;main.css&quot;))</div><div class="line">        .pipe(gp.dest(&apos;./build/css&apos;));</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+
       
     </div>
 
@@ -458,8 +493,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/07/30/quicklearnbsdev13/" rel="next" title="第十三课-实战演练:用gulp+EJS像CMS那样生成完整新闻内容面">
-                <i class="fa fa-chevron-left"></i> 第十三课-实战演练:用gulp+EJS像CMS那样生成完整新闻内容面
+              <a href="/2016/07/30/quicklearnbsdev2/" rel="next" title="前端速学成财:第二课-知识点速学">
+                <i class="fa fa-chevron-left"></i> 前端速学成财:第二课-知识点速学
               </a>
             
           </div>
@@ -468,8 +503,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/07/31/quicklearnbsdev3/" rel="prev" title="前端速学成财:第三课-粗糙的玩一玩javascript的"编译"">
-                前端速学成财:第三课-粗糙的玩一玩javascript的"编译" <i class="fa fa-chevron-right"></i>
+              <a href="/2016/07/30/quicklearnbsdev13/" rel="prev" title="第十三课-实战演练:用gulp+EJS像CMS那样生成完整新闻内容面">
+                第十三课-实战演练:用gulp+EJS像CMS那样生成完整新闻内容面 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>

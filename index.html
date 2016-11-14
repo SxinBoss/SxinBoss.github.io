@@ -326,7 +326,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-check-o"></i>
             </span>
-            <time title="Post modified" itemprop="dateModified" datetime="2016-11-14T20:26:31+08:00">
+            <time title="Post modified" itemprop="dateModified" datetime="2016-11-14T20:31:51+08:00">
               2016-11-14
             </time>
             
@@ -406,9 +406,23 @@
 
       
         
-          
-            
-          
+          <p>登录页面,基本要素如下:</p>
+<p>1.页面展示</p>
+<p>2.基本脚本判断</p>
+<p>3.后端交互</p>
+<p>为了逼格,我们开始创建文件夹层级.</p>
+<p>在项目根目录下创建<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">src</div><div class="line">  --main.js</div><div class="line">  --tpl</div><div class="line">    --login.html(后缀随意)</div></pre></td></tr></table></figure></p>
+<p>注意:一旦发布到生成环境,以上文件是不需要上传到服务器上的</p>
+<p>1.利用我们之前学习的gulp-webpack把JS编译</p>
+<p>2.利用gulp把tpl下面的文件生成到build/html里面</p>
+<p>login.html<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html lang=&quot;en&quot;&gt;</div><div class="line">&lt;head&gt;</div><div class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</div><div class="line">    &lt;title&gt;Title&lt;/title&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">&lt;h2&gt;用户登录&lt;/h2&gt;</div><div class="line">&lt;div&gt;用户名&lt;/div&gt;</div><div class="line">&lt;div&gt;&lt;input type=&quot;text&quot; id=&quot;txtUserName&quot;&gt;&lt;/div&gt;</div><div class="line">&lt;div&gt;密码&lt;/div&gt;</div><div class="line">&lt;div&gt;&lt;input type=&quot;password&quot; id=&quot;txtUserPwd&quot;&gt;&lt;/div&gt;</div><div class="line">&lt;div&gt;</div><div class="line">    &lt;button id=&quot;btnLogin&quot;&gt;登录&lt;/button&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;!--本节课引用js先写死在这 --&gt;</div><div class="line">&lt;script src=&quot;../js/build.js&quot;&gt;&lt;/script&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure></p>
+          <!--noindex-->
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/08/19/quicklearnbsdev14/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -445,7 +459,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://blog.sxin.me/2016/08/18/quicklearnbsdev7/">
+  <link itemprop="mainEntityOfPage" href="http://blog.sxin.me/2016/08/18/quicklearnbsdev9/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="SxinBoss">
@@ -470,8 +484,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/08/18/quicklearnbsdev7/" itemprop="url">
-                  前端速学成财:第七课-前端"清洁大妈"的产生
+                <a class="post-title-link" href="/2016/08/18/quicklearnbsdev9/" itemprop="url">
+                  第九课-webpack篇:编译JS的正确姿势
                 </a>
               
             
@@ -493,7 +507,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-check-o"></i>
             </span>
-            <time title="Post modified" itemprop="dateModified" datetime="2016-11-14T20:23:54+08:00">
+            <time title="Post modified" itemprop="dateModified" datetime="2016-11-14T20:30:12+08:00">
               2016-11-14
             </time>
             
@@ -536,8 +550,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/08/18/quicklearnbsdev7/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/18/quicklearnbsdev7/" itemprop="commentCount"></span>
+                <a href="/2016/08/18/quicklearnbsdev9/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/18/quicklearnbsdev9/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -547,7 +561,7 @@
 
           
           
-             <span id="/2016/08/18/quicklearnbsdev7/" class="leancloud_visitors" data-flag-title="前端速学成财:第七课-前端"清洁大妈"的产生">
+             <span id="/2016/08/18/quicklearnbsdev9/" class="leancloud_visitors" data-flag-title="第九课-webpack篇:编译JS的正确姿势">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -573,176 +587,30 @@
 
       
         
-          
-            
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://blog.sxin.me/2016/08/18/quicklearnbsdev10/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="SxinBoss">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="http://7xskk8.com1.z0.glb.clouddn.com/blog_touxiang.png">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="SxinBoss的个人博客">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="SxinBoss的个人博客" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/18/quicklearnbsdev10/" itemprop="url">
-                  第十课-混合篇:webpack和gulp"勾结"初步
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-08-18T00:00:00+08:00">
-              2016-08-18
-            </time>
-
-            &nbsp;|&nbsp;
-
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-check-o"></i>
-            </span>
-            <time title="Post modified" itemprop="dateModified" datetime="2016-11-14T20:25:11+08:00">
-              2016-11-14
-            </time>
-            
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/前端专区/" itemprop="url" rel="index">
-                    <span itemprop="name">前端专区</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/前端专区/前端速学成财/" itemprop="url" rel="index">
-                    <span itemprop="name">前端速学成财</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/08/18/quicklearnbsdev10/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/18/quicklearnbsdev10/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/08/18/quicklearnbsdev10/" class="leancloud_visitors" data-flag-title="第十课-混合篇:webpack和gulp"勾结"初步">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-          
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            
-          
+          <p>本节知识点:</p>
+<p>1.速度了解CommonJS</p>
+<p>2.安装webpack</p>
+<p>3.编译我们的JS</p>
+<p>1.CommonJS是一个规范(<a href="http://commonjs.org">http://commonjs.org</a>)</p>
+<p>譬如:一个单独的文件就是一个模块.使用require来加载模块,返回文件内部的exports对象</p>
+<p>大家看是否和NodeJS的写法很像？确实,NodeJS实现并推动了这个规范(一大部分)</p>
+<p>有了这个规范<strong>JS可以在任何地方运行,不只是浏览器中(未来很多只要兼容CommonJS规范的系统都可以用JavaScript来开发)</strong></p>
+<p>课后:请大家回去查询其他规范,如AMD、CMD规范等(譬如看下Require.Js,)</p>
+<p>遵循这个规范 然后呢？</p>
+<p>这时一个前端构建框架–webpack产生了(模块打包)</p>
+<p>它能帮我们把本来需要在服务端运行的JS代码,通过模块的引用和依赖打包成前端可用的静态文件</p>
+<p>2.安装</p>
+<p><code>npm install -g webpack</code></p>
+<p>设置配置文件</p>
+<p>在项目根目录下新建一个webpack.config.js<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">module.exports=</div><div class="line">&#123;</div><div class="line">    entry:[    //entry是入口文件 可以多个</div><div class="line">        __dirname+&apos;/sxin.js&apos;</div><div class="line">    ],</div><div class="line">    output:&#123;</div><div class="line">        path:__dirname+&apos;/build/js&apos;,</div><div class="line">        filename:&apos;build.js&apos;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>运行webpack<br>
+          <!--noindex-->
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/08/18/quicklearnbsdev9/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -827,7 +695,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-check-o"></i>
             </span>
-            <time title="Post modified" itemprop="dateModified" datetime="2016-11-14T20:25:35+08:00">
+            <time title="Post modified" itemprop="dateModified" datetime="2016-11-14T20:30:46+08:00">
               2016-11-14
             </time>
             
@@ -908,7 +776,15 @@
       
         
           
-            
+            <p>上节课 我们利用gulp-webpack插件，把我们安装的gulp和webpack结合并实现了js的编译到压缩一步搞定。</p>
+<p>但是问题来了,前端开发总不能只写JS吧,如果我把开发html页面啥的咋整?</p>
+<p>gulp模板插件:</p>
+<p><code>npm install gulp-template --save-dev</code></p>
+<p>通过这个插件,我们可以像写后台模板一样写前端页面.首先我们来学习下写法</p>
+<p>index.html 模板<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html lang=&quot;en&quot;&gt;</div><div class="line">&lt;head&gt;</div><div class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</div><div class="line">    &lt;title&gt;Title&lt;/title&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">    &lt;h1&gt;大家好,我的年龄&lt;%=age %&gt;&lt;/h1&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure></p>
+<p>gulpfile.js<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">var gulp_tpl = require(&apos;gulp-template&apos;);</div><div class="line"></div><div class="line">gp.task(&quot;page&quot;, function () &#123;</div><div class="line">    gp.src([&apos;index.html&apos;])</div><div class="line">        .pipe(gulp_tpl(</div><div class="line">            &#123;</div><div class="line">                &quot;age&quot;:20</div><div class="line">            &#125;</div><div class="line">        ))</div><div class="line">        .pipe(gp.dest(&apos;./build/html&apos;));</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>gulp page</p>
+
           
         
       
@@ -994,7 +870,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-check-o"></i>
             </span>
-            <time title="Post modified" itemprop="dateModified" datetime="2016-11-14T20:25:56+08:00">
+            <time title="Post modified" itemprop="dateModified" datetime="2016-11-14T20:31:05+08:00">
               2016-11-14
             </time>
             
@@ -1074,9 +950,21 @@
 
       
         
-          
-            
-          
+          <p>上节课 我们通过gulp-template 写入静态数据生成了一个HTML文件</p>
+<p>那么这节课 我们继续实战提高一下</p>
+<p>NodeJS Request模块</p>
+<p><code>npm instal request --save-dev</code></p>
+<p>有了这个库,我们可以在NodeJS里面方便的实现类似curl功能</p>
+<p><code>npm install gulp-rename --save-dev</code></p>
+<p>news.php<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;?php</div><div class="line">    $news=new stdClass();</div><div class="line">    $news-&gt;id=123;</div><div class="line">    $news-&gt;title=&quot;标题&quot;;</div><div class="line">    $news-&gt;content=&quot;内容&quot;;</div><div class="line">    exit(json_encode($news));</div></pre></td></tr></table></figure></p>
+<p>将我们前几节课的node_modules/sxin/slib.js 改造下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">var req=require(&quot;request&quot;);</div><div class="line"></div><div class="line">exports.loadNews=function(doSomething)&#123;</div><div class="line">	req.get(&quot;http://localhost:1024/news.php&quot;,function (err,response,body) &#123;</div><div class="line">		if (!err &amp;&amp; response.statusCode==200)</div><div class="line">		&#123;</div><div class="line">			doSomething(body);</div><div class="line">		&#125;</div><div class="line">	&#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+          <!--noindex-->
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/08/18/quicklearnbsdev12/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1113,7 +1001,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://blog.sxin.me/2016/08/18/quicklearnbsdev9/">
+  <link itemprop="mainEntityOfPage" href="http://blog.sxin.me/2016/08/18/quicklearnbsdev7/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="SxinBoss">
@@ -1138,8 +1026,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/08/18/quicklearnbsdev9/" itemprop="url">
-                  第九课-webpack篇:编译JS的正确姿势
+                <a class="post-title-link" href="/2016/08/18/quicklearnbsdev7/" itemprop="url">
+                  前端速学成财:第七课-前端"清洁大妈"的产生
                 </a>
               
             
@@ -1161,7 +1049,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-check-o"></i>
             </span>
-            <time title="Post modified" itemprop="dateModified" datetime="2016-11-14T20:24:46+08:00">
+            <time title="Post modified" itemprop="dateModified" datetime="2016-11-14T20:29:34+08:00">
               2016-11-14
             </time>
             
@@ -1204,8 +1092,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/08/18/quicklearnbsdev9/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/18/quicklearnbsdev9/" itemprop="commentCount"></span>
+                <a href="/2016/08/18/quicklearnbsdev7/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/18/quicklearnbsdev7/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1215,7 +1103,7 @@
 
           
           
-             <span id="/2016/08/18/quicklearnbsdev9/" class="leancloud_visitors" data-flag-title="第九课-webpack篇:编译JS的正确姿势">
+             <span id="/2016/08/18/quicklearnbsdev7/" class="leancloud_visitors" data-flag-title="前端速学成财:第七课-前端"清洁大妈"的产生">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1242,8 +1130,204 @@
       
         
           
+            <p>本节知识点:</p>
+<p>1.模拟一个需求</p>
+<p>2.了解什么是管道</p>
+<p>3.测试src.pipe.dest函数</p>
+<p>1.需求：<br>项目坐到后面,文件存放”越来越乱”,这也是在项目初期很正常的,尤其是参差不齐的队友参与后.</p>
+<p>譬如 我们经常会碰到队友在项目目录下随便编写JS</p>
+<p>那么,作为项目组长往往我们要”归类”.</p>
+<p>然而，手工拷贝？当然不可能了.</p>
+<p>2.管道:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">Linux:</div><div class="line">cat 1 | grep 123</div><div class="line">Windows:</div><div class="line">type 1.txt | findstr 123</div><div class="line">这里的 | 是管道符.把前面执行的结果变成后边的参数</div><div class="line">3.gulp函数</div><div class="line">gulp.src([文件1,文件2,文件3]) 用来&quot;收集&quot;源文件形成&quot;虚拟文件对象流&quot;(术语听不懂请飘过,没必要立刻懂)</div><div class="line">PS:个人理解就是  类似于File.read读文件到内存。</div><div class="line">然后通过&quot;管道&quot;函数pipe传给它另外一个写文件的函数dest</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">gp.task(&quot;mytask&quot;,function () &#123;</div><div class="line">    gp.src([&apos;*.js&apos;,&apos;!gulpfile.js&apos;])</div><div class="line">        .pipe(gp.dest(&apos;./build/js&apos;));</div><div class="line">    gp.src([&apos;*.css&apos;])</div><div class="line">        .pipe(gp.dest(&apos;./build/css&apos;));</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>通配符:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">*  : 匹配所有文件</div><div class="line">** : 匹配0个或多个子文件夹</div><div class="line">&#123;&#125; : 匹配多个属性</div><div class="line">!  : 排除文件</div></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://blog.sxin.me/2016/08/18/quicklearnbsdev10/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="SxinBoss">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="http://7xskk8.com1.z0.glb.clouddn.com/blog_touxiang.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="SxinBoss的个人博客">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="SxinBoss的个人博客" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/08/18/quicklearnbsdev10/" itemprop="url">
+                  第十课-混合篇:webpack和gulp"勾结"初步
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-08-18T00:00:00+08:00">
+              2016-08-18
+            </time>
+
+            &nbsp;|&nbsp;
+
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-check-o"></i>
+            </span>
+            <time title="Post modified" itemprop="dateModified" datetime="2016-11-14T20:30:31+08:00">
+              2016-11-14
+            </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端专区/" itemprop="url" rel="index">
+                    <span itemprop="name">前端专区</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端专区/前端速学成财/" itemprop="url" rel="index">
+                    <span itemprop="name">前端速学成财</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/18/quicklearnbsdev10/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/18/quicklearnbsdev10/" itemprop="commentCount"></span>
+                </a>
+              </span>
             
           
+
+          
+
+          
+          
+             <span id="/2016/08/18/quicklearnbsdev10/" class="leancloud_visitors" data-flag-title="第十课-混合篇:webpack和gulp"勾结"初步">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>1.gulp插件(这是一个可以无比方便的关联gulp和webpack的插件)</p>
+<p><code>npm install gulp-webpack --save-dev</code></p>
+<p>2.我们设定一个需求</p>
+<p>1、首先使用CommonJS规范编写代码</p>
+<p>2、利用webpack编译JS文件</p>
+<p>3、编译好后用gulp压缩</p>
+<p>注意:需要一次性完成,而不是敲两次命令</p>
+<p>gulpfile.js<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">var gp = require(&quot;gulp&quot;);</div><div class="line">var gulp_concat = require(&quot;gulp-concat&quot;);</div><div class="line">var gulp_uglify = require(&quot;gulp-uglify&quot;);</div><div class="line"></div><div class="line">var gulp_webpack=require(&quot;gulp-webpack&quot;);</div><div class="line"></div><div class="line">gp.task(&quot;mytask&quot;, function () &#123;</div><div class="line">    gp.src([&apos;sxin.js&apos;])</div><div class="line">        .pipe(gulp_webpack())</div><div class="line">        .pipe(gulp_uglify())</div><div class="line">        .pipe(gp.dest(&apos;./build/js&apos;));</div><div class="line">    gp.src([&apos;*.css&apos;])</div><div class="line">        .pipe(gulp_concat(&quot;main.css&quot;))</div><div class="line">        .pipe(gp.dest(&apos;./build/css&apos;));</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>gulp mytask</p>
+<p>运行后发现，生成的文件名是随机的.</p>
+<p>然后我们可以发现</p>
+<p>1、没有加载webpack配置文件</p>
+<p>2、同事并没有调用我们上节课独立安装的webpack(请注意,gulp-webpack插件中有个webpack)</p>
+<p>事实上,项目开发中我们肯定是需要调用我们自己”独立”安装的webpack(版本可控)<br>
+          <!--noindex-->
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/08/18/quicklearnbsdev10/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1328,7 +1412,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-check-o"></i>
             </span>
-            <time title="Post modified" itemprop="dateModified" datetime="2016-11-14T20:23:29+08:00">
+            <time title="Post modified" itemprop="dateModified" datetime="2016-11-14T20:29:14+08:00">
               2016-11-14
             </time>
             
@@ -1409,7 +1493,24 @@
       
         
           
-            
+            <p>本节知识点:</p>
+<p>1.快速理解gulp</p>
+<p>2.安装和测试</p>
+<p>3.执行我们第一个任务</p>
+<p>通过便面的”开脑”课时,我们会发现:</p>
+<p>在前段开发过程中有很多事是我们”纯手工”很难或者很麻烦才能搞定的,因此需要借助一些优秀的第三方工具.</p>
+<p>1.譬如JS文件的”编译”(这里还包含了不同语法的兼容)</p>
+<p>2.JS和CSS的合并</p>
+<p>3.文件的压缩</p>
+<p>4.多人协作开发</p>
+<p>5.即时运行和监听等</p>
+<p>gulp只是一个主框架,他还要和许多插件配合使用.</p>
+<p>生成package.json:<code>npm init</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">npm install -g</div><div class="line">如果不加-g 则会安装到当前目录下</div><div class="line">加上-g就会安装到一个全局目录里</div><div class="line">我们可以通过npm config get prefix 查看全局目录</div><div class="line">也可以通过npm config set prefix &quot;目录路径&quot; 来设置</div><div class="line">一般来说,工具性模块:我们需要在任意目录都想用的工具,使用全局安装.</div></pre></td></tr></table></figure></p>
+<h4 id="安装gulp"><a href="#安装gulp" class="headerlink" title="安装gulp"></a><strong>安装gulp</strong></h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">npm install -g gulp</div><div class="line">npm install gulp --save-dev</div></pre></td></tr></table></figure>
+<h4 id="gulp配置文件"><a href="#gulp配置文件" class="headerlink" title="gulp配置文件"></a><strong>gulp配置文件</strong></h4><p>要正确运行首先要建一个配置文件.</p>
+<p>在当前项目目录下创建gulpfile.js(这个所谓的配置文件是可以写代码的,不是想文本配置文件那样)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var gp=require(&quot;gulp&quot;);</div><div class="line">gp.task(&quot;mytask&quot;,function()&#123;</div><div class="line">	console.log(&quot;my first gulp task&quot;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<h4 id="执行gulp任务"><a href="#执行gulp任务" class="headerlink" title="执行gulp任务"></a><strong>执行gulp任务</strong></h4><p><code>gulp mytask</code></p>
+
           
         
       
@@ -1495,7 +1596,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-check-o"></i>
             </span>
-            <time title="Post modified" itemprop="dateModified" datetime="2016-11-14T20:23:08+08:00">
+            <time title="Post modified" itemprop="dateModified" datetime="2016-11-14T20:28:58+08:00">
               2016-11-14
             </time>
             
@@ -1576,7 +1677,22 @@
       
         
           
-            
+            <p>本节知识点:</p>
+<p>1.CSS图片引用</p>
+<p>2.NodeJs读取图片</p>
+<p>3.把图片替换成Base64编码</p>
+<p>回顾:<br>上节课我们自己模拟了一种粗糙的自己模拟的”编译”概念:</p>
+<p>当我们应用CSS的时候，就用NODEJS读取，然后写入JS中</p>
+<p>(目前我们的做法完全是为了后面的学习打基础、开脑。请大家不要过于执着)</p>
+<p>正文:</p>
+<p>如果我的css里面有图片的应用，譬如</p>
+<p><code>*{color:red;background:url(&quot;./s.png&quot;)}</code></p>
+<p>我们首先要知道，在实际网站运行中，一个图片也会增加一次http请求。那怎么处理比较好呢？</p>
+<p>我们可以把图片变成Base64编码来加载.</p>
+<p>第一步：用正则取出图片路径<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var pattern=/[&apos;|&quot;](.*\.png)[&apos;|&quot;]/g;</div><div class="line">var res;</div><div class="line">while(res=pattern.exec(data.toString()))</div><div class="line">&#123;</div><div class="line">    //res[0] 包含双(单)引号 res[1]不包含</div><div class="line">    console.log(res[1]);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>上节课读文件readFile是用的异步的,此时 我们要用同步的方式来读图片<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">file.readFile(&apos;./test.css&apos;,&apos;utf-8&apos;,function(err,data)&#123;</div><div class="line">    if(err)&#123;</div><div class="line">    &#125;else&#123;</div><div class="line">		var pattern=/[&apos;|&quot;](.*\.png)[&apos;|&quot;]/g;</div><div class="line">		var res;</div><div class="line">		while(res=pattern.exec(data.toString())) &#123;</div><div class="line">            //res[0] 包含双(单)引号 res[1]不包含</div><div class="line">            var getImg = file.readFileSync(res[1]).toString(&quot;base64&quot;);</div><div class="line">            data=data.toString().replace(res[1],&quot;data:image/jpg;base64,&quot;+getImg);</div><div class="line">            file.appendFile(&apos;build.js&apos;,&quot;document.write(&apos;&lt;style&gt;&quot;+data+&quot;&lt;/style&gt;&apos;)&quot;);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p>用Base64编码代替图片的好处和注意点:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">1.减少服务器的请求(变成Base64编码会缓存到本地,再次刷新访问 不会去请求服务器)</div><div class="line">2.写入CSS后,可以压缩(gzip,各种方法)</div><div class="line">3.如果是频繁需要更新的图片不建议这么做</div><div class="line">4.IE6、7是不支持的</div></pre></td></tr></table></figure></p>
+
           
         
       
@@ -1662,7 +1778,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-check-o"></i>
             </span>
-            <time title="Post modified" itemprop="dateModified" datetime="2016-11-14T20:22:31+08:00">
+            <time title="Post modified" itemprop="dateModified" datetime="2016-11-14T20:28:43+08:00">
               2016-11-14
             </time>
             
@@ -1743,7 +1859,18 @@
       
         
           
-            
+            <p>1.读取文件的函数</p>
+<p>2.发明个编译CSS的过程</p>
+<p>上节课我们模拟了一个所以的”JS编译”,今天的问题是:如果是CSS文件咋办？</p>
+<p>我们先新建个test.css<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">*&#123;color:red&#125;</div></pre></td></tr></table></figure></p>
+<p>如果正常引用<br>那么网页文字全部变成红色.</p>
+<p>如果我们按照上节课的思路.require css文件进来</p>
+<p>发现会报错的.它会把require进来的文件当前脚本来解析。</p>
+<p>那么CSS到底要怎么”编译”呢?</p>
+<p>很简单，为了简化思路我们做如下步骤。<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">1、如果是js文件，正常的require</div><div class="line">2、如果是css文件，则直接读取文件内容</div><div class="line">3、然后往编译文件里写个脚本“加入style”</div></pre></td></tr></table></figure></p>
+<p>以上只不过是 一个思路借鉴。不要太过于纠结</p>
+<p>最后代码:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">var getlib=require(&apos;sxin&apos;);</div><div class="line">var getage=require(&quot;./bb&quot;);</div><div class="line">var file=require(&apos;fs&apos;);</div><div class="line"></div><div class="line">function genCode(key,value)</div><div class="line">&#123;</div><div class="line">    return &apos;var &apos;+key+&apos;=&apos;+value+&apos;;\n&apos;;</div><div class="line">&#125;</div><div class="line"></div><div class="line">file.writeFile(&quot;build.js&quot;,&quot;&quot;);</div><div class="line"></div><div class="line">for(var i=0;i&lt; global.process.mainModule.children.length;i++)</div><div class="line">&#123;</div><div class="line">    var child=global.process.mainModule.children[i];</div><div class="line">    for(var bb in child.exports)// child.exports就是我们导出的属性</div><div class="line">        file.appendFile(&apos;build.js&apos;,genCode(bb,child.exports[bb]));</div><div class="line">&#125;</div><div class="line"></div><div class="line">file.readFile(&apos;./test.css&apos;,&apos;utf-8&apos;,function(err,data)&#123;</div><div class="line">    if(err)&#123;</div><div class="line">    &#125;else&#123;</div><div class="line">        file.appendFile(&apos;build.js&apos;,&quot;document.write(&apos;&lt;style&gt;&quot;+data+&quot;&lt;/style&gt;&apos;)&quot;);</div><div class="line">    &#125;</div><div class="line">&#125;)</div><div class="line"></div><div class="line">console.log(&quot;生成成功&quot;);</div></pre></td></tr></table></figure></p>
+
           
         
       
@@ -1829,7 +1956,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-check-o"></i>
             </span>
-            <time title="Post modified" itemprop="dateModified" datetime="2016-11-14T20:22:04+08:00">
+            <time title="Post modified" itemprop="dateModified" datetime="2016-11-14T20:28:23+08:00">
               2016-11-14
             </time>
             
@@ -1909,9 +2036,27 @@
 
       
         
-          
-            
-          
+          <p>1.学会对象属性获取</p>
+<p>2.NodeJS的FS模块使用</p>
+<p>3.发明个”编译”JS的过程</p>
+<p>4.简单了解global对象</p>
+<p>1.根据前两节课我们发现<br>js文件需要考node来解析才能运行,那这个和我们发开前端有什么关系呢?</p>
+<p>比如:我们新建一个HTML(index.html) ,然后在代码里 引用我们上节课的aa.js</p>
+<p><code>&lt;script src=&quot;aa.js&quot;&gt;&lt;/script&gt;</code></p>
+<p>然后我们发现并不能运行。</p>
+<p><code>ReferenceError: require is not defined</code></p>
+<p>因为 目前为止 浏览器里还不支持require(不代表未来不支持)</p>
+<p>我们开动大脑想一想：</p>
+<pre><code>既然node能运行aa.js,name我们是否通过nodejs把require出来的东西给生成一个js文件呢
+</code></pre><p>首先我们把<code>var getlib=require(&#39;./slib&#39;);</code> 这里的getlib打印出来 看看他是什么.</p>
+<p><code>{ age: 20, showName: [Function] }</code><br>
+          <!--noindex-->
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/07/31/quicklearnbsdev3/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>

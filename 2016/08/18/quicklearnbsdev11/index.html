@@ -84,16 +84,31 @@
 
 
 
-<meta name="description" content="本博客为个人博客,记载开发中的各种心得,经验和踩过的坑...">
+<meta name="description" content="上节课 我们利用gulp-webpack插件，把我们安装的gulp和webpack结合并实现了js的编译到压缩一步搞定。
+但是问题来了,前端开发总不能只写JS吧,如果我把开发html页面啥的咋整?
+gulp模板插件:
+npm install gulp-template --save-dev
+通过这个插件,我们可以像写后台模板一样写前端页面.首先我们来学习下写法
+index.html 模板12345">
 <meta property="og:type" content="article">
 <meta property="og:title" content="第十一课-实战演练:用gulp 构建前端页面(1)—静态构建">
 <meta property="og:url" content="http://blog.sxin.me/2016/08/18/quicklearnbsdev11/index.html">
 <meta property="og:site_name" content="SxinBoss的个人博客">
-<meta property="og:description" content="本博客为个人博客,记载开发中的各种心得,经验和踩过的坑...">
-<meta property="og:updated_time" content="2016-11-14T12:25:35.000Z">
+<meta property="og:description" content="上节课 我们利用gulp-webpack插件，把我们安装的gulp和webpack结合并实现了js的编译到压缩一步搞定。
+但是问题来了,前端开发总不能只写JS吧,如果我把开发html页面啥的咋整?
+gulp模板插件:
+npm install gulp-template --save-dev
+通过这个插件,我们可以像写后台模板一样写前端页面.首先我们来学习下写法
+index.html 模板12345">
+<meta property="og:updated_time" content="2016-11-14T12:30:46.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第十一课-实战演练:用gulp 构建前端页面(1)—静态构建">
-<meta name="twitter:description" content="本博客为个人博客,记载开发中的各种心得,经验和踩过的坑...">
+<meta name="twitter:description" content="上节课 我们利用gulp-webpack插件，把我们安装的gulp和webpack结合并实现了js的编译到压缩一步搞定。
+但是问题来了,前端开发总不能只写JS吧,如果我把开发html页面啥的咋整?
+gulp模板插件:
+npm install gulp-template --save-dev
+通过这个插件,我们可以像写后台模板一样写前端页面.首先我们来学习下写法
+index.html 模板12345">
 
 
 
@@ -322,7 +337,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-check-o"></i>
             </span>
-            <time title="Post modified" itemprop="dateModified" datetime="2016-11-14T20:25:35+08:00">
+            <time title="Post modified" itemprop="dateModified" datetime="2016-11-14T20:30:46+08:00">
               2016-11-14
             </time>
             
@@ -401,7 +416,15 @@
       
 
       
-        
+        <p>上节课 我们利用gulp-webpack插件，把我们安装的gulp和webpack结合并实现了js的编译到压缩一步搞定。</p>
+<p>但是问题来了,前端开发总不能只写JS吧,如果我把开发html页面啥的咋整?</p>
+<p>gulp模板插件:</p>
+<p><code>npm install gulp-template --save-dev</code></p>
+<p>通过这个插件,我们可以像写后台模板一样写前端页面.首先我们来学习下写法</p>
+<p>index.html 模板<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html lang=&quot;en&quot;&gt;</div><div class="line">&lt;head&gt;</div><div class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</div><div class="line">    &lt;title&gt;Title&lt;/title&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">    &lt;h1&gt;大家好,我的年龄&lt;%=age %&gt;&lt;/h1&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure></p>
+<p>gulpfile.js<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">var gulp_tpl = require(&apos;gulp-template&apos;);</div><div class="line"></div><div class="line">gp.task(&quot;page&quot;, function () &#123;</div><div class="line">    gp.src([&apos;index.html&apos;])</div><div class="line">        .pipe(gulp_tpl(</div><div class="line">            &#123;</div><div class="line">                &quot;age&quot;:20</div><div class="line">            &#125;</div><div class="line">        ))</div><div class="line">        .pipe(gp.dest(&apos;./build/html&apos;));</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>gulp page</p>
+
       
     </div>
 
@@ -468,8 +491,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/08/18/quicklearnbsdev10/" rel="prev" title="第十课-混合篇:webpack和gulp"勾结"初步">
-                第十课-混合篇:webpack和gulp"勾结"初步 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/08/18/quicklearnbsdev9/" rel="prev" title="第九课-webpack篇:编译JS的正确姿势">
+                第九课-webpack篇:编译JS的正确姿势 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
