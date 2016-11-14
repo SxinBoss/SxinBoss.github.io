@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Centos,Subversion," />
+  <meta name="keywords" content="centos6,php,httpd,mysql," />
 
 
 
@@ -84,25 +84,28 @@
 
 
 
-<meta name="description" content="安装Subversion#yum install -y subversion
-iptables -I INPUT -p tcp --dport 3690 -j ACCEPT
-service iptables save
-创建svn版本库目录12345$mkdir -p ~/svn/$mkdir ~/svn/test$cd ~/svn$svnadmin create test$cd test/conf">
+<meta name="description" content="腾讯云重装了CentOS系统，记录下重装后的环境搭建步骤。
+#yum install -y gcc g++ gcc-c++
+新建用户12#useradd sxin#passwd sxin
+我习惯在/usr/local下建立自己的目录然后把环境全部放在此目录下12#mkdir /usr/local/sxin#chown sxin:sxin /usr/local/sxin
+切换到sxin用户123$c">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Centos安装配置Subversion">
-<meta property="og:url" content="http://blog.sxin.me/2016/06/28/centosinstallconfigsubversion/index.html">
+<meta property="og:title" content="CentOS6下的PHP,HTTPD,MYSQL等环境搭建">
+<meta property="og:url" content="http://blog.sxin.me/2016/11/14/centos6bulid-php-httpd-mysql-md/index.html">
 <meta property="og:site_name" content="SxinBoss的个人博客">
-<meta property="og:description" content="安装Subversion#yum install -y subversion
-iptables -I INPUT -p tcp --dport 3690 -j ACCEPT
-service iptables save
-创建svn版本库目录12345$mkdir -p ~/svn/$mkdir ~/svn/test$cd ~/svn$svnadmin create test$cd test/conf">
-<meta property="og:updated_time" content="2016-11-14T11:37:20.000Z">
+<meta property="og:description" content="腾讯云重装了CentOS系统，记录下重装后的环境搭建步骤。
+#yum install -y gcc g++ gcc-c++
+新建用户12#useradd sxin#passwd sxin
+我习惯在/usr/local下建立自己的目录然后把环境全部放在此目录下12#mkdir /usr/local/sxin#chown sxin:sxin /usr/local/sxin
+切换到sxin用户123$c">
+<meta property="og:updated_time" content="2016-11-14T11:40:27.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Centos安装配置Subversion">
-<meta name="twitter:description" content="安装Subversion#yum install -y subversion
-iptables -I INPUT -p tcp --dport 3690 -j ACCEPT
-service iptables save
-创建svn版本库目录12345$mkdir -p ~/svn/$mkdir ~/svn/test$cd ~/svn$svnadmin create test$cd test/conf">
+<meta name="twitter:title" content="CentOS6下的PHP,HTTPD,MYSQL等环境搭建">
+<meta name="twitter:description" content="腾讯云重装了CentOS系统，记录下重装后的环境搭建步骤。
+#yum install -y gcc g++ gcc-c++
+新建用户12#useradd sxin#passwd sxin
+我习惯在/usr/local下建立自己的目录然后把环境全部放在此目录下12#mkdir /usr/local/sxin#chown sxin:sxin /usr/local/sxin
+切换到sxin用户123$c">
 
 
 
@@ -130,13 +133,13 @@ service iptables save
 
 
 
-  <link rel="canonical" href="http://blog.sxin.me/2016/06/28/centosinstallconfigsubversion/"/>
+  <link rel="canonical" href="http://blog.sxin.me/2016/11/14/centos6bulid-php-httpd-mysql-md/"/>
 
 
 
 
 
-  <title> Centos安装配置Subversion | SxinBoss的个人博客 </title>
+  <title> CentOS6下的PHP,HTTPD,MYSQL等环境搭建 | SxinBoss的个人博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -286,7 +289,7 @@ service iptables save
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://blog.sxin.me/2016/06/28/centosinstallconfigsubversion/">
+  <link itemprop="mainEntityOfPage" href="http://blog.sxin.me/2016/11/14/centos6bulid-php-httpd-mysql-md/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="SxinBoss">
@@ -310,7 +313,7 @@ service iptables save
             
             
               
-                Centos安装配置Subversion
+                CentOS6下的PHP,HTTPD,MYSQL等环境搭建
               
             
           </h1>
@@ -322,8 +325,8 @@ service iptables save
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-06-28T00:00:00+08:00">
-              2016-06-28
+            <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-14T19:39:03+08:00">
+              2016-11-14
             </time>
 
             &nbsp;|&nbsp;
@@ -331,7 +334,7 @@ service iptables save
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-check-o"></i>
             </span>
-            <time title="Post modified" itemprop="dateModified" datetime="2016-11-14T19:37:20+08:00">
+            <time title="Post modified" itemprop="dateModified" datetime="2016-11-14T19:40:27+08:00">
               2016-11-14
             </time>
             
@@ -374,8 +377,8 @@ service iptables save
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/06/28/centosinstallconfigsubversion/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/28/centosinstallconfigsubversion/" itemprop="commentCount"></span>
+                <a href="/2016/11/14/centos6bulid-php-httpd-mysql-md/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/14/centos6bulid-php-httpd-mysql-md/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -385,7 +388,7 @@ service iptables save
 
           
           
-             <span id="/2016/06/28/centosinstallconfigsubversion/" class="leancloud_visitors" data-flag-title="Centos安装配置Subversion">
+             <span id="/2016/11/14/centos6bulid-php-httpd-mysql-md/" class="leancloud_visitors" data-flag-title="CentOS6下的PHP,HTTPD,MYSQL等环境搭建">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -410,13 +413,23 @@ service iptables save
       
 
       
-        <h3 id="安装Subversion"><a href="#安装Subversion" class="headerlink" title="安装Subversion"></a>安装Subversion</h3><p><code>#yum install -y subversion</code></p>
-<p><code>iptables -I INPUT -p tcp --dport 3690 -j ACCEPT</code></p>
-<p><code>service iptables save</code></p>
-<h4 id="创建svn版本库目录"><a href="#创建svn版本库目录" class="headerlink" title="创建svn版本库目录"></a><strong>创建svn版本库目录</strong></h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$mkdir -p ~/svn/</div><div class="line">$mkdir ~/svn/test</div><div class="line">$cd ~/svn</div><div class="line">$svnadmin create test</div><div class="line">$cd test/conf</div></pre></td></tr></table></figure>
-<a id="more"></a>
-<h4 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a><strong>修改配置文件</strong></h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">passwd</div><div class="line">[users]</div><div class="line">sxin = 123456</div><div class="line"></div><div class="line">authz</div><div class="line">[groups]</div><div class="line">manager = sxin</div><div class="line"></div><div class="line">[test:/]</div><div class="line">@manager=rw</div><div class="line"></div><div class="line">svnserver.conf</div><div class="line">password-db = passwd</div><div class="line">authz-db = authz</div><div class="line">realm = test</div></pre></td></tr></table></figure>
-<h4 id="开启服务"><a href="#开启服务" class="headerlink" title="开启服务"></a><strong>开启服务</strong></h4><p><code>$svnserve -d -r ~/svn/</code></p>
+        <p>腾讯云重装了CentOS系统，记录下重装后的环境搭建步骤。</p>
+<p><code>#yum install -y gcc g++ gcc-c++</code></p>
+<h5 id="新建用户"><a href="#新建用户" class="headerlink" title="新建用户"></a><strong>新建用户</strong></h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">#useradd sxin</div><div class="line">#passwd sxin</div></pre></td></tr></table></figure>
+<p>我习惯在/usr/local下建立自己的目录然后把环境全部放在此目录下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">#mkdir /usr/local/sxin</div><div class="line">#chown sxin:sxin /usr/local/sxin</div></pre></td></tr></table></figure></p>
+<p>切换到sxin用户<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$cd ~</div><div class="line">$mkdir downloads</div><div class="line">$mkdir downloads/php7 downloads/httpd24 downloads/mysql57 downloads/tools</div></pre></td></tr></table></figure></p>
+<h5 id="下载PHP7-HTTPD24-MYSQL57"><a href="#下载PHP7-HTTPD24-MYSQL57" class="headerlink" title="下载PHP7,HTTPD24,MYSQL57"></a><strong>下载PHP7,HTTPD24,MYSQL57</strong></h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">$wget http://cn2.php.net/distributions/php-7.0.8.tar.gz</div><div class="line"></div><div class="line">$wget http://nginx.org/download/nginx-1.11.1.tar.gz</div><div class="line">$wget http://zlib.net/zlib-1.2.8.tar.gz</div><div class="line"></div><div class="line">$wget http://apache.fayea.com//apr/apr-1.5.2.tar.gz</div><div class="line">$wget http://apache.fayea.com//apr/apr-util-1.5.4.tar.gz</div><div class="line">$wget ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre-8.39.tar.gz</div><div class="line">$wget http://mirrors.hust.edu.cn/apache//httpd/httpd-2.4.20.tar.gz</div><div class="line"></div><div class="line">$wget http://dev.mysql.com/get/Downloads/MySQL-5.7/mysql-boost-5.7.13.tar.gz</div><div class="line">$wget http://dev.mysql.com/get/Downloads/MySQL-5.7/mysql-5.7.13.tar.gz</div></pre></td></tr></table></figure>
+<h5 id="编译安装APR"><a href="#编译安装APR" class="headerlink" title="编译安装APR"></a><strong>编译安装APR</strong></h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$./configure --prefix=/usr/local/sxin/tools/apr &amp;&amp; make &amp;&amp; make install</div></pre></td></tr></table></figure>
+<h5 id="编译安装APR-Util"><a href="#编译安装APR-Util" class="headerlink" title="编译安装APR-Util"></a><strong>编译安装APR-Util</strong></h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$./configure --prefix=/usr/local/sxin/tools/apr-util --with-apr=/usr/local/sxin/tools/apr &amp;&amp; make &amp;&amp; make install</div></pre></td></tr></table></figure>
+<h5 id="编译安装PCRE"><a href="#编译安装PCRE" class="headerlink" title="编译安装PCRE"></a><strong>编译安装PCRE</strong></h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$./configure --prefix=/usr/local/sxin/tools/pcre &amp;&amp; make &amp;&amp; make install</div></pre></td></tr></table></figure>
+<h5 id="编译安装ZLib"><a href="#编译安装ZLib" class="headerlink" title="编译安装ZLib"></a><strong>编译安装ZLib</strong></h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$./configure --prefix=/usr/local/sxin/tools/zlib &amp;&amp; make &amp;&amp; make install</div></pre></td></tr></table></figure>
+<h5 id="编译安装Nginx"><a href="#编译安装Nginx" class="headerlink" title="编译安装Nginx"></a><strong>编译安装Nginx</strong></h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">$ ./configure --prefix=/usr/local/sxin/nginx --with-pcre=/home/sxin/downloads/tools/pcre-8.39 --with-zlib=/home/sxin/downloads/tools/zlib-1.2.8 &amp;&amp; make &amp;&amp; make install</div><div class="line">注:这里引用的pcre,zlib的是源码目录</div><div class="line">做中转,上传大小限制:</div><div class="line">client_max_body_size 8M;  </div><div class="line">server &#123;</div><div class="line">        listen       80;</div><div class="line">        server_name  localhost;</div><div class="line">**********</div><div class="line">		location / &#123;</div><div class="line">			proxy_redirect off;</div><div class="line">			proxy_set_header Host $host;</div><div class="line">			proxy_set_header X-Real-IP $remote_addr;</div><div class="line">			proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;</div><div class="line">            proxy_pass    http://ip:port/;</div><div class="line">        &#125;</div><div class="line">**********</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="编译安装Apache24"><a href="#编译安装Apache24" class="headerlink" title="编译安装Apache24"></a><strong>编译安装Apache24</strong></h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$./configure --prefix=/usr/local/sxin/httpd24 --with-apr=/usr/local/sxin/tools/apr --with-apr-util=/usr/local/sxin/tools/apr-util/ --with-pcre=/usr/local/sxin/tools/pcre/ &amp;&amp; make &amp;&amp; make install</div></pre></td></tr></table></figure>
+<h5 id="编译安装Mysql57"><a href="#编译安装Mysql57" class="headerlink" title="编译安装Mysql57"></a><strong>编译安装Mysql57</strong></h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">#yum install -y cmake git ncurses-devel</div><div class="line"></div><div class="line">$cmake . -DCMAKE_INSTALL_PREFIX=/usr/local/sxin/mysql -DSYSCONFDIR=/etc/mysql -DDEFAULT_CHARSET=utf8 -DDEFAULT_COLLATION=utf8_general_ci -DMYSQL_DATADIR=/usr/local/sxin/mysql/data -DWITH_BOOST=boost -DCURSES_LIBRARY=/usr/lib64/libncurses.so -DCURSES_INCLUDE_PATH=/usr/include &amp;&amp; make &amp;&amp; make install</div><div class="line"></div><div class="line">$./mysqld --initialize --user=sxin --basedir=/usr/local/sxin/mysql --datadir=/usr/local/sxin/mysql/data</div><div class="line"></div><div class="line">mysql -u root -p连接时</div><div class="line">报错 Segmentation fault</div><div class="line">修改方法如下：</div><div class="line">在MySQL的源代码中，找到这个文件 cmd-line-utils/libedit/terminal.c ，找到这一行 char buf[TC_BUFSIZE]; 将其注释，</div><div class="line">然后，在其附近找到变量 area  ，将其值修改为 NULL ,也就是 area = NULL．</div><div class="line">protected int</div><div class="line">terminal_set(EditLine *el, const char *term)</div><div class="line">&#123;</div><div class="line">        int i;</div><div class="line">        //char buf[TC_BUFSIZE];</div><div class="line">        char *area;</div><div class="line">        const struct termcapstr *t;</div><div class="line">        sigset_t oset, nset;</div><div class="line">        int lins, cols;</div><div class="line"></div><div class="line">        (void) sigemptyset(&amp;nset);</div><div class="line">        (void) sigaddset(&amp;nset, SIGWINCH);</div><div class="line">        (void) sigprocmask(SIG_BLOCK, &amp;nset, &amp;oset);</div><div class="line"></div><div class="line">        area = NULL;</div><div class="line">重新编译安装</div><div class="line">$./mysql -u root -p</div><div class="line">$ALTER USER USER() IDENTIFIED BY ‘123’ #修改密码</div><div class="line">允许所有主机访问</div><div class="line">Grant all privileges on *.* to &apos;root&apos;@&apos;%&apos; identified by &apos;password&apos; with grant option;</div><div class="line">flush privileges;</div></pre></td></tr></table></figure>
+<h5 id="编译安装PHP7"><a href="#编译安装PHP7" class="headerlink" title="编译安装PHP7"></a><strong>编译安装PHP7</strong></h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">#yum install -y libxml2 libxml2-devel.x86_64</div><div class="line">$./configure --prefix=/usr/local/sxin/php7 --with-config-file-path=/usr/local/sxin/php7/conf --with-apxs2=/usr/local/sxin/httpd24/bin/apxs --with-pdo-mysql=/usr/local/sxin/mysql --with-zlib-dir=/usr/local/sxin/tools/zlib/ &amp;&amp; make &amp;&amp;make install</div></pre></td></tr></table></figure>
+<h5 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a><strong>配置环境变量</strong></h5><p><code>#echo &#39;PATH=$PATH:/usr/local/sxin/mysql/bin/:/usr/local/sxin/httpd24/bin:/usr/local/sxin/nginx/sbin:/usr/local/sxin/php7/bin&#39; &gt;&gt; /etc/profile</code><br><code>#source /etc/profile</code></p>
+<h5 id="打包"><a href="#打包" class="headerlink" title="打包"></a><strong>打包</strong></h5><p>现在虽然环境搭建好了，不过问题又来了，如果我又重装系统了 那就要再重新全部来一次。。。太麻烦。 于是我有了一个想法。  然后写一个shell，下次如果再重装系统 我只要执行shell  然后它会全部自动下载,编译安装。那就爽了~。</p>
+<p>详情请参考我的另外一篇博文：<a href="http://blog.csdn.net/SxinBoss/article/details/51779493" title="SHELL实现CentOS下自动下载,编译安装LAMP" target="_blank" rel="external"> SHELL实现CentOS下自动下载,编译安装LAMP </a></p>
 
       
     </div>
@@ -461,9 +474,13 @@ service iptables save
       
         <div class="post-tags">
           
-            <a href="/tags/Centos/" rel="tag"># Centos</a>
+            <a href="/tags/centos6/" rel="tag"># centos6</a>
           
-            <a href="/tags/Subversion/" rel="tag"># Subversion</a>
+            <a href="/tags/php/" rel="tag"># php</a>
+          
+            <a href="/tags/httpd/" rel="tag"># httpd</a>
+          
+            <a href="/tags/mysql/" rel="tag"># mysql</a>
           
         </div>
       
@@ -472,8 +489,8 @@ service iptables save
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/06/16/dockeroperationmanual/" rel="next" title="Docker操作手册">
-                <i class="fa fa-chevron-left"></i> Docker操作手册
+              <a href="/2016/11/14/world/" rel="next" title="world">
+                <i class="fa fa-chevron-left"></i> world
               </a>
             
           </div>
@@ -481,10 +498,6 @@ service iptables save
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/11/14/world/" rel="prev" title="world">
-                world <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -510,8 +523,8 @@ service iptables save
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/06/28/centosinstallconfigsubversion/"
-           data-title="Centos安装配置Subversion" data-url="http://blog.sxin.me/2016/06/28/centosinstallconfigsubversion/">
+      <div class="ds-thread" data-thread-key="2016/11/14/centos6bulid-php-httpd-mysql-md/"
+           data-title="CentOS6下的PHP,HTTPD,MYSQL等环境搭建" data-url="http://blog.sxin.me/2016/11/14/centos6bulid-php-httpd-mysql-md/">
       </div>
     
   </div>
@@ -646,7 +659,7 @@ service iptables save
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装Subversion"><span class="nav-number">1.</span> <span class="nav-text">安装Subversion</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#创建svn版本库目录"><span class="nav-number">1.1.</span> <span class="nav-text">创建svn版本库目录</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#修改配置文件"><span class="nav-number">1.2.</span> <span class="nav-text">修改配置文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#开启服务"><span class="nav-number">1.3.</span> <span class="nav-text">开启服务</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#新建用户"><span class="nav-number">1.</span> <span class="nav-text">新建用户</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#下载PHP7-HTTPD24-MYSQL57"><span class="nav-number">2.</span> <span class="nav-text">下载PHP7,HTTPD24,MYSQL57</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#编译安装APR"><span class="nav-number">3.</span> <span class="nav-text">编译安装APR</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#编译安装APR-Util"><span class="nav-number">4.</span> <span class="nav-text">编译安装APR-Util</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#编译安装PCRE"><span class="nav-number">5.</span> <span class="nav-text">编译安装PCRE</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#编译安装ZLib"><span class="nav-number">6.</span> <span class="nav-text">编译安装ZLib</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#编译安装Nginx"><span class="nav-number">7.</span> <span class="nav-text">编译安装Nginx</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#编译安装Apache24"><span class="nav-number">8.</span> <span class="nav-text">编译安装Apache24</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#编译安装Mysql57"><span class="nav-number">9.</span> <span class="nav-text">编译安装Mysql57</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#编译安装PHP7"><span class="nav-number">10.</span> <span class="nav-text">编译安装PHP7</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#配置环境变量"><span class="nav-number">11.</span> <span class="nav-text">配置环境变量</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#打包"><span class="nav-number">12.</span> <span class="nav-text">打包</span></a></li></ol></div>
             
 
           </div>
