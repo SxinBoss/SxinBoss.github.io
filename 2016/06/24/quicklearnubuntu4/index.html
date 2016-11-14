@@ -84,16 +84,34 @@
 
 
 
-<meta name="description" content="本博客为个人博客,记载开发中的各种心得,经验和踩过的坑...">
+<meta name="description" content="PHP依赖管理工具:Composer学习(1)安装
+sudo apt-get install libcurl4-openssl-dev pkg-config libssl-dev
+安装re2c
+1.apt-get 安装
+sudo apt-get install re2c
+2.编译安装
+re2c下载地址12tar -zxvf re2cxxxxx.tar.bz./configure &amp;amp;&amp;amp">
 <meta property="og:type" content="article">
 <meta property="og:title" content="速学Ubuntu系列四:Ubuntu 16 安装Composer">
 <meta property="og:url" content="http://blog.sxin.me/2016/06/24/quicklearnubuntu4/index.html">
 <meta property="og:site_name" content="SxinBoss的个人博客">
-<meta property="og:description" content="本博客为个人博客,记载开发中的各种心得,经验和踩过的坑...">
-<meta property="og:updated_time" content="2016-11-14T12:01:20.000Z">
+<meta property="og:description" content="PHP依赖管理工具:Composer学习(1)安装
+sudo apt-get install libcurl4-openssl-dev pkg-config libssl-dev
+安装re2c
+1.apt-get 安装
+sudo apt-get install re2c
+2.编译安装
+re2c下载地址12tar -zxvf re2cxxxxx.tar.bz./configure &amp;amp;&amp;amp">
+<meta property="og:updated_time" content="2016-11-14T12:08:48.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="速学Ubuntu系列四:Ubuntu 16 安装Composer">
-<meta name="twitter:description" content="本博客为个人博客,记载开发中的各种心得,经验和踩过的坑...">
+<meta name="twitter:description" content="PHP依赖管理工具:Composer学习(1)安装
+sudo apt-get install libcurl4-openssl-dev pkg-config libssl-dev
+安装re2c
+1.apt-get 安装
+sudo apt-get install re2c
+2.编译安装
+re2c下载地址12tar -zxvf re2cxxxxx.tar.bz./configure &amp;amp;&amp;amp">
 
 
 
@@ -322,7 +340,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-check-o"></i>
             </span>
-            <time title="Post modified" itemprop="dateModified" datetime="2016-11-14T20:01:20+08:00">
+            <time title="Post modified" itemprop="dateModified" datetime="2016-11-14T20:08:48+08:00">
               2016-11-14
             </time>
             
@@ -401,7 +419,21 @@
       
 
       
-        
+        <p><a href="http://www.jtthink.com/course/play/626" title="PHP依赖管理工具:Composer学习&#40;1&#41;安装" target="_blank" rel="external">PHP依赖管理工具:Composer学习(1)安装</a></p>
+<p><code>sudo apt-get install libcurl4-openssl-dev pkg-config libssl-dev</code></p>
+<p><strong>安装re2c</strong></p>
+<p>1.apt-get 安装</p>
+<p><code>sudo apt-get install re2c</code></p>
+<p>2.编译安装</p>
+<p><a href="https://sourceforge.net/projects/re2c/files/0.16/re2c-0.16.tar.gz/download" title="re2c" target="_blank" rel="external">re2c下载地址</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">tar -zxvf re2cxxxxx.tar.bz</div><div class="line">./configure &amp;&amp; make &amp;&amp; sudo make install</div></pre></td></tr></table></figure></p>
+<p><strong>安装openssl</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">进入PHP源码目录下的ext/openssl</div><div class="line">ls 可以看到当前目录没有 configure 也没有 config.m4,但是有个config0.m4</div><div class="line">cp config0.m4 config.m4</div><div class="line">执行phpize(PHP安装目录/bin/phpize)</div><div class="line">./configure --prefix=/usr/local/sxin/tools/openssl --with-openssl</div><div class="line">make &amp;&amp; make install</div></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<p>查看PHP.ini文件位置 </p>
+<p><code>php --ini</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Configuration File (php.ini) Path</div><div class="line">如果没有php.ini文件可以 cp /php源码目录/php.ini-development /Configuration File (php.ini) Path/php.ini</div><div class="line">将openssl.so加入到php.ini </div><div class="line">echo &apos;extension=&quot;openssl.so&quot;&apos; &gt;&gt; /usr/local/sxin/php7/conf/php.ini</div></pre></td></tr></table></figure></p>
+<p>查看openssl扩展有没有加载成功</p>
+<p><code>php -m | grep openssl</code></p>
+<p><strong>安装Composer</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">curl https://getcomposer.org/installer &gt; composer.php</div><div class="line">php composer.php</div><div class="line">mv composer.phar /usr/local/sxin/php7/bin</div></pre></td></tr></table></figure></p>
+
       
     </div>
 
@@ -458,8 +490,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/06/27/centos6bulid-php-httpd-mysql-md/" rel="prev" title="CentOS6下的PHP,Httpd,Mysql等环境搭建">
-                CentOS6下的PHP,Httpd,Mysql等环境搭建 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/06/24/quicklearnubuntu5/" rel="prev" title="速学Ubuntu系列五:Composer学习(2):自动加载功能">
+                速学Ubuntu系列五:Composer学习(2):自动加载功能 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
