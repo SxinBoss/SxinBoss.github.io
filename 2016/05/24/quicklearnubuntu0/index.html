@@ -90,7 +90,7 @@
 <meta property="og:url" content="http://blog.sxin.me/2016/05/24/quicklearnubuntu0/index.html">
 <meta property="og:site_name" content="SxinBoss的个人博客">
 <meta property="og:description" content="123456789sudo apt-get update &amp;amp;&amp;amp; sudo apt-get upgradesudo apt-get install vimsudo apt-get install axel --多线程下载sudo apt-get install nmapsudo apt-get install sqlmapsudo apt-get install unrarsudo">
-<meta property="og:updated_time" content="2016-11-14T11:55:35.000Z">
+<meta property="og:updated_time" content="2016-11-14T12:03:05.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="作为程序员,安装Ubuntu后我做的事情">
 <meta name="twitter:description" content="123456789sudo apt-get update &amp;amp;&amp;amp; sudo apt-get upgradesudo apt-get install vimsudo apt-get install axel --多线程下载sudo apt-get install nmapsudo apt-get install sqlmapsudo apt-get install unrarsudo">
@@ -322,7 +322,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-check-o"></i>
             </span>
-            <time title="Post modified" itemprop="dateModified" datetime="2016-11-14T19:55:35+08:00">
+            <time title="Post modified" itemprop="dateModified" datetime="2016-11-14T20:03:05+08:00">
               2016-11-14
             </time>
             
@@ -408,7 +408,7 @@
 <p>home下新建sxinboss目录,sxinboss目录下建soft,environment.</p>
 <p>将tomcat,jdk目录移到environment中.</p>
 <p>idea,phpstorm,webstorm移到soft中.</p>
-<p><strong>编译安装apache,php,mysql</strong><br><a id="more"></a><br>请看另一篇文章:<a href="http://blog.csdn.net/sxinboss/article/details/51494617" title="编译安装apache&amp;&amp;PHP&amp;&amp;mysql" target="_blank" rel="external">编译安装Apache&amp;&amp;PHP</a></p>
+<p><strong>编译安装apache,php,mysql</strong><br><a id="more"></a><br>请看另一篇文章:<a href="http://blog.sxin.me/2016/11/14/quicklearnubuntu1/" title="编译安装apache&amp;&amp;PHP&amp;&amp;mysql">编译安装Apache&amp;&amp;PHP</a></p>
 <p><strong>配置java环境变量:</strong><br><figure class="highlight plain"><figcaption><span>vim</span><a href="/etc/profile```">link</a></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">在尾部加</div></pre></td></tr></table></figure></p>
 <p>export JAVA_HOME=/home/sxinboss/sxinboss/environment/jdk1.8.0_91<br>export PATH=$JAVA_HOME/bin:$PATH<br>export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">**安装IDE(IDEA,WebStorm,PhpStorm)**</div><div class="line">创建Idea桌面快捷方式:</div><div class="line">新建idea.desktop</div></pre></td></tr></table></figure></p>
 <p>[Desktop Entry]<br>Categories=Development;<br>Exec=/home/sxinboss/sxinboss/soft/idea/bin/idea.sh<br>GenericName[zh_CN]=IDEA<br>GenericName=IDEA<br>Icon=/home/sxinboss/sxinboss/soft/idea/bin/idea.png<br>MimeType=<br>Name=Idea<br>Name[zh_CN]=Idea<br>Path=<br>StartupNotify=true<br>Terminal=false<br>Type=Application<br>X-DBUS-ServiceName=<br>X-DBUS-StartupType=<br>X-KDE-SubstituteUID=false<br>X-KDE-Username=sxinboss<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">最后别忘了 chmod 授权给它</div><div class="line">同理:</div><div class="line">webstorm.desktop</div></pre></td></tr></table></figure></p>
@@ -423,7 +423,7 @@
 <p>新建仓库:<code>SxinBoss.github.io</code>(命名规则:xxxx.github.io)</p>
 <p>Personal settings -&gt;SSH and GPG keys-&gt;<br>然后将id_rsa.pub的内容添加进去</p>
 <p>vim _config.yml<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">  type: git</div><div class="line">  repo: https://github.com/SxinBoss/SxinBoss.github.io</div><div class="line">  brach: master</div></pre></td></tr></table></figure></p>
-<p>如果不行:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">  type: git</div><div class="line">  repo: http://github.com/SxinBoss/SxinBoss.github.io</div><div class="line">  brach: master</div><div class="line">or</div><div class="line">deploy:</div><div class="line">  type: git</div><div class="line">  repo: git@github.com:SxinBoss/SxinBoss.github.io</div><div class="line">  brach: master</div><div class="line">or</div><div class="line">deploy:</div><div class="line">  type: git</div><div class="line">  repository: ssh://git@github.com/xiaoliuzi/xiaoliuzi.github.io</div><div class="line">  branch: master</div></pre></td></tr></table></figure></p>
+<p>如果不行:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">  type: git</div><div class="line">  repo: http://github.com/SxinBoss/SxinBoss.github.io</div><div class="line">  brach: master</div><div class="line">or</div><div class="line">deploy:</div><div class="line">  type: git</div><div class="line">  repo: git@github.com:SxinBoss/SxinBoss.github.io</div><div class="line">  brach: master</div><div class="line">or</div><div class="line">deploy:</div><div class="line">  type: git</div><div class="line">  repository: ssh://git@github.com/SxinBoss/SxinBoss.github.io</div><div class="line">  branch: master</div></pre></td></tr></table></figure></p>
 <p>更改后执行:<code>npm install hexo-deployer-git --save</code></p>
 <p><strong>new</strong><br><code>$ hexo new [layout] &lt;title&gt;</code></p>
 <p>新建一篇文章。如果没有设置 layout 的话，默认使用 _config.yml 中的 default_layout 参数代替。如果标题包含空格的话，请使用引号括起来。</p>
@@ -507,8 +507,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/05/25/quicklearnubuntu1/" rel="prev" title="速学Ubuntu系列一：Ubuntu16 编译安装 Apache24&&PHP7&&Mysql57">
-                速学Ubuntu系列一：Ubuntu16 编译安装 Apache24&&PHP7&&Mysql57 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/05/25/quicklearnubuntu1/" rel="prev" title="速学Ubuntu系列一:Ubuntu16 编译安装 Apache24&&PHP7&&Mysql57">
+                速学Ubuntu系列一:Ubuntu16 编译安装 Apache24&&PHP7&&Mysql57 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
