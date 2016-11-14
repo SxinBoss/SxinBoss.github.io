@@ -1,0 +1,667 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="版权声明：本文转自(程序员在囧途)沈逸老师的 PHP魔鬼训练课第一阶段即将更新完毕(附课程套路)   如需转载请尊重老师劳动，保留沈逸老师署名以及课程来源地址。
+原文:2个月的更新（每周六和日更新一课），终于第一阶段接近尾声
+本课程并非纯教学、纯实战课程，是属于代码和思维训练课程。经过实践并不长的在线教育小站运营，我发现很多学员学习PHP的薄弱点在于没有掌握一门语言的套路，以及对该语言的配套知识掌">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[转]PHP魔鬼训练课第一阶段即将更新完毕(附课程套路)">
+<meta property="og:url" content="http://blog.sxin.me/2016/09/07/e8-bd-acphp-e9-ad-94-e9-ac-bc-e8-ae-ad-e7-bb-83-e8-af-be-e7-ac-ac-e4-b8-80-e9-98-b6-e6-ae-b5-e5-8d-b3-e5-b0-86-e6-9b-b4-e6-96-b0-e5-ae-8c-e6-af-95-e9-99-84-e8-af-be-e7-a8-8b-e5-a5-97-e8-b7-af/index.html">
+<meta property="og:site_name" content="SxinBoss的个人博客">
+<meta property="og:description" content="版权声明：本文转自(程序员在囧途)沈逸老师的 PHP魔鬼训练课第一阶段即将更新完毕(附课程套路)   如需转载请尊重老师劳动，保留沈逸老师署名以及课程来源地址。
+原文:2个月的更新（每周六和日更新一课），终于第一阶段接近尾声
+本课程并非纯教学、纯实战课程，是属于代码和思维训练课程。经过实践并不长的在线教育小站运营，我发现很多学员学习PHP的薄弱点在于没有掌握一门语言的套路，以及对该语言的配套知识掌">
+<meta property="og:updated_time" content="2016-11-14T06:58:02.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[转]PHP魔鬼训练课第一阶段即将更新完毕(附课程套路)">
+<meta name="twitter:description" content="版权声明：本文转自(程序员在囧途)沈逸老师的 PHP魔鬼训练课第一阶段即将更新完毕(附课程套路)   如需转载请尊重老师劳动，保留沈逸老师署名以及课程来源地址。
+原文:2个月的更新（每周六和日更新一课），终于第一阶段接近尾声
+本课程并非纯教学、纯实战课程，是属于代码和思维训练课程。经过实践并不长的在线教育小站运营，我发现很多学员学习PHP的薄弱点在于没有掌握一门语言的套路，以及对该语言的配套知识掌">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://blog.sxin.me/2016/09/07/e8-bd-acphp-e9-ad-94-e9-ac-bc-e8-ae-ad-e7-bb-83-e8-af-be-e7-ac-ac-e4-b8-80-e9-98-b6-e6-ae-b5-e5-8d-b3-e5-b0-86-e6-9b-b4-e6-96-b0-e5-ae-8c-e6-af-95-e9-99-84-e8-af-be-e7-a8-8b-e5-a5-97-e8-b7-af/"/>
+
+
+
+
+
+  <title> [转]PHP魔鬼训练课第一阶段即将更新完毕(附课程套路) | SxinBoss的个人博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">SxinBoss的个人博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">一个慢慢成长的小昕猿</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://blog.sxin.me/2016/09/07/e8-bd-acphp-e9-ad-94-e9-ac-bc-e8-ae-ad-e7-bb-83-e8-af-be-e7-ac-ac-e4-b8-80-e9-98-b6-e6-ae-b5-e5-8d-b3-e5-b0-86-e6-9b-b4-e6-96-b0-e5-ae-8c-e6-af-95-e9-99-84-e8-af-be-e7-a8-8b-e5-a5-97-e8-b7-af/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="SxinBoss">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.gif">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="SxinBoss的个人博客">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="SxinBoss的个人博客" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                [转]PHP魔鬼训练课第一阶段即将更新完毕(附课程套路)
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-09-07T13:17:54+08:00">
+              2016-09-07
+            </time>
+
+            &nbsp;|&nbsp;
+
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-check-o"></i>
+            </span>
+            <time title="Post modified" itemprop="dateModified" datetime="2016-11-14T14:58:02+08:00">
+              2016-11-14
+            </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PHP/" itemprop="url" rel="index">
+                    <span itemprop="name">PHP</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>版权声明：本文转自(<a href="http://jtthink.com" target="_blank" rel="external">程序员在囧途</a>)沈逸老师的 <a href="http://www.hishenyi.com/archives/1128" target="_blank" rel="external">PHP魔鬼训练课第一阶段即将更新完毕(附课程套路)</a>   如需转载请尊重老师劳动，保留沈逸老师署名以及课程来源地址。</p>
+<h1 id="原文"><a href="#原文" class="headerlink" title="原文:"></a>原文:</h1><p>2个月的更新（每周六和日更新一课），终于第一阶段接近尾声</p>
+<p>本课程并非纯教学、纯实战课程，是属于代码和思维训练课程。经过实践并不长的在线教育小站运营，我发现很多学员学习PHP的薄弱点在于没有掌握一门语言的套路，以及对该语言的配套知识掌握的不好。</p>
+<p><strong>何为套路?</strong></p>
+<ol>
+<li>PHP入门并不难，一个echo 能让初学者的你兴奋好久<p></p></li>
+<li><p>PHP并不是只能用来开发网站。</p>
+<p>本课程用PHP教大家首先在开工前写一个小工具(取名为god),用这个god来生成一个简单网站开发骨架</p>
+</li>
+<li><p>PHP并不需要编译就能运行。但是我们的业务可以有“编译”的概念</p>
+<p>本课程中允许队友随意在指定文件夹中写变量、写函数、甚至写类。最终我们的god工具会帮我们自动归类，编译成一个可直接调用的文件</p>
+</li>
+<li><p>MVC有多难？其实并不难，关键在于你是否能凌驾于MVC思想之上产生你的想法</p>
+<p>本课程教大家一种别样的MVC实现机制</p>
+</li>
+<li><p>PHP并不是JAVA。并不需要过度的OOP封装。很多新手也长期沦陷在OOP封装中无法自拔</p>
+<p>本课程用一种“去OOP”化的思维来帮助大家实现一个MVC路由机制。你会发现从头至尾，甚至连类继承、接口都没用到。但代码并不比OOP写法low。</p>
+</li>
+<li><p>ORM是什么？有多神秘？</p>
+<p>其实PHP的ORM有一大部分是帮助我们来生成、拼凑出一个完整和高效的ORM</p>
+<p></p><p>作为本课程的最后一个知识点，课程教大家如何从零开始进化出一个ORM的SQL拼接功能的实现。你会发现，整个过程用的都是套路和思维，代码知识点从来没有任何难点。</p>
+</li>
+</ol>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/09/01/e9-9b-b6-e6-95-a3-e7-9f-a5-e8-af-86-e7-82-b9-ef-bc-9a-e6-9c-89-e5-85-b3-e5-a6-82-e4-bd-95-e9-80-89-e6-8b-a9-e5-88-9b-e4-b8-9a-e5-85-ac-e5-8f-b8/" rel="next" title="零散知识点：有关如何选择创业公司">
+                <i class="fa fa-chevron-left"></i> 零散知识点：有关如何选择创业公司
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/09/08/e9-9b-b6-e6-95-a3-e7-9f-a5-e8-af-86-e7-82-b9-ef-bc-9a-e9-a1-b9-e7-9b-ae-e7-bb-8f-e7-90-86-e6-98-af-e5-90-a6-e8-a6-81-e5-86-99-e4-bb-a3-e7-a0-81/" rel="prev" title="零散知识点：项目经理是否要写代码">
+                零散知识点：项目经理是否要写代码 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="SxinBoss" />
+          <p class="site-author-name" itemprop="name">SxinBoss</p>
+          <p class="site-description motion-element" itemprop="description">本博客为个人博客,记载开发中的各种心得,经验和踩过的坑...</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">62</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">31</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">92</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#原文"><span class="nav-number">1.</span> <span class="nav-text">原文:</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">SxinBoss</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>

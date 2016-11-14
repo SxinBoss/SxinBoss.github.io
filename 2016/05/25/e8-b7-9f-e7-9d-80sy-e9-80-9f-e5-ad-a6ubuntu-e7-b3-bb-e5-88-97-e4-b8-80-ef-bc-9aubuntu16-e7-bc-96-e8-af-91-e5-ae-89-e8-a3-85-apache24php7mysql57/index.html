@@ -1,0 +1,818 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="沈逸老师.web程序员角度ubuntu自修速学课程:7.手工编译安装mysql5.7.x,排坑
+sudo apt-get install libxml2-dev libpcre3 libpcre3-dev libzlcore-dev -y
+#说明：所有环境,我都是安装在/usr/local/sxin目录下 
+#所以 首先要在/usr/local目录下建sxin文件夹 然后更改文件夹所有者
+#这么做">
+<meta property="og:type" content="article">
+<meta property="og:title" content="跟着SY速学Ubuntu系列一：Ubuntu16 编译安装 Apache24&&PHP7&&Mysql57">
+<meta property="og:url" content="http://blog.sxin.me/2016/05/25/e8-b7-9f-e7-9d-80sy-e9-80-9f-e5-ad-a6ubuntu-e7-b3-bb-e5-88-97-e4-b8-80-ef-bc-9aubuntu16-e7-bc-96-e8-af-91-e5-ae-89-e8-a3-85-apache24php7mysql57/index.html">
+<meta property="og:site_name" content="SxinBoss的个人博客">
+<meta property="og:description" content="沈逸老师.web程序员角度ubuntu自修速学课程:7.手工编译安装mysql5.7.x,排坑
+sudo apt-get install libxml2-dev libpcre3 libpcre3-dev libzlcore-dev -y
+#说明：所有环境,我都是安装在/usr/local/sxin目录下 
+#所以 首先要在/usr/local目录下建sxin文件夹 然后更改文件夹所有者
+#这么做">
+<meta property="og:updated_time" content="2016-11-14T06:58:02.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="跟着SY速学Ubuntu系列一：Ubuntu16 编译安装 Apache24&&PHP7&&Mysql57">
+<meta name="twitter:description" content="沈逸老师.web程序员角度ubuntu自修速学课程:7.手工编译安装mysql5.7.x,排坑
+sudo apt-get install libxml2-dev libpcre3 libpcre3-dev libzlcore-dev -y
+#说明：所有环境,我都是安装在/usr/local/sxin目录下 
+#所以 首先要在/usr/local目录下建sxin文件夹 然后更改文件夹所有者
+#这么做">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://blog.sxin.me/2016/05/25/e8-b7-9f-e7-9d-80sy-e9-80-9f-e5-ad-a6ubuntu-e7-b3-bb-e5-88-97-e4-b8-80-ef-bc-9aubuntu16-e7-bc-96-e8-af-91-e5-ae-89-e8-a3-85-apache24php7mysql57/"/>
+
+
+
+
+
+  <title> 跟着SY速学Ubuntu系列一：Ubuntu16 编译安装 Apache24&&PHP7&&Mysql57 | SxinBoss的个人博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">SxinBoss的个人博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">一个慢慢成长的小昕猿</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://blog.sxin.me/2016/05/25/e8-b7-9f-e7-9d-80sy-e9-80-9f-e5-ad-a6ubuntu-e7-b3-bb-e5-88-97-e4-b8-80-ef-bc-9aubuntu16-e7-bc-96-e8-af-91-e5-ae-89-e8-a3-85-apache24php7mysql57/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="SxinBoss">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.gif">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="SxinBoss的个人博客">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="SxinBoss的个人博客" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                跟着SY速学Ubuntu系列一：Ubuntu16 编译安装 Apache24&&PHP7&&Mysql57
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-05-25T21:29:13+08:00">
+              2016-05-25
+            </time>
+
+            &nbsp;|&nbsp;
+
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-check-o"></i>
+            </span>
+            <time title="Post modified" itemprop="dateModified" datetime="2016-11-14T14:58:02+08:00">
+              2016-11-14
+            </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux专区/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux专区</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux专区/PHP/" itemprop="url" rel="index">
+                    <span itemprop="name">PHP</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux专区/PHP/Ubuntu/" itemprop="url" rel="index">
+                    <span itemprop="name">Ubuntu</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><a href="http://www.jtthink.com/course/play/598" title="手工编译安装mysql5.7.x,排坑" target="_blank" rel="external">沈逸老师.web程序员角度ubuntu自修速学课程:7.手工编译安装mysql5.7.x,排坑</a></p>
+<p><code>sudo apt-get install libxml2-dev libpcre3 libpcre3-dev libzlcore-dev -y</code></p>
+<pre><code>#说明：所有环境,我都是安装在/usr/local/sxin目录下 
+#所以 首先要在/usr/local目录下建sxin文件夹 然后更改文件夹所有者
+#这么做不为什么,个人喜好。你也可以建个fuck目录。然后都装在fuck目录下也可以
+$sudo mkdir /usr/local/sxin
+$sudo chown sxin:sxin /usr/local/sxin
+`&lt;/pre&gt;
+
+下载 [Apache24](http://mirrors.cnnic.cn/apache//httpd/httpd-2.4.20.tar.bz2 &quot;Apache24&quot;),[PHP7](http://cn2.php.net/get/php-7.0.7.tar.bz2/from/this/mirror &quot;php7&quot;)源码包,   解压.
+
+http://httpd.apache.org/docs/2.4/install.html
+
+[APR,APR-util下载地址](http://apr.apache.org/download.cgi &quot;APR,APR-util下载地址&quot;)
+
+**编译安装apr**
+
+&lt;pre&gt;`./configure --prefix=/usr/local/sxin/tools/apr
+make &amp;amp;&amp;amp; make install
+`&lt;/pre&gt;
+
+**编译安装apr-util**
+
+&lt;pre&gt;`./configure --prefix=/usr/local/sxin/tools/apr-util --with-apr=/usr/local/sxin/tools/apr
+make &amp;amp;&amp;amp; make install
+`&lt;/pre&gt;
+
+**编译安装ZLIB**
+
+[去ZLIB下载](http://www.zlib.net/ &quot;ZLIB&quot;)
+
+&lt;pre&gt;`./configure --prefix=/usr/local/sxin/tools/zlib
+make &amp;amp;&amp;amp; make install
+`&lt;/pre&gt;
+
+**编译安装libiconv**
+
+[下载libiconv 1.14](ftp://gnu.mirror.iweb.com/libiconv/libiconv-1.14.tar.gz &quot;libiconv 1.14&quot;)
+
+&lt;pre&gt;`./configure --prefix=/usr/local
+`&lt;/pre&gt;
+
+在make的时候出错
+
+&lt;pre&gt;`./stdio.h:1010:1: error: ‘gets’ undeclared here (not in a function)
+ _GL_WARN_ON_USE (gets, &quot;gets is a security hole - use fgets instead&quot;);
+`&lt;/pre&gt;
+
+解决方案:
+
+&lt;pre&gt;`#修改libiconv目录下srclib/stdio.h源码
+vim srclib/stdio.h
+根据出错信息定位到 gets is a security hole 这一行
+删除 出错的这一行 然后加上下面代码
+#if defined(__GLIBC__) &amp;amp;&amp;amp; !defined(__UCLIBC__) &amp;amp;&amp;amp; !__GLIBC_PREREQ(2, 16)
+ _GL_WARN_ON_USE (gets, &quot;gets is a security hole - use fgets instead&quot;);
+#endif
+重新make &amp;amp;&amp;amp; sudo make install
+sudo ldconfig
+`&lt;/pre&gt;
+
+**编译安装Apache**
+
+&lt;pre&gt;`./configure --prefix=/usr/local/sxin/httpd24 --with-apr=/usr/local/sxin/tools/apr --with-apr-util=/usr/local/sxin/tools/apr-util --enable-so
+make &amp;amp;&amp;amp; make install
+`&lt;/pre&gt;
+
+**编译安装Mysql5.7**
+
+&lt;pre&gt;`安装cmake，git，libncurses5,libncurses5-dev
+sudo apt-get install cmake git libncurses5 libncurses5-dev -y
+
+http://dev.mysql.com/downloads/mysql/
+拉到最下面 选择 Source Code
+下载 mysql-5.7.12.tar.gz mysql-boost-5.7.12.tar.gz
+解压(自动都会解压到mysql-5.7.12)
+$cmake . -DCMAKE_INSTALL_PREFIX=/usr/local/sxin/mysql -DSYSCONFDIR=/etc/mysql -DDEFAULT_CHARSET=utf8 -DDEFAULT_COLLATION=utf8_general_ci -DMYSQL_DATADIR=/usr/local/sxin/mysql/data -DWITH_BOOST=boost
+
+(当依赖都安装好
+yum install bison ncurses ncurses-devel
+仍编译不通过提示 Could NOT find Curses。
+find /usr -name libncurses*
+确实查找到这个目录，用-D参数定义宏，指定头文件和库的所在目录可
+用此条命令
+$cmake . -DCMAKE_INSTALL_PREFIX=/usr/local/sxin/mysql -DSYSCONFDIR=/etc/mysql -DDEFAULT_CHARSET=utf8 -DDEFAULT_COLLATION=utf8_general_ci -DMYSQL_DATADIR=/usr/local/sxin/mysql/data -DWITH_BOOST=boost -DCURSES_LIBRARY=/usr/lib/libncurses.so -DCURSES_INCLUDE_PATH=/usr/include
+)
+--计算make所用时间
+$time -p make
+$make install
+
+mysqld --verbose --help | grep cnf
+这代表它mysql会读取配置文件，按顺序读,直至读到位置。
+接下来们来模拟my.cnf丢失的情况
+来到你下载的mysql文件夹中有个 supports-files
+sudo mkdir /etc/mysql
+sudo chown sxin:sxin /etc/mysql
+cp my-default.cnf  /etc/mysql
+`&lt;/pre&gt;
+
+my.cnf
+
+&lt;pre&gt;`[client]
+port = 3306
+socket = /usr/local/sxin/mysql/data/mysql.sock
+
+[mysqld]
+port = 3306
+socket = /usr/local/sxin/mysql/data/mysql.sock
+basedir = /usr/local/sxin/mysql
+datadir  = /usr/local/sxin/mysql/data
+`&lt;/pre&gt;
+
+**初始化数据库。这个很重要**
+
+&lt;pre&gt;`1、首要根据我们前面设置的数据库目录
+2、来到bin目录
+
+./mysqld --initialize --user=sxin --basedir=/usr/local/sxin/mysql --datadir=/usr/local/sxin/mysql/data
+
+会告诉你一个临时密码 (root)
+H1qLEhNNir-7
+`&lt;/pre&gt;
+
+**接下来我们就要来运行mysql服务了**
+
+&lt;pre&gt;`直接运行mysqld_safe
+
+进入mysql客户端 ./mysql -u root -p 
+输入密码
+
+修改密码，否则不能运行
+ALTER USER USER() IDENTIFIED BY ‘123’;
+允许所有主机访问
+Grant all privileges on *.* to &apos;root&apos;@&apos;%&apos; identified by &apos;password&apos; with grant option;
+flush privileges; 
+./mysqladmin -u root -p密码 shutdown  关闭mysql服务
+
+`&lt;/pre&gt;
+
+**编译安装php7**
+
+&lt;pre&gt;`$./configure --prefix=/usr/local/sxin/php7 --with-config-file-path=/usr/local/sxin/php7/conf --with-apxs2=/usr/local/sxin/httpd24/bin/apxs --with-iconv-dir=/usr/local/sxin/tools/libiconv/lib --with-pdo-mysql=/usr/local/sxin/mysql --with-zlib-dir=/usr/local/sxin/tools/zlib
+(  如果报 PDO_MYSQL configure failed, MySQL 4.1 needed. Please check config.log for more information. 错误
+vim configure
+定位到报错的这行 句首加#  进行注释  
+然后重新 make clean &amp;amp;&amp;amp; ./config xxxxxxx  )
+(安装pdo也可以用本地驱动 --enable-mysqlnd --with-pdo-mysql=mysqlnd)
+$make ZEND_EXTRA_LIBS=&apos;-liconv&apos; &amp;amp;&amp;amp; make install
+`&lt;/pre&gt;
+
+**修改httpd.conf**
+
+&lt;pre&gt;`LoadModule php7_module modules/libphp7.so
+AddType application/x-httpd-php .php
+AddType application/x-httpd-php-source .phps
+`&lt;/pre&gt;
+
+**配置虚拟主机**
+
+&lt;pre&gt;`Listen 1024
+&amp;lt;VirtualHost *:1024&amp;gt;
+  ServerName localhost:1024
+  DocumentRoot /home/sxin/workspaces/phpstorm/
+  DirectoryIndex index.phpf
+  &amp;lt;Directory &quot;/home/sxin/workspaces/phpstorm&quot;&amp;gt;
+    Options FollowSymLinks
+    Require all granted
+  &amp;lt;/Directory&amp;gt;
+&amp;lt;/VirtualHost&amp;gt;
+</code></pre>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/05/24/e4-bd-9c-e4-b8-ba-e7-a8-8b-e5-ba-8f-e5-91-98-e5-ae-89-e8-a3-85ubuntu-e5-90-8e-e6-88-91-e5-81-9a-e7-9a-84-e4-ba-8b-e6-83-85-e3-80-82/" rel="next" title="作为程序员,安装Ubuntu后我做的事情。">
+                <i class="fa fa-chevron-left"></i> 作为程序员,安装Ubuntu后我做的事情。
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/05/28/e8-b7-9f-e7-9d-80-e6-b2-88-e6-af-85-e5-ad-a6-e5-be-ae-e7-94-b5-e5-95-86php-ef-bc-9a-e4-b8-80/" rel="prev" title="跟着沈毅学微电商(PHP)：一">
+                跟着沈毅学微电商(PHP)：一 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="SxinBoss" />
+          <p class="site-author-name" itemprop="name">SxinBoss</p>
+          <p class="site-description motion-element" itemprop="description">本博客为个人博客,记载开发中的各种心得,经验和踩过的坑...</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">62</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">31</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">92</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">SxinBoss</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>

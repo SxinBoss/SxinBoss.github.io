@@ -1,0 +1,761 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="51,80C51,单片机," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="一.学单片机需要的一些预备知识1-电平 
+ttl 高+5v  低0v
+
+2-二进制    十六进制 
+B表示二进制 H表示十六进制
+
+3-逻辑运算 
+与(&amp;amp;amp;&amp;amp;amp;)运算符号．
+或(||)运算符号+
+非(!)运算符号-
+异或
+
+80C51
+80C51是MCS-51系列中一个典型的品种。以8051为基核 开发的CMOS单片机产品统称80C51。
+
+C51
+1-数据类型扩充定">
+<meta property="og:type" content="article">
+<meta property="og:title" content="单片机基础知识">
+<meta property="og:url" content="http://blog.sxin.me/2014/11/12/e5-8d-95-e7-89-87-e6-9c-ba-e5-9f-ba-e7-a1-80-e7-9f-a5-e8-af-86/index.html">
+<meta property="og:site_name" content="SxinBoss的个人博客">
+<meta property="og:description" content="一.学单片机需要的一些预备知识1-电平 
+ttl 高+5v  低0v
+
+2-二进制    十六进制 
+B表示二进制 H表示十六进制
+
+3-逻辑运算 
+与(&amp;amp;amp;&amp;amp;amp;)运算符号．
+或(||)运算符号+
+非(!)运算符号-
+异或
+
+80C51
+80C51是MCS-51系列中一个典型的品种。以8051为基核 开发的CMOS单片机产品统称80C51。
+
+C51
+1-数据类型扩充定">
+<meta property="og:image" content="http://7xskk8.com1.z0.glb.clouddn.com/51Singlechip-1.png">
+<meta property="og:image" content="http://7xskk8.com1.z0.glb.clouddn.com/51Singlechip-2.png">
+<meta property="og:updated_time" content="2016-11-14T06:58:02.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="单片机基础知识">
+<meta name="twitter:description" content="一.学单片机需要的一些预备知识1-电平 
+ttl 高+5v  低0v
+
+2-二进制    十六进制 
+B表示二进制 H表示十六进制
+
+3-逻辑运算 
+与(&amp;amp;amp;&amp;amp;amp;)运算符号．
+或(||)运算符号+
+非(!)运算符号-
+异或
+
+80C51
+80C51是MCS-51系列中一个典型的品种。以8051为基核 开发的CMOS单片机产品统称80C51。
+
+C51
+1-数据类型扩充定">
+<meta name="twitter:image" content="http://7xskk8.com1.z0.glb.clouddn.com/51Singlechip-1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://blog.sxin.me/2014/11/12/e5-8d-95-e7-89-87-e6-9c-ba-e5-9f-ba-e7-a1-80-e7-9f-a5-e8-af-86/"/>
+
+
+
+
+
+  <title> 单片机基础知识 | SxinBoss的个人博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">SxinBoss的个人博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">一个慢慢成长的小昕猿</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://blog.sxin.me/2014/11/12/e5-8d-95-e7-89-87-e6-9c-ba-e5-9f-ba-e7-a1-80-e7-9f-a5-e8-af-86/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="SxinBoss">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.gif">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="SxinBoss的个人博客">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="SxinBoss的个人博客" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                单片机基础知识
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time title="Post created" itemprop="dateCreated datePublished" datetime="2014-11-12T09:26:16+08:00">
+              2014-11-12
+            </time>
+
+            &nbsp;|&nbsp;
+
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-check-o"></i>
+            </span>
+            <time title="Post modified" itemprop="dateModified" datetime="2016-11-14T14:58:02+08:00">
+              2016-11-14
+            </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/51系列/" itemprop="url" rel="index">
+                    <span itemprop="name">51系列</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/51系列/嵌入式/" itemprop="url" rel="index">
+                    <span itemprop="name">嵌入式</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h6 id="一-学单片机需要的一些预备知识"><a href="#一-学单片机需要的一些预备知识" class="headerlink" title="一.学单片机需要的一些预备知识"></a>一.学单片机需要的一些预备知识</h6><pre><code>1-电平 
+ttl 高+5v  低0v
+
+2-二进制    十六进制 
+B表示二进制 H表示十六进制
+
+3-逻辑运算 
+与(&amp;amp;&amp;amp;)运算符号．
+或(||)运算符号+
+非(!)运算符号-
+异或
+
+80C51
+80C51是MCS-51系列中一个典型的品种。以8051为基核 开发的CMOS单片机产品统称80C51。
+
+C51
+1-数据类型扩充定义
+sfr    特殊功能寄存器声明
+sfr16  sfr的16位数据声明
+sbit   特殊功能位声明
+bit    位变量声明
+
+2-头文件
+reg51.h   reg52.h  math.h  ctype.h  stdio.h  stdlib.h  absacc.h
+
+3-运算符
++-*/  &amp;gt; &amp;gt;=  &amp;lt;  &amp;lt;=  ==  !=  &amp;amp;&amp;amp;  ||  !
+&amp;lt;&amp;lt; 位右移  &amp;gt;&amp;gt;  位左移  &amp;amp; 按位与   |  按位或 
+
+单片机主要掌握的几点
+A。最小系统能够运行起来的必要条件最小系统能够运行起来的必要条件。  
+ 1.电源 2.晶振3.复位电路
+B。对单片机任意IO口的随意操作 
+1.输出控制电平高低2.输出检测电平高低。
+C。定时器：重点掌握最常用的方式
+D。中断：外部中断、定时器中断、串口中断 
+E。串口通信：单片机之间、单片机与计算机间
+</code></pre><h6 id="二-关于单片机"><a href="#二-关于单片机" class="headerlink" title="二.关于单片机"></a>二.关于单片机</h6><p>MCS-51系列单片机：集成 8位CPU、4K字节ROM、128字节RAM、4个8位并口、1个全双工串行口、2个16位定时/计数器。寻址范围64K，并有控制功能较强的布尔处理器</p>
+<p>CPU：由运算和控制逻辑组成，同时还包括中断系统和部分外部特殊功能寄存器</p>
+<p>RAM：用以存放可以读写的数据，如运算的中间结果、最终结果以及欲显示的数据</p>
+<p>ROM：用以存放程序、一些原始数据和表格</p>
+<p>I/O口：四个8位并行I/O口，既可用作输入，也可用作输出</p>
+<p>T/C：两个定时/记数器，既可以工作在定时模式，也可以工作在记数模式</p>
+<p><img src="http://7xskk8.com1.z0.glb.clouddn.com/51Singlechip-1.png" alt="芯片"></p>
+<p>STC:公司名  89:89系列  C:CMOS  52:2-&gt;表示内部程序 存储空间大小。52-&gt;8k 51-&gt;4k 54-&gt;16k</p>
+<p>40:所支持晶振最高频率为40M Hz.  C:商业级 0~85摄氏度 (I:工业级 -40~125摄氏度)</p>
+<p>PDIP(DIP是一种封装格式):封装型号 双列直插式。</p>
+<p><img src="http://7xskk8.com1.z0.glb.clouddn.com/51Singlechip-2.png" alt="PDIP"></p>
+<p>0721:生产时间 07年 第21周</p>
+<p>```</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/51/" rel="tag"># 51</a>
+          
+            <a href="/tags/80C51/" rel="tag"># 80C51</a>
+          
+            <a href="/tags/单片机/" rel="tag"># 单片机</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2014/02/10/e5-86-85-e7-bd-91-e5-9f-9f-e6-b8-97-e9-80-8f/" rel="next" title="内网域渗透">
+                <i class="fa fa-chevron-left"></i> 内网域渗透
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2014/11/15/e5-a6-82-e4-bd-95-e5-ad-a6-e4-b9-a0-e5-b5-8c-e5-85-a5-e5-bc-8f/" rel="prev" title="如何学习嵌入式">
+                如何学习嵌入式 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="SxinBoss" />
+          <p class="site-author-name" itemprop="name">SxinBoss</p>
+          <p class="site-description motion-element" itemprop="description">本博客为个人博客,记载开发中的各种心得,经验和踩过的坑...</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">62</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">31</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">92</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-6"><a class="nav-link" href="#一-学单片机需要的一些预备知识"><span class="nav-number">1.</span> <span class="nav-text">一.学单片机需要的一些预备知识</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#二-关于单片机"><span class="nav-number">2.</span> <span class="nav-text">二.关于单片机</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">SxinBoss</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>

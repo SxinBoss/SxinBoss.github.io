@@ -1,0 +1,899 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="上节课我们学了什么？
+
+学会了通过shell脚本拷贝我们的代码文件
+使用PHPSotrm开发我们的程序
+学会了类静方法和静态属性的调用
+附加学习了Phar的打包
+
+我们来回顾下我们的参数 代码
+-v 打印出程序版本
+init  通过自言自语式获取到了项目名称和作者
+make  Phar打包
+`&amp;lt;/pre&amp;gt;
+
+现在看看 有一个参数功能都要一行代码.如果有100个参数？写这么多参数判断？烦">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PHP魔鬼训练班：第四回合：烦不烦？火不火？">
+<meta property="og:url" content="http://blog.sxin.me/2016/09/11/php-e9-ad-94-e9-ac-bc-e8-ae-ad-e7-bb-83-e7-8f-ad-ef-bc-9a-e7-ac-ac-e5-9b-9b-e5-9b-9e-e5-90-88-ef-bc-9a-e7-83-a6-e4-b8-8d-e7-83-a6-ef-bc-9f-e7-81-ab-e4-b8-8d-e7-81-ab-ef-bc-9f/index.html">
+<meta property="og:site_name" content="SxinBoss的个人博客">
+<meta property="og:description" content="上节课我们学了什么？
+
+学会了通过shell脚本拷贝我们的代码文件
+使用PHPSotrm开发我们的程序
+学会了类静方法和静态属性的调用
+附加学习了Phar的打包
+
+我们来回顾下我们的参数 代码
+-v 打印出程序版本
+init  通过自言自语式获取到了项目名称和作者
+make  Phar打包
+`&amp;lt;/pre&amp;gt;
+
+现在看看 有一个参数功能都要一行代码.如果有100个参数？写这么多参数判断？烦">
+<meta property="og:updated_time" content="2016-11-14T06:58:02.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="PHP魔鬼训练班：第四回合：烦不烦？火不火？">
+<meta name="twitter:description" content="上节课我们学了什么？
+
+学会了通过shell脚本拷贝我们的代码文件
+使用PHPSotrm开发我们的程序
+学会了类静方法和静态属性的调用
+附加学习了Phar的打包
+
+我们来回顾下我们的参数 代码
+-v 打印出程序版本
+init  通过自言自语式获取到了项目名称和作者
+make  Phar打包
+`&amp;lt;/pre&amp;gt;
+
+现在看看 有一个参数功能都要一行代码.如果有100个参数？写这么多参数判断？烦">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://blog.sxin.me/2016/09/11/php-e9-ad-94-e9-ac-bc-e8-ae-ad-e7-bb-83-e7-8f-ad-ef-bc-9a-e7-ac-ac-e5-9b-9b-e5-9b-9e-e5-90-88-ef-bc-9a-e7-83-a6-e4-b8-8d-e7-83-a6-ef-bc-9f-e7-81-ab-e4-b8-8d-e7-81-ab-ef-bc-9f/"/>
+
+
+
+
+
+  <title> PHP魔鬼训练班：第四回合：烦不烦？火不火？ | SxinBoss的个人博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">SxinBoss的个人博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">一个慢慢成长的小昕猿</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://blog.sxin.me/2016/09/11/php-e9-ad-94-e9-ac-bc-e8-ae-ad-e7-bb-83-e7-8f-ad-ef-bc-9a-e7-ac-ac-e5-9b-9b-e5-9b-9e-e5-90-88-ef-bc-9a-e7-83-a6-e4-b8-8d-e7-83-a6-ef-bc-9f-e7-81-ab-e4-b8-8d-e7-81-ab-ef-bc-9f/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="SxinBoss">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.gif">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="SxinBoss的个人博客">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="SxinBoss的个人博客" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                PHP魔鬼训练班：第四回合：烦不烦？火不火？
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-09-11T02:12:47+08:00">
+              2016-09-11
+            </time>
+
+            &nbsp;|&nbsp;
+
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-check-o"></i>
+            </span>
+            <time title="Post modified" itemprop="dateModified" datetime="2016-11-14T14:58:02+08:00">
+              2016-11-14
+            </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PHP/" itemprop="url" rel="index">
+                    <span itemprop="name">PHP</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PHP/PHP魔鬼训练班/" itemprop="url" rel="index">
+                    <span itemprop="name">PHP魔鬼训练班</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>上节课我们学了什么？</p>
+<ol>
+<li>学会了通过shell脚本拷贝我们的代码文件</li>
+<li>使用PHPSotrm开发我们的程序</li>
+<li>学会了类静方法和静态属性的调用</li>
+<li>附加学习了Phar的打包</li>
+</ol>
+<p>我们来回顾下我们的参数 代码</p>
+<pre><code>-v 打印出程序版本
+init  通过自言自语式获取到了项目名称和作者
+make  Phar打包
+`&lt;/pre&gt;
+
+现在看看 有一个参数功能都要一行代码.如果有100个参数？写这么多参数判断？烦不烦？火不火？
+
+首先我们要知道 PHP有一个很NB的地方 就是将代码像拼接字符串一样把函数拼接起来.
+
+我们来做个演示,首先我们来到god 
+定义个字符串
+
+&lt;pre&gt;`#!/usr/local/sxin/php7/bin/php
+&amp;lt;?php
+    require(&apos;god_func&apos;.substr(PHP_VERSION,0,1));
+    require(&apos;godinit&apos;);
+    $result=&apos;&apos;;
+    (array_search(&quot;-v&quot;,$argv) &amp;amp;&amp;amp; $result=godinit::$VERSION)
+    || (array_search(&quot;init&quot;,$argv) &amp;amp;&amp;amp; $result=godinit::init())
+    || (array_search(&quot;make&quot;,$argv) &amp;amp;&amp;amp; $result=godinit::make());
+
+    $p=&apos;init&apos;;
+    godinit::$p();
+    echo $result.PHP_EOL;
+`&lt;/pre&gt;
+
+./god
+这个依旧会执行 godinit的init方法
+
+发现这一点后呢 我们就可以改善一下我们的代码了.让它更加有逼格一些.
+
+## 需求
+
+如果参数带- 开头,那么说明就是属性.我们直接调用类的静态属性
+
+如果不带- ,那么就说明是方法.我们直接调用静态方法.
+
+常规写法:
+
+&lt;pre&gt;`$p=$argv[1];//先保存一个变量
+if(substr($p,0,1)==&apos;-&apos;)//判断第一个字符是否是 -
+`&lt;/pre&gt;
+
+godinit
+
+&lt;pre&gt;`&amp;lt;?php
+    class godinit
+    {
+        static $v=&quot;god version is 1.2&quot;;
+        static $prj_name=&quot;&quot;;//项目名称
+        static $prj_author=&quot;sxin&quot;;//项目作者
+        static function init()
+        {
+            echo &quot;input your project name?&quot;.PHP_EOL;
+            self::$prj_name=trim(fgets(STDIN));
+            echo &quot;input your project author?&quot;.PHP_EOL;
+            self::$prj_author=trim(fgets(STDIN));
+
+            return initConfig(self::$prj_name,self::$prj_author);
+        }
+
+        static function make()
+        {
+            $pchar=new Phar(&quot;god.phar&quot;);
+            $pchar-&amp;gt;buildFromDirectory(dirname(__FILE_));
+            $pchar-&amp;gt;setStub($pchar-&amp;gt;createDefaultStub(&apos;god&apos;));
+            $pchar-&amp;gt;compressFiles(Phar::GZ);
+        }
+    }
+`&lt;/pre&gt;
+
+god
+
+&lt;pre&gt;`&amp;lt;?php
+    require(&apos;god_func&apos;.substr(PHP_VERSION,0,1));
+    require(&apos;godinit&apos;);
+    $result=&apos;&apos;;
+
+   if($argv&amp;gt;=2)
+   {
+       $p=$argv[1];
+       if (substr($p,0,1)==&apos;-&apos;)
+       {
+           //-v 就会变成v
+           $p=substr($p,1); //string substr ( string $string , int $start [, int $length ] ) 如果最后一个参数(length)不写,默认截取到最后一位
+           $result=godinit::$$p;
+       }
+       else
+       {
+          $result=godinit::$p();
+       }
+   }
+
+    echo $result.PHP_EOL;
+`&lt;/pre&gt;
+
+但是问题又来了.
+
+如果我瞎写一个属性咋办？
+
+这时我们要学习一个基本的判断函数
+
+isset(xxx)
+
+检测变量是否设置, 并且不是NULL 则返回true
+
+这里一定要看清楚:这厮检测的是变量哦
+
+god
+
+&lt;pre&gt;`&amp;lt;?php
+    require(&apos;god_func&apos; . substr(PHP_VERSION, 0, 1));
+    require(&apos;godinit&apos;);
+    $result = &apos;&apos;;
+
+    if ($argv &amp;gt;= 2) {
+        $p = $argv[1];
+        if (substr($p, 0, 1) == &apos;-&apos;) {
+            //-v 就会变成v
+            $p = substr($p, 1); //string substr ( string $string , int $start [, int $length ] ) 如果最后一个参数(length)不写,默认截取到最后一位
+            $result=isset(godinit::$$p)?godinit::$$p:&apos;&apos;;
+        } else {
+            $result = godinit::$p();
+        }
+    }
+
+    echo $result . PHP_EOL;
+`&lt;/pre&gt;
+
+##### 这样的话变量是OK了,那方法咋办呢？
+
+我们又要学习到一个PHP魔法函数 __callStatic($m,$args)
+
+这个方法如果你要用,必须写到类里面并且必须是static
+
+作用:
+
+&lt;pre&gt;`如果你调用了一个未定义的静态方法,则会自动触发这个函数
+第一个参数是方法名,第二个参数是方法参数,我们可以用它来做一个容错处理
+`&lt;/pre&gt;
+
+godinit
+
+&lt;pre&gt;`&amp;lt;?php
+    class godinit
+    {
+        static $v=&quot;god version is 1.2&quot;;
+        static $prj_name=&quot;&quot;;//项目名称
+        static $prj_author=&quot;sxin&quot;;//项目作者
+        static function init()
+        {
+            echo &quot;input your project name?&quot;.PHP_EOL;
+            self::$prj_name=trim(fgets(STDIN));
+            echo &quot;input your project author?&quot;.PHP_EOL;
+            self::$prj_author=trim(fgets(STDIN));
+
+            return initConfig(self::$prj_name,self::$prj_author);
+        }
+
+        static function make()
+        {
+            $pchar=new Phar(&quot;god.phar&quot;);
+            $pchar-&amp;gt;buildFromDirectory(dirname(__FILE_));
+            $pchar-&amp;gt;setStub($pchar-&amp;gt;createDefaultStub(&apos;god&apos;));
+            $pchar-&amp;gt;compressFiles(Phar::GZ);
+        }
+
+        static function  __callStatic($m,$argv)
+        {
+            echo &apos;error function:&apos;.$m;
+        }
+    }
+`&lt;/pre&gt;
+
+这样我们在随便执行一下:
+
+`./god sdfji`
+
+它会报:
+
+`error function:sdfji`
+
+接下来我们再看看类和实例化调用
+
+前面讲过,类就是人类用来&quot;归类、使代码可读性更高&quot;,仅此而已。我们继续来强化记忆.
+
+我们新建一个GodConfig类. 这个类干嘛用的呢？
+就是用于把用户填写的项目名称.作者保存起来.
+
+godconfig
+
+&lt;pre&gt;`&amp;lt;?php
+    class godconfig
+    {
+        public $prj_name;
+        public $prj_author;
+    }
+`&lt;/pre&gt;
+
+godinit
+
+&lt;pre&gt;`&amp;lt;?php
+    require(&apos;godconfig&apos;);
+
+    class godinit
+    {
+        static $v=&quot;god version is 1.2&quot;;
+        static function init()
+        {
+            $gc=new godconfig();
+            echo &quot;input your project name?&quot;.PHP_EOL;
+            $gc-&amp;gt;prj_name=trim(fgets(STDIN));
+            echo &quot;input your project author?&quot;.PHP_EOL;
+            $gc-&amp;gt;prj_author=trim(fgets(STDIN));
+
+            return initConfig(json_encode($gc));
+        }
+        //xxoo
+`&lt;/pre&gt;
+
+god_func7
+
+&lt;pre&gt;`&amp;lt;?php
+    function initConfig($str):string
+    {
+        return file_put_contents(getcwd().&apos;/god.json&apos;,$str).&apos; of bytes is written&apos;.PHP_EOL.&apos;god config is created&apos;;
+    }
+</code></pre>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/09/08/php-e9-ad-94-e9-ac-bc-e8-ae-ad-e7-bb-83-e7-8f-ad-ef-bc-9a-e7-ac-ac-e4-b8-89-e5-9b-9e-e5-90-88-ef-bc-9a-e8-87-aa-e8-a8-80-e8-87-aa-e8-af-ad/" rel="next" title="PHP魔鬼训练班：第三回合：自言自语">
+                <i class="fa fa-chevron-left"></i> PHP魔鬼训练班：第三回合：自言自语
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/09/11/php-e9-ad-94-e9-ac-bc-e8-ae-ad-e7-bb-83-e7-8f-ad-ef-bc-9a-e7-ac-ac-e4-ba-94-e5-9b-9e-e5-90-88-ef-bc-9a-e6-88-91-e5-be-97-e4-ba-86-e6-87-92-e7-99-8c/" rel="prev" title="PHP魔鬼训练班：第五回合：我得了懒癌">
+                PHP魔鬼训练班：第五回合：我得了懒癌 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="SxinBoss" />
+          <p class="site-author-name" itemprop="name">SxinBoss</p>
+          <p class="site-description motion-element" itemprop="description">本博客为个人博客,记载开发中的各种心得,经验和踩过的坑...</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">62</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">31</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">92</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">SxinBoss</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>

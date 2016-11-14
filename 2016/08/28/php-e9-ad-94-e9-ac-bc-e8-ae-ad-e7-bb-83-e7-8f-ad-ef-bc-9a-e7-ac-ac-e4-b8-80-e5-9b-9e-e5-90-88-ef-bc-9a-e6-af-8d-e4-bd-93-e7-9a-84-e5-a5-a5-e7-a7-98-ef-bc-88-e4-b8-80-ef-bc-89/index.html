@@ -1,0 +1,721 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="本系列博文是 来自沈逸老师的 PHP魔鬼训练课第一阶段系列教程本课程适用人群:
+
+有一定自学能力(由于课程篇幅,不会把PHP所有知识点全部讲到位.有些会在课程中指出,需要大家通过网上去学习)
+不抗拒Linux(课程中,尤其是PHP的一些高级特性是不支持Windows)
+善于课后思考和做笔记
+不纠结
+热爱技术,希望有所提高的PHP程序员
+
+目的:从思维上提高大家PHP开发水平本课程开发环境:Ubun">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PHP魔鬼训练班：第一回合：母体的奥秘（一）">
+<meta property="og:url" content="http://blog.sxin.me/2016/08/28/php-e9-ad-94-e9-ac-bc-e8-ae-ad-e7-bb-83-e7-8f-ad-ef-bc-9a-e7-ac-ac-e4-b8-80-e5-9b-9e-e5-90-88-ef-bc-9a-e6-af-8d-e4-bd-93-e7-9a-84-e5-a5-a5-e7-a7-98-ef-bc-88-e4-b8-80-ef-bc-89/index.html">
+<meta property="og:site_name" content="SxinBoss的个人博客">
+<meta property="og:description" content="本系列博文是 来自沈逸老师的 PHP魔鬼训练课第一阶段系列教程本课程适用人群:
+
+有一定自学能力(由于课程篇幅,不会把PHP所有知识点全部讲到位.有些会在课程中指出,需要大家通过网上去学习)
+不抗拒Linux(课程中,尤其是PHP的一些高级特性是不支持Windows)
+善于课后思考和做笔记
+不纠结
+热爱技术,希望有所提高的PHP程序员
+
+目的:从思维上提高大家PHP开发水平本课程开发环境:Ubun">
+<meta property="og:updated_time" content="2016-11-14T06:58:02.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="PHP魔鬼训练班：第一回合：母体的奥秘（一）">
+<meta name="twitter:description" content="本系列博文是 来自沈逸老师的 PHP魔鬼训练课第一阶段系列教程本课程适用人群:
+
+有一定自学能力(由于课程篇幅,不会把PHP所有知识点全部讲到位.有些会在课程中指出,需要大家通过网上去学习)
+不抗拒Linux(课程中,尤其是PHP的一些高级特性是不支持Windows)
+善于课后思考和做笔记
+不纠结
+热爱技术,希望有所提高的PHP程序员
+
+目的:从思维上提高大家PHP开发水平本课程开发环境:Ubun">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://blog.sxin.me/2016/08/28/php-e9-ad-94-e9-ac-bc-e8-ae-ad-e7-bb-83-e7-8f-ad-ef-bc-9a-e7-ac-ac-e4-b8-80-e5-9b-9e-e5-90-88-ef-bc-9a-e6-af-8d-e4-bd-93-e7-9a-84-e5-a5-a5-e7-a7-98-ef-bc-88-e4-b8-80-ef-bc-89/"/>
+
+
+
+
+
+  <title> PHP魔鬼训练班：第一回合：母体的奥秘（一） | SxinBoss的个人博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">SxinBoss的个人博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">一个慢慢成长的小昕猿</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://blog.sxin.me/2016/08/28/php-e9-ad-94-e9-ac-bc-e8-ae-ad-e7-bb-83-e7-8f-ad-ef-bc-9a-e7-ac-ac-e4-b8-80-e5-9b-9e-e5-90-88-ef-bc-9a-e6-af-8d-e4-bd-93-e7-9a-84-e5-a5-a5-e7-a7-98-ef-bc-88-e4-b8-80-ef-bc-89/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="SxinBoss">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.gif">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="SxinBoss的个人博客">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="SxinBoss的个人博客" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                PHP魔鬼训练班：第一回合：母体的奥秘（一）
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-08-28T02:49:11+08:00">
+              2016-08-28
+            </time>
+
+            &nbsp;|&nbsp;
+
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-check-o"></i>
+            </span>
+            <time title="Post modified" itemprop="dateModified" datetime="2016-11-14T14:58:02+08:00">
+              2016-11-14
+            </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PHP/" itemprop="url" rel="index">
+                    <span itemprop="name">PHP</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PHP/PHP魔鬼训练班/" itemprop="url" rel="index">
+                    <span itemprop="name">PHP魔鬼训练班</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h6 id="本系列博文是-来自沈逸老师的-PHP魔鬼训练课第一阶段系列教程"><a href="#本系列博文是-来自沈逸老师的-PHP魔鬼训练课第一阶段系列教程" class="headerlink" title="本系列博文是 来自沈逸老师的 PHP魔鬼训练课第一阶段系列教程"></a>本系列博文是 来自沈逸老师的 <a href="http://www.jtthink.com/course/37" target="_blank" rel="external">PHP魔鬼训练课第一阶段</a>系列教程</h6><p>本课程适用人群:</p>
+<ul>
+<li>有一定自学能力(由于课程篇幅,不会把PHP所有知识点全部讲到位.有些会在课程中指出,需要大家通过网上去学习)</li>
+<li>不抗拒Linux(课程中,尤其是PHP的一些高级特性是不支持Windows)</li>
+<li>善于课后思考和做笔记</li>
+<li>不纠结</li>
+<li>热爱技术,希望有所提高的PHP程序员</li>
+</ul>
+<h6 id="目的-从思维上提高大家PHP开发水平"><a href="#目的-从思维上提高大家PHP开发水平" class="headerlink" title="目的:从思维上提高大家PHP开发水平"></a>目的:从思维上提高大家PHP开发水平</h6><h6 id="本课程开发环境-Ubuntu16-PHP7-环境搭建可以参考另一篇博文-Ubuntu16-编译安装-Apache24-amp-amp-PHP7-amp-amp-Mysql57"><a href="#本课程开发环境-Ubuntu16-PHP7-环境搭建可以参考另一篇博文-Ubuntu16-编译安装-Apache24-amp-amp-PHP7-amp-amp-Mysql57" class="headerlink" title="本课程开发环境:Ubuntu16+PHP7 (环境搭建可以参考另一篇博文:Ubuntu16 编译安装 Apache24&amp;&amp;PHP7&amp;&amp;Mysql57)"></a>本课程开发环境:Ubuntu16+PHP7 (环境搭建可以参考另一篇博文:<a href="http://blog.sxin.me/?p=62">Ubuntu16 编译安装 Apache24&amp;&amp;PHP7&amp;&amp;Mysql57</a>)</h6><h2 id="正文"><a href="#正文" class="headerlink" title="正文:"></a>正文:</h2><h5 id="什么是母体"><a href="#什么是母体" class="headerlink" title="什么是母体?"></a>什么是母体?</h5><p>PHP的一大特性是:脚本语言 不要编译</p>
+<p>写完就能运行么?明显不是.</p>
+<p>PHP代码要想能够运行,必须有个”母体”.其实就是我们编译好的那个PHP可执行程序</p>
+<h5 id="如何让母体运行"><a href="#如何让母体运行" class="headerlink" title="如何让母体运行?"></a>如何让母体运行?</h5><p>PHP安装目录=/usr/local/sxin/php7<br>1. /usr/local/sxin/php7/bin/php xxx</p>
+<p>2. /usr/local/sxin/php7/bin/php -r “PHP Code”<br>3. 创建一个文件.第一行写上 #!/usr/local/sxin/php7/bin/php</p>
+<h6 id="本课程中-我们采用第三种形式"><a href="#本课程中-我们采用第三种形式" class="headerlink" title="本课程中 我们采用第三种形式"></a>本课程中 我们采用第三种形式</h6><h6 id="示例"><a href="#示例" class="headerlink" title="示例:"></a>示例:</h6><ol>
+<li><p>sxin</p>
+<p>&lt;?php</p>
+<pre><code>echo &apos;i am sxin&apos;.PHP_EOL;
+</code></pre><p>//如果只有PHP代码 是不需要写封口符号的(即:php?&gt;)<br>`</p>
+<p><code>/usr/local/sxin/php7/bin/php sxin</code><br>2. <code>/usr/local/sxin/php7/bin/php -r &#39;echo &quot;i am sxin&quot;.PHP_EOL;&#39;</code><br>3. god</p>
+<pre>`#!/usr/local/sxin/php7/bin/php
+&lt;?php
+    echo 'god'.PHP_EOL;
+`</pre>
+
+<p><code>chmod +x god &amp;amp;&amp;amp;./god</code></p>
+<h6 id="这个god-会贯穿我们整个教程-为了在任意目录都可以执行这个god-我们把它放到环境变量目录里-usr-local-bin"><a href="#这个god-会贯穿我们整个教程-为了在任意目录都可以执行这个god-我们把它放到环境变量目录里-usr-local-bin" class="headerlink" title="这个god 会贯穿我们整个教程.为了在任意目录都可以执行这个god.我们把它放到环境变量目录里(/usr/local/bin)"></a>这个god 会贯穿我们整个教程.为了在任意目录都可以执行这个god.我们把它放到环境变量目录里(/usr/local/bin)</h6><p><code>sudo cp god /usr/local/bin</code></p>
+<h2 id="实战演练"><a href="#实战演练" class="headerlink" title="实战演练"></a>实战演练</h2><p>PHP如何获取参数.在网页里我们可以通过GET.POST</p>
+<p>但是在命令行里执行要怎么获取参数呢?</p>
+<p>两个全局变量$argc和$argv.</p>
+<ul>
+<li>$argc是参数的个数(自己也算一个)</li>
+<li>$argv是参数 它是个数组</li>
+</ul>
+<p>god</p>
+<pre>`#!/usr/local/sxin/php7/bin/php
+&lt;?php
+    $str='i am god';
+    echo $str.PHP_EOL;
+    echo $argv[$argc-1];
+    echo PHP_EOL;
+`</pre>
+
+<h2 id="课后作业"><a href="#课后作业" class="headerlink" title="课后作业"></a>课后作业</h2><p>需求:</p>
+<p><pre>`当我执行god时,如果没有参数,则什么都不显示.<br>如果有参数,并且第二个参数是 -v  则打印如下字符<br>god version is 1.0</pre></p>
+</li>
+</ol>
+<p><a href="http://blog.sxin.me/?p=130">PHP魔鬼训练班课后作业 </a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/08/19/e5-89-8d-e7-ab-af-e9-80-9f-e5-ad-a6-e6-88-90-e8-b4-a2-ef-bc-9a-e7-ac-ac-e5-8d-81-e5-9b-9b-e8-af-be-e5-ae-9e-e6-88-98-e6-bc-94-e7-bb-83-ef-bc-9a-e7-94-a8gulpwebpack-e6-9e-84-e5-bb-ba-e7-94-a8/" rel="next" title="前端速学成财：第十四课-实战演练：用gulp+webpack构建用户登录(1)">
+                <i class="fa fa-chevron-left"></i> 前端速学成财：第十四课-实战演练：用gulp+webpack构建用户登录(1)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/08/29/e9-9b-b6-e6-95-a3-e7-9f-a5-e8-af-86-e7-82-b9-ef-bc-9a-e9-9d-a2-e8-af-95-e7-af-87-e9-80-9a-e7-94-a8/" rel="prev" title="零散知识点：面试篇(通用)">
+                零散知识点：面试篇(通用) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="SxinBoss" />
+          <p class="site-author-name" itemprop="name">SxinBoss</p>
+          <p class="site-description motion-element" itemprop="description">本博客为个人博客,记载开发中的各种心得,经验和踩过的坑...</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">62</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">31</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">92</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-6"><a class="nav-link" href="#本系列博文是-来自沈逸老师的-PHP魔鬼训练课第一阶段系列教程"><span class="nav-number">1.</span> <span class="nav-text">本系列博文是 来自沈逸老师的 PHP魔鬼训练课第一阶段系列教程</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#目的-从思维上提高大家PHP开发水平"><span class="nav-number">2.</span> <span class="nav-text">目的:从思维上提高大家PHP开发水平</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#本课程开发环境-Ubuntu16-PHP7-环境搭建可以参考另一篇博文-Ubuntu16-编译安装-Apache24-amp-amp-PHP7-amp-amp-Mysql57"><span class="nav-number">3.</span> <span class="nav-text">本课程开发环境:Ubuntu16+PHP7 (环境搭建可以参考另一篇博文:Ubuntu16 编译安装 Apache24&&PHP7&&Mysql57)</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正文"><span class="nav-number"></span> <span class="nav-text">正文:</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#什么是母体"><span class="nav-number"></span> <span class="nav-text">什么是母体?</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#如何让母体运行"><span class="nav-number"></span> <span class="nav-text">如何让母体运行?</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#本课程中-我们采用第三种形式"><span class="nav-number">1.</span> <span class="nav-text">本课程中 我们采用第三种形式</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#示例"><span class="nav-number">2.</span> <span class="nav-text">示例:</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#这个god-会贯穿我们整个教程-为了在任意目录都可以执行这个god-我们把它放到环境变量目录里-usr-local-bin"><span class="nav-number">3.</span> <span class="nav-text">这个god 会贯穿我们整个教程.为了在任意目录都可以执行这个god.我们把它放到环境变量目录里(/usr/local/bin)</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实战演练"><span class="nav-number"></span> <span class="nav-text">实战演练</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课后作业"><span class="nav-number"></span> <span class="nav-text">课后作业</span></a></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">SxinBoss</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
