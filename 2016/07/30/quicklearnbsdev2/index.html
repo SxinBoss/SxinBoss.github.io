@@ -88,7 +88,7 @@
 2、NPM的初步使用
 3、自己创建一个模块
 1.基本语法(不用理解,死记硬背即可):1234567外部引用时 建议写法:exports.函数名 = function()&amp;#123;    //xxoo&amp;#125;或module.exports.函数名
-新建文件 aa.js(后缀随意,通常用js)123var getlib=require(&amp;apos;./slib&amp;apos;)">
+新建文件 aa.js(后缀随意,通常用js)123var getlib=require(&apos;./slib&apos;);getlib.sh">
 <meta property="og:type" content="article">
 <meta property="og:title" content="第二课-知识点速学">
 <meta property="og:url" content="http://blog.sxin.me/2016/07/30/quicklearnbsdev2/index.html">
@@ -97,7 +97,7 @@
 2、NPM的初步使用
 3、自己创建一个模块
 1.基本语法(不用理解,死记硬背即可):1234567外部引用时 建议写法:exports.函数名 = function()&amp;#123;    //xxoo&amp;#125;或module.exports.函数名
-新建文件 aa.js(后缀随意,通常用js)123var getlib=require(&amp;apos;./slib&amp;apos;)">
+新建文件 aa.js(后缀随意,通常用js)123var getlib=require(&apos;./slib&apos;);getlib.sh">
 <meta property="og:updated_time" content="2016-11-14T12:40:21.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第二课-知识点速学">
@@ -105,7 +105,7 @@
 2、NPM的初步使用
 3、自己创建一个模块
 1.基本语法(不用理解,死记硬背即可):1234567外部引用时 建议写法:exports.函数名 = function()&amp;#123;    //xxoo&amp;#125;或module.exports.函数名
-新建文件 aa.js(后缀随意,通常用js)123var getlib=require(&amp;apos;./slib&amp;apos;)">
+新建文件 aa.js(后缀随意,通常用js)123var getlib=require(&apos;./slib&apos;);getlib.sh">
 
 
 
@@ -416,23 +416,23 @@
         <p>1、学会外部文件引用</p>
 <p>2、NPM的初步使用</p>
 <p>3、自己创建一个模块</p>
-<p><strong>1.基本语法(不用理解,死记硬背即可):</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">外部引用时 建议写法:</div><div class="line">exports.函数名 = function()</div><div class="line">&#123;</div><div class="line">    //xxoo</div><div class="line">&#125;</div><div class="line">或</div><div class="line">module.exports.函数名</div></pre></td></tr></table></figure></p>
-<p>新建文件 aa.js(后缀随意,通常用js)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var getlib=require(&apos;./slib&apos;);</div><div class="line">getlib.showName();</div><div class="line">console.log(getlib.age);</div></pre></td></tr></table></figure></p>
-<p>新建文件 slib.js(后缀随意,通常用js)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">exports.age=20;</div><div class="line">exports.showName=function()</div><div class="line">&#123;</div><div class="line">	console.log(&quot;name&quot;);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><strong>1.基本语法(不用理解,死记硬背即可):</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">外部引用时 建议写法:</div><div class="line">exports.函数名 = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span></div><div class="line">&#123;</div><div class="line">    <span class="comment">//xxoo</span></div><div class="line">&#125;</div><div class="line">或</div><div class="line"><span class="built_in">module</span>.exports.函数名</div></pre></td></tr></table></figure></p>
+<p>新建文件 aa.js(后缀随意,通常用js)<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> getlib=<span class="built_in">require</span>(<span class="string">'./slib'</span>);</div><div class="line">getlib.showName();</div><div class="line"><span class="built_in">console</span>.log(getlib.age);</div></pre></td></tr></table></figure></p>
+<p>新建文件 slib.js(后缀随意,通常用js)<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">exports.age=<span class="number">20</span>;</div><div class="line">exports.showName=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span></div><div class="line">&#123;</div><div class="line">	<span class="built_in">console</span>.log(<span class="string">"name"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p><strong>2.NPM:<code>包管理工具(类似:Maven,Composer)</code></strong><br><a id="more"></a><br>简单使用: </p>
 <p>下载个jquery来看看: npm install jquery</p>
 <p>然后我们会发现在当前目录下,会出现一个node_modules文件夹.在次文件夹下会有jquery.这就是我们刚刚下载下来的jquery模块(jquery源码)</p>
-<p>引用刚刚下载的jquery模块<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var abc=require(&quot;jquery&quot;);//只要写文件夹名就行.它会自动寻找当前目录下的node_modules下面的文件夹</div><div class="line">console.log(abc);</div></pre></td></tr></table></figure></p>
+<p>引用刚刚下载的jquery模块<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> abc=<span class="built_in">require</span>(<span class="string">"jquery"</span>);<span class="comment">//只要写文件夹名就行.它会自动寻找当前目录下的node_modules下面的文件夹</span></div><div class="line"><span class="built_in">console</span>.log(abc);</div></pre></td></tr></table></figure></p>
 <p><strong>3.我们来自己创建个模块</strong></p>
 <p>在node_modules文件夹下创建目录sxin(随便写)</p>
 <p>然后我们把slib.js移动到sxin目录下</p>
-<p>修改aa.js<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var getlib=require(&apos;sxin&apos;);</div><div class="line">getlib.showName();</div><div class="line">console.log(getlib.age);</div></pre></td></tr></table></figure></p>
+<p>修改aa.js<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> getlib=<span class="built_in">require</span>(<span class="string">'sxin'</span>);</div><div class="line">getlib.showName();</div><div class="line"><span class="built_in">console</span>.log(getlib.age);</div></pre></td></tr></table></figure></p>
 <p>执行.我们会发现 报错 Error: Cannot find module ‘sxin’</p>
 <p>原来他加载模块会默认查找文件夹下的index.js,我们把aa.js改成index.js</p>
 <p>然后在执行。好了 没问题</p>
 <p>好  既然这边 那jquery 应该也是有个index.js吧？但是我们去看下发现并没有index.js。 这是什么鬼?</p>
 <p>不是说要index.js的么?   我们会发现在jquery目录下有一个package.json .如果有这个文件，会根据这个文件去读取配置。</p>
-<p>好，我们在sxin目录下也建一个package.json.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">	&quot;main&quot;: &quot;slib.js&quot;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>好，我们在sxin目录下也建一个package.json.<br><figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">	<span class="attr">"main"</span>: <span class="string">"slib.js"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>然后把刚才的index.js改回slib.js，然后在运行aa.js. 成功！</p>
 
       

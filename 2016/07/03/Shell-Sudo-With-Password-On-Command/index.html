@@ -84,19 +84,28 @@
 
 
 
-<meta name="description" content="1231.sudo -S &amp;lt;&amp;lt;&amp;lt; &amp;apos;密码&amp;apos; 要执行的命令2.expect -c &amp;apos;spawn sudo 要执行的命令;expect password;send &amp;quot;密码\n&amp;quot;;interact;&amp;apos;3.echo &amp;apos;密码&amp;apos;|sudo -S /bin/bash -c &amp;apos;要执行的命令&amp;apos;
-请注">
+<meta name="description" content="1231.sudo -S &amp;lt;&amp;lt;&amp;lt; &apos;密码&apos; 要执行的命令2.expect -c &apos;spawn sudo 要执行的命令;expect password;send &quot;密码\n&quot;;interact;&apos;3.echo &apos;密码&apos;|sudo -S /bin/bash -c &apos;要执行的命令&apos;
+请注意:
+第一行是用单引号括起来的
+第二行最外层是用单引号括起来,密码使用双引号括起来的
+以上代码 本人">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Shell Sudo With Password On Command">
 <meta property="og:url" content="http://blog.sxin.me/2016/07/03/Shell-Sudo-With-Password-On-Command/index.html">
 <meta property="og:site_name" content="SxinBoss的个人博客">
-<meta property="og:description" content="1231.sudo -S &amp;lt;&amp;lt;&amp;lt; &amp;apos;密码&amp;apos; 要执行的命令2.expect -c &amp;apos;spawn sudo 要执行的命令;expect password;send &amp;quot;密码\n&amp;quot;;interact;&amp;apos;3.echo &amp;apos;密码&amp;apos;|sudo -S /bin/bash -c &amp;apos;要执行的命令&amp;apos;
-请注">
+<meta property="og:description" content="1231.sudo -S &amp;lt;&amp;lt;&amp;lt; &apos;密码&apos; 要执行的命令2.expect -c &apos;spawn sudo 要执行的命令;expect password;send &quot;密码\n&quot;;interact;&apos;3.echo &apos;密码&apos;|sudo -S /bin/bash -c &apos;要执行的命令&apos;
+请注意:
+第一行是用单引号括起来的
+第二行最外层是用单引号括起来,密码使用双引号括起来的
+以上代码 本人">
 <meta property="og:updated_time" content="2016-11-15T00:52:02.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Shell Sudo With Password On Command">
-<meta name="twitter:description" content="1231.sudo -S &amp;lt;&amp;lt;&amp;lt; &amp;apos;密码&amp;apos; 要执行的命令2.expect -c &amp;apos;spawn sudo 要执行的命令;expect password;send &amp;quot;密码\n&amp;quot;;interact;&amp;apos;3.echo &amp;apos;密码&amp;apos;|sudo -S /bin/bash -c &amp;apos;要执行的命令&amp;apos;
-请注">
+<meta name="twitter:description" content="1231.sudo -S &amp;lt;&amp;lt;&amp;lt; &apos;密码&apos; 要执行的命令2.expect -c &apos;spawn sudo 要执行的命令;expect password;send &quot;密码\n&quot;;interact;&apos;3.echo &apos;密码&apos;|sudo -S /bin/bash -c &apos;要执行的命令&apos;
+请注意:
+第一行是用单引号括起来的
+第二行最外层是用单引号括起来,密码使用双引号括起来的
+以上代码 本人">
 
 
 
@@ -392,7 +401,7 @@
       
 
       
-        <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">1.sudo -S &lt;&lt;&lt; &apos;密码&apos; 要执行的命令</div><div class="line">2.expect -c &apos;spawn sudo 要执行的命令;expect password;send &quot;密码\n&quot;;interact;&apos;</div><div class="line">3.echo &apos;密码&apos;|sudo -S /bin/bash -c &apos;要执行的命令&apos;</div></pre></td></tr></table></figure>
+        <figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="number">1</span>.sudo -S &lt;&lt;&lt; <span class="string">'密码'</span> 要执行的命令</div><div class="line"><span class="number">2</span>.expect -c <span class="string">'spawn sudo 要执行的命令;expect password;send "密码\n";interact;'</span></div><div class="line"><span class="number">3</span>.echo <span class="string">'密码'</span>|sudo -S <span class="regexp">/bin/</span>bash -c <span class="string">'要执行的命令'</span></div></pre></td></tr></table></figure>
 <p><code>请注意:</code></p>
 <p><code>第一行是用单引号括起来的</code></p>
 <p><code>第二行最外层是用单引号括起来,密码使用双引号括起来的</code></p>

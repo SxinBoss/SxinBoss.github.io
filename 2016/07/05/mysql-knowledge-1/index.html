@@ -85,18 +85,24 @@
 
 
 <meta name="description" content="注:本零散知识点系列所有内容均来自 “程序猿在囧途”系列群  聊天记录
-循环累加一个 字段 并用逗号分隔1select shit from( select 要累加的字段, @tt:=CONCAT(@tt,&amp;apos;,&amp;apos;,a.要累加的字段) as shit from 某表 a,(select @tt:=&amp;apos;&amp;apos;) b ) c ORDER BY LENGTH(c.shit)">
+循环累加一个 字段 并用逗号分隔1select shit from( select 要累加的字段, @tt:=CONCAT(@tt,&apos;,&apos;,a.要累加的字段) as shit from 某表 a,(select @tt:=&apos;&apos;) b ) c ORDER BY LENGTH(c.shit) desc limit 0,1
+问答
+用">
 <meta property="og:type" content="article">
 <meta property="og:title" content="循环累加一个字段,并逗号分隔|大数据量计算表记录数">
 <meta property="og:url" content="http://blog.sxin.me/2016/07/05/mysql-knowledge-1/index.html">
 <meta property="og:site_name" content="SxinBoss的个人博客">
 <meta property="og:description" content="注:本零散知识点系列所有内容均来自 “程序猿在囧途”系列群  聊天记录
-循环累加一个 字段 并用逗号分隔1select shit from( select 要累加的字段, @tt:=CONCAT(@tt,&amp;apos;,&amp;apos;,a.要累加的字段) as shit from 某表 a,(select @tt:=&amp;apos;&amp;apos;) b ) c ORDER BY LENGTH(c.shit)">
+循环累加一个 字段 并用逗号分隔1select shit from( select 要累加的字段, @tt:=CONCAT(@tt,&apos;,&apos;,a.要累加的字段) as shit from 某表 a,(select @tt:=&apos;&apos;) b ) c ORDER BY LENGTH(c.shit) desc limit 0,1
+问答
+用">
 <meta property="og:updated_time" content="2016-11-14T14:22:06.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="循环累加一个字段,并逗号分隔|大数据量计算表记录数">
 <meta name="twitter:description" content="注:本零散知识点系列所有内容均来自 “程序猿在囧途”系列群  聊天记录
-循环累加一个 字段 并用逗号分隔1select shit from( select 要累加的字段, @tt:=CONCAT(@tt,&amp;apos;,&amp;apos;,a.要累加的字段) as shit from 某表 a,(select @tt:=&amp;apos;&amp;apos;) b ) c ORDER BY LENGTH(c.shit)">
+循环累加一个 字段 并用逗号分隔1select shit from( select 要累加的字段, @tt:=CONCAT(@tt,&apos;,&apos;,a.要累加的字段) as shit from 某表 a,(select @tt:=&apos;&apos;) b ) c ORDER BY LENGTH(c.shit) desc limit 0,1
+问答
+用">
 
 
 
@@ -405,7 +411,7 @@
 
       
         <p><strong>注:本零散知识点系列所有内容均来自 “程序猿在囧途”系列群  聊天记录</strong></p>
-<p><strong>循环累加一个 字段 并用逗号分隔</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">select shit from( select 要累加的字段, @tt:=CONCAT(@tt,&apos;,&apos;,a.要累加的字段) as shit from 某表 a,(select @tt:=&apos;&apos;) b ) c ORDER BY LENGTH(c.shit) desc limit 0,1</div></pre></td></tr></table></figure></p>
+<p><strong>循环累加一个 字段 并用逗号分隔</strong><br><figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">select</span> <span class="selector-tag">shit</span> <span class="selector-tag">from</span>( select 要累加的字段, <span class="variable">@tt</span>:=CONCAT(<span class="variable">@tt</span>,<span class="string">','</span>,a.要累加的字段) as shit from 某表 a,(select <span class="variable">@tt</span>:=<span class="string">''</span>) b ) <span class="selector-tag">c</span> <span class="selector-tag">ORDER</span> <span class="selector-tag">BY</span> <span class="selector-tag">LENGTH</span>(c.shit) <span class="selector-tag">desc</span> <span class="selector-tag">limit</span> <span class="selector-tag">0</span>,<span class="selector-tag">1</span></div></pre></td></tr></table></figure></p>
 <p><strong>问答</strong></p>
 <p><code>用户表 :包含id主键索引，用户名字段和用户密码 还有用户入库时间</code></p>
 <p><code>问题1、这张表一般加索引的有哪几个字段</code></p>
@@ -413,8 +419,8 @@
 <p><code>问题3、如果我的数据 有几个亿 。那么 怎么利用 各种手段 计算表的记录数</code></p>
 <p><code>1.user_name</code></p>
 <p><code>2:select count(*) from table USE INDEX(PRIMARY);</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">3:思路是必须结合shell script</div><div class="line">系统初始化时利用 shell把每个表的记录 保存在缓存里</div><div class="line">当程序 对表进行操作时， 利用程序 让该条缓存失效</div><div class="line">shell设置成定时任务。 一旦发生某个缓存失效，就重新计算count(*)</div><div class="line">并再次插入缓存</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">大家注意， 我刚才提了两个问题</div><div class="line">1、该表常见索引会在哪。 大家都回答是user_name。这是对的</div><div class="line">2、如果没有建立user_name索引，那么count(*) 确实不要做任何手脚</div><div class="line">3、但是如果你在第一步建立了user_name索引。那么cout(*)的时候 就要加上use index(PRIMARY)</div><div class="line">因为 如果 你不加。mysql这傻缺 会默认用你的user_name 作为扫描主键</div><div class="line">每一次连接都会慢 所谓的0.0x秒</div><div class="line">如果并发高、PV大 数据量大。 服务器就崩溃了</div><div class="line"></div><div class="line">如果你的 user_name字段值很长。 那么必定是比主键慢 （主键因为是数字）</div><div class="line">往往很多表的主键 用的不是数字 ，而是 guid 很多位的那种</div></pre></td></tr></table></figure>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="symbol"></span></div><div class="line">3:思路是必须结合<span class="keyword">shell </span><span class="keyword">script</span></div><div class="line">系统初始化时利用 <span class="keyword">shell把每个表的记录 </span>保存在缓存里</div><div class="line">当程序 对表进行操作时， 利用程序 让该条缓存失效</div><div class="line"><span class="keyword">shell设置成定时任务。 </span>一旦发生某个缓存失效，就重新计算<span class="built_in">count</span>(*)</div><div class="line">并再次插入缓存</div></pre></td></tr></table></figure>
+<figure class="highlight delphi"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">大家注意， 我刚才提了两个问题</div><div class="line"><span class="number">1</span>、该表常见索引会在哪。 大家都回答是user_name。这是对的</div><div class="line"><span class="number">2</span>、如果没有建立user_name索引，那么count<span class="comment">(*) 确实不要做任何手脚</span></div><div class="line">3、但是如果你在第一步建立了user_name索引。那么cout(*)的时候 就要加上use <span class="keyword">index</span>(PRIMARY)</div><div class="line">因为 如果 你不加。mysql这傻缺 会默认用你的user_name 作为扫描主键</div><div class="line">每一次连接都会慢 所谓的<span class="number">0.0</span>x秒</div><div class="line">如果并发高、PV大 数据量大。 服务器就崩溃了</div><div class="line"></div><div class="line">如果你的 user_name字段值很长。 那么必定是比主键慢 （主键因为是数字）</div><div class="line">往往很多表的主键 用的不是数字 ，而是 guid 很多位的那种</div></pre></td></tr></table></figure>
 <p><code>USE INDEX(PRIMARY)  如何解？</code><br><code>代表 强制使用 主键索引</code></p>
 <p>好。 本题我们 发现几个现象</p>
 <p>1、上述功能和PHP或框架有关系吗？   ：没有</p>

@@ -87,7 +87,7 @@
 <meta name="description" content="资料：Android去掉标题栏方法
 1.在代码里实现
 this.requestWindowFeature(Window.FEATURE_NO_TITLE);//这句代码要写在setContentView()前面
-2.在清单文件（manifest.xml）里面实现123&amp;lt;application android:icon=&amp;quot;@drawable/icon&amp;quot;       andr">
+2.在清单文件（manifest.xml）里面实现123&amp;lt;application android:icon=&quot;@drawable/icon&quot;       android:label=">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android去掉标题栏后报错">
 <meta property="og:url" content="http://blog.sxin.me/2016/07/08/andorid-remove-titlebar-except/index.html">
@@ -95,14 +95,14 @@ this.requestWindowFeature(Window.FEATURE_NO_TITLE);//这句代码要写在setCon
 <meta property="og:description" content="资料：Android去掉标题栏方法
 1.在代码里实现
 this.requestWindowFeature(Window.FEATURE_NO_TITLE);//这句代码要写在setContentView()前面
-2.在清单文件（manifest.xml）里面实现123&amp;lt;application android:icon=&amp;quot;@drawable/icon&amp;quot;       andr">
+2.在清单文件（manifest.xml）里面实现123&amp;lt;application android:icon=&quot;@drawable/icon&quot;       android:label=">
 <meta property="og:updated_time" content="2016-11-14T14:05:29.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android去掉标题栏后报错">
 <meta name="twitter:description" content="资料：Android去掉标题栏方法
 1.在代码里实现
 this.requestWindowFeature(Window.FEATURE_NO_TITLE);//这句代码要写在setContentView()前面
-2.在清单文件（manifest.xml）里面实现123&amp;lt;application android:icon=&amp;quot;@drawable/icon&amp;quot;       andr">
+2.在清单文件（manifest.xml）里面实现123&amp;lt;application android:icon=&quot;@drawable/icon&quot;       android:label=">
 
 
 
@@ -413,9 +413,9 @@ this.requestWindowFeature(Window.FEATURE_NO_TITLE);//这句代码要写在setCon
         <p>资料：<a href="http://blog.csdn.net/liuzhidong123/article/details/7818531" title="Android去掉标题栏方法" target="_blank" rel="external">Android去掉标题栏方法</a></p>
 <p>1.在代码里实现</p>
 <p><code>this.requestWindowFeature(Window.FEATURE_NO_TITLE);//这句代码要写在setContentView()前面</code></p>
-<p>2.在清单文件（manifest.xml）里面实现<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;application android:icon=&quot;@drawable/icon&quot;   </div><div class="line">    android:label=&quot;@string/app_name&quot;   </div><div class="line">    android:theme=&quot;@android:style/Theme.NoTitleBar&quot;&gt;</div></pre></td></tr></table></figure></p>
-<p>3.在style.xml文件里定义<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;  </div><div class="line">&lt;resources&gt;  </div><div class="line">    &lt;style name=&quot;notitle&quot;&gt;  </div><div class="line">        &lt;item name=&quot;android:windowNoTitle&quot;&gt;true&lt;/item&gt;  </div><div class="line">    &lt;/style&gt;   </div><div class="line">&lt;/resources&gt;</div></pre></td></tr></table></figure></p>
-<p>然后面manifest.xml中引用就可以了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;application android:icon=&quot;@drawable/icon&quot;   </div><div class="line">        android:label=&quot;@string/app_name&quot;   </div><div class="line">        android:theme=&quot;@style/notitle&quot;&gt;</div></pre></td></tr></table></figure></p>
+<p>2.在清单文件（manifest.xml）里面实现<br><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;application android:icon=<span class="string">"@drawable/icon"</span>   </div><div class="line">    android:<span class="keyword">label</span><span class="bash">=<span class="string">"@string/app_name"</span>   </span></div><div class="line">    android:theme=<span class="string">"@android:style/Theme.NoTitleBar"</span>&gt;</div></pre></td></tr></table></figure></p>
+<p>3.在style.xml文件里定义<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="php"><span class="meta">&lt;?</span>xml version=<span class="string">"1.0"</span> encoding=<span class="string">"UTF-8"</span> <span class="meta">?&gt;</span></span>  </div><div class="line"><span class="tag">&lt;<span class="name">resources</span>&gt;</span>  </div><div class="line">    <span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">"notitle"</span>&gt;</span><span class="xml">  </span></div><div class="line">        <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowNoTitle"</span>&gt;</span>true<span class="tag">&lt;/<span class="name">item</span>&gt;</span>  </div><div class="line">    <span class="tag">&lt;/<span class="name">style</span>&gt;</span>   </div><div class="line"><span class="tag">&lt;/<span class="name">resources</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>然后面manifest.xml中引用就可以了<br><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;application android:icon=<span class="string">"@drawable/icon"</span>   </div><div class="line">        android:<span class="keyword">label</span><span class="bash">=<span class="string">"@string/app_name"</span>   </span></div><div class="line">        android:theme=<span class="string">"@style/notitle"</span>&gt;</div></pre></td></tr></table></figure></p>
 <p>然后我按着三个方法试了下，结果：</p>
 <p>方法1  没效果</p>
 <p>方法2,3报错</p>

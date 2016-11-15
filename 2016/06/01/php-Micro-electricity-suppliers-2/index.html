@@ -86,20 +86,23 @@
 
 <meta name="description" content="沈逸老师：PHP微电商第一季加强版
 目录结构:
-根目录:index.php    —路由12$get_control = isset($_GET[&amp;apos;control&amp;apos;])?trim($_GET[&amp;apos;control&amp;apos;]):&amp;apos;index&amp;apos;;$get_action = isset($_GET[&amp;apos;action&amp;apos;])?trim($">
+根目录:index.php    —路由12$get_control = isset($_GET[&apos;control&apos;])?trim($_GET[&apos;control&apos;]):&apos;index&apos;;$get_action = isset($_GET[&apos;action&apos;])?trim($_GET[&apos;action&apos;]):&apos;index&apos;;
+根据$get_control决">
 <meta property="og:type" content="article">
 <meta property="og:title" content="跟着沈毅学微电商(PHP):二">
 <meta property="og:url" content="http://blog.sxin.me/2016/06/01/php-Micro-electricity-suppliers-2/index.html">
 <meta property="og:site_name" content="SxinBoss的个人博客">
 <meta property="og:description" content="沈逸老师：PHP微电商第一季加强版
 目录结构:
-根目录:index.php    —路由12$get_control = isset($_GET[&amp;apos;control&amp;apos;])?trim($_GET[&amp;apos;control&amp;apos;]):&amp;apos;index&amp;apos;;$get_action = isset($_GET[&amp;apos;action&amp;apos;])?trim($">
+根目录:index.php    —路由12$get_control = isset($_GET[&apos;control&apos;])?trim($_GET[&apos;control&apos;]):&apos;index&apos;;$get_action = isset($_GET[&apos;action&apos;])?trim($_GET[&apos;action&apos;]):&apos;index&apos;;
+根据$get_control决">
 <meta property="og:updated_time" content="2016-11-14T14:58:20.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="跟着沈毅学微电商(PHP):二">
 <meta name="twitter:description" content="沈逸老师：PHP微电商第一季加强版
 目录结构:
-根目录:index.php    —路由12$get_control = isset($_GET[&amp;apos;control&amp;apos;])?trim($_GET[&amp;apos;control&amp;apos;]):&amp;apos;index&amp;apos;;$get_action = isset($_GET[&amp;apos;action&amp;apos;])?trim($">
+根目录:index.php    —路由12$get_control = isset($_GET[&apos;control&apos;])?trim($_GET[&apos;control&apos;]):&apos;index&apos;;$get_action = isset($_GET[&apos;action&apos;])?trim($_GET[&apos;action&apos;]):&apos;index&apos;;
+根据$get_control决">
 
 
 
@@ -421,12 +424,12 @@
       
         <p><a href="http://www.jtthink.com/course/1" title="PHP微电商第一季加强版" target="_blank" rel="external"> 沈逸老师：PHP微电商第一季加强版</a></p>
 <p>目录结构:</p>
-<p>根目录:index.php    —路由<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$get_control = isset($_GET[&apos;control&apos;])?trim($_GET[&apos;control&apos;]):&apos;index&apos;;</div><div class="line">$get_action = isset($_GET[&apos;action&apos;])?trim($_GET[&apos;action&apos;]):&apos;index&apos;;</div></pre></td></tr></table></figure></p>
+<p>根目录:index.php    —路由<br><figure class="highlight mel"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$get_control = isset($_GET[<span class="string">'control'</span>])?<span class="keyword">trim</span>($_GET[<span class="string">'control'</span>]):<span class="string">'index'</span>;</div><div class="line">$get_action = isset($_GET[<span class="string">'action'</span>])?<span class="keyword">trim</span>($_GET[<span class="string">'action'</span>]):<span class="string">'index'</span>;</div></pre></td></tr></table></figure></p>
 <pre><code>根据$get_control决定是加载哪个类
 根据$get_action 决定执行类中哪个方法
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">MVC:</div><div class="line">M ---Model:暂时用不到</div><div class="line">C ---Controller:</div><div class="line">所有类名和文件名都要保持一致</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">_Main.c  所有类都基于Main类</div><div class="line">var $_viewName=&apos;&apos;;</div><div class="line">function setViewName();</div><div class="line">function run();</div><div class="line">run方法 加载模板 以及_viewName模板</div><div class="line"></div><div class="line">index.c  首页</div><div class="line">function index()&#123; setViewName(&apos;index&apos;);&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">V ---View:</div><div class="line">模板</div><div class="line">head.tpl</div><div class="line">index.tpl</div><div class="line">footer.tpl</div></pre></td></tr></table></figure>
+</code></pre><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="string">MVC:</span></div><div class="line">M ---<span class="string">Model:</span>暂时用不到</div><div class="line">C ---<span class="string">Controller:</span></div><div class="line">所有类名和文件名都要保持一致</div></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">_Main.c  所有类都基于Main类</div><div class="line"><span class="keyword">var</span> $_viewName=<span class="string">''</span>;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">setViewName</span><span class="params">()</span></span>;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">run</span><span class="params">()</span></span>;</div><div class="line">run方法 加载模板 以及_viewName模板</div><div class="line"></div><div class="line">index.c  首页</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">index</span><span class="params">()</span></span>&#123; setViewName(<span class="string">'index'</span>);&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">V ---View:</div><div class="line">模板</div><div class="line">head<span class="selector-class">.tpl</span></div><div class="line">index<span class="selector-class">.tpl</span></div><div class="line"><span class="selector-tag">footer</span>.tpl</div></pre></td></tr></table></figure>
 
       
     </div>

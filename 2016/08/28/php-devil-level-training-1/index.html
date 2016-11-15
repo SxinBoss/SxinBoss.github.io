@@ -454,13 +454,13 @@
 <li>/usr/local/sxin/php7/bin/php -r “PHP Code”</li>
 <li>创建一个文件.第一行写上 #!/usr/local/sxin/php7/bin/php<h6 id="本课程中-我们采用第三种形式"><a href="#本课程中-我们采用第三种形式" class="headerlink" title="本课程中 我们采用第三种形式"></a>本课程中 我们采用第三种形式</h6><a id="more"></a>
 <h6 id="示例"><a href="#示例" class="headerlink" title="示例:"></a>示例:</h6></li>
-<li>sxin<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;?php</div><div class="line">    echo &apos;i am sxin&apos;.PHP_EOL;</div><div class="line">//如果只有PHP代码 是不需要写封口符号的(即:php?&gt;)</div></pre></td></tr></table></figure>
+<li>sxin<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="php"><span class="meta">&lt;?php</span></span></div><div class="line">    <span class="keyword">echo</span> <span class="string">'i am sxin'</span>.PHP_EOL;</div><div class="line"><span class="comment">//如果只有PHP代码 是不需要写封口符号的(即:php<span class="meta">?&gt;</span></span>)</div></pre></td></tr></table></figure>
 </li>
 </ol>
 <p><code>/usr/local/sxin/php7/bin/php sxin</code></p>
 <ol>
 <li><code>/usr/local/sxin/php7/bin/php -r &#39;echo &quot;i am sxin&quot;.PHP_EOL;&#39;</code></li>
-<li>god<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">#!/usr/local/sxin/php7/bin/php</div><div class="line">&lt;?php</div><div class="line">    echo &apos;god&apos;.PHP_EOL;</div></pre></td></tr></table></figure>
+<li>god<figure class="highlight gradle"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">#!<span class="regexp">/usr/</span>local<span class="regexp">/sxin/</span>php7<span class="regexp">/bin/</span>php</div><div class="line">&lt;?php</div><div class="line">    echo <span class="string">'god'</span>.PHP_EOL;</div></pre></td></tr></table></figure>
 </li>
 </ol>
 <p><code>chmod +x god &amp;&amp;./god</code></p>
@@ -471,8 +471,8 @@
 <li>$argc是参数的个数(自己也算一个)</li>
 <li>$argv是参数 它是个数组</li>
 </ul>
-<p>god<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">#!/usr/local/sxin/php7/bin/php</div><div class="line">&lt;?php</div><div class="line">    $str=&apos;i am god&apos;;</div><div class="line">    echo $str.PHP_EOL;</div><div class="line">    echo $argv[$argc-1];</div><div class="line">    echo PHP_EOL;</div></pre></td></tr></table></figure></p>
-<h2 id="课后作业"><a href="#课后作业" class="headerlink" title="课后作业"></a>课后作业</h2><p>需求:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">当我执行god时,如果没有参数,则什么都不显示.</div><div class="line">如果有参数,并且第二个参数是 -v  则打印如下字符</div><div class="line">god version is 1.0</div></pre></td></tr></table></figure></p>
+<p>god<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#!/usr/local/sxin/php7/bin/php</span></div><div class="line"><span class="meta">&lt;?php</span></div><div class="line">    $str=<span class="string">'i am god'</span>;</div><div class="line">    <span class="keyword">echo</span> $str.PHP_EOL;</div><div class="line">    <span class="keyword">echo</span> $argv[$argc<span class="number">-1</span>];</div><div class="line">    <span class="keyword">echo</span> PHP_EOL;</div></pre></td></tr></table></figure></p>
+<h2 id="课后作业"><a href="#课后作业" class="headerlink" title="课后作业"></a>课后作业</h2><p>需求:<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">当我执行god时,如果没有参数,则什么都不显示.</div><div class="line">如果有参数,并且第二个参数是 -v  则打印如下字符</div><div class="line">god <span class="built_in">version</span> <span class="keyword">is</span> <span class="number">1.0</span></div></pre></td></tr></table></figure></p>
 <p><a href="http://blog.sxin.me/?p=130">PHP魔鬼训练班课后作业 </a></p>
 
       
