@@ -89,8 +89,7 @@
 jquery 2.0 + ajax + post
 delphi 7 + indy 10 + TIdHTTPServer
 
-Bug前端Post后 delphi-HttpServer-&amp;gt;Request.Params 中是空的 (没有获取到参数)
-原因跟踪源码发现12345678910if">
+Bug前端Post后 delphi-HttpServer-&amp;gt;Request.Params 中是空的 (没有获取到参数)">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Delphi Indy10坑 之 TIdHTTPServer无法接收Post过来的值">
 <meta property="og:url" content="http://blog.sxin.me/2016/10/28/delphiindy10requestparamsisempty/index.html">
@@ -100,11 +99,10 @@ Bug前端Post后 delphi-HttpServer-&amp;gt;Request.Params 中是空的 (没有�
 jquery 2.0 + ajax + post
 delphi 7 + indy 10 + TIdHTTPServer
 
-Bug前端Post后 delphi-HttpServer-&amp;gt;Request.Params 中是空的 (没有获取到参数)
-原因跟踪源码发现12345678910if">
+Bug前端Post后 delphi-HttpServer-&amp;gt;Request.Params 中是空的 (没有获取到参数)">
 <meta property="og:image" content="http://7xskk8.com1.z0.glb.clouddn.com/delphi-indy10-parse-post-params-bug.jpg">
 <meta property="og:image" content="http://7xskk8.com1.z0.glb.clouddn.com/delphi-indy10-parse-post-params-bug2.jpg">
-<meta property="og:updated_time" content="2016-11-14T14:42:16.000Z">
+<meta property="og:updated_time" content="2016-11-15T04:38:59.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Delphi Indy10坑 之 TIdHTTPServer无法接收Post过来的值">
 <meta name="twitter:description" content="由于软件需求,需要在本地开放一个HttpServer. 然后通过web传值过来  然后进行xxxx操作
@@ -112,8 +110,7 @@ Bug前端Post后 delphi-HttpServer-&amp;gt;Request.Params 中是空的 (没有�
 jquery 2.0 + ajax + post
 delphi 7 + indy 10 + TIdHTTPServer
 
-Bug前端Post后 delphi-HttpServer-&amp;gt;Request.Params 中是空的 (没有获取到参数)
-原因跟踪源码发现12345678910if">
+Bug前端Post后 delphi-HttpServer-&amp;gt;Request.Params 中是空的 (没有获取到参数)">
 <meta name="twitter:image" content="http://7xskk8.com1.z0.glb.clouddn.com/delphi-indy10-parse-post-params-bug.jpg">
 
 
@@ -343,8 +340,8 @@ Bug前端Post后 delphi-HttpServer-&amp;gt;Request.Params 中是空的 (没有�
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-check-o"></i>
             </span>
-            <time title="Post modified" itemprop="dateModified" datetime="2016-11-14T22:42:16+08:00">
-              2016-11-14
+            <time title="Post modified" itemprop="dateModified" datetime="2016-11-15T12:38:59+08:00">
+              2016-11-15
             </time>
             
           </span>
@@ -427,7 +424,7 @@ Bug前端Post后 delphi-HttpServer-&amp;gt;Request.Params 中是空的 (没有�
 <li>jquery 2.0 + ajax + post</li>
 <li>delphi 7 + indy 10 + TIdHTTPServer</li>
 </ul>
-<h3 id="Bug"><a href="#Bug" class="headerlink" title="Bug"></a>Bug</h3><p>前端Post后 delphi-HttpServer-&gt;Request.Params 中是空的 (没有获取到参数)</p>
+<h3 id="Bug"><a href="#Bug" class="headerlink" title="Bug"></a>Bug</h3><p>前端Post后 delphi-HttpServer-&gt;Request.Params 中是空的 (没有获取到参数)<br><a id="more"></a></p>
 <h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><p>跟踪源码发现<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">if ParseParams then begin</div><div class="line">    //if LowerCase(LRequestInfo.ContentType) = &apos;application/x-www-form-urlencoded&apos; then begin    &#123;Do not Localize&#125;</div><div class="line">    if (pos(&apos;application/x-www-form-urlencoded&apos;,(LowerCase(LRequestInfo.ContentType)))&gt;0) then begin    &#123;Do not Localize&#125;</div><div class="line">        LRequestInfo.DecodeAndSetParams(LRequestInfo.UnparsedParams);</div><div class="line">    end</div><div class="line">    else begin</div><div class="line">        // Parse only query params when content type is not &apos;application/x-www-form-urlencoded&apos;    &#123;Do not Localize&#125;</div><div class="line">        LRequestInfo.DecodeAndSetParams(LRequestInfo.QueryParams);</div><div class="line">    end;</div><div class="line">end;</div></pre></td></tr></table></figure></p>
 <p><img src="http://7xskk8.com1.z0.glb.clouddn.com/delphi-indy10-parse-post-params-bug.jpg" alt="image"></p>
 <p>注释掉的<code>//if LowerCase(LRequestInfo.ContentType) = &#39;application/x-www-form-urlencoded&#39; then</code>是原本的源码</p>

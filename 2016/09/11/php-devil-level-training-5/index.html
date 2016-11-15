@@ -112,7 +112,7 @@ prj_author(作者)
 
 那么程序是否能运行？答案是依然可以.PHP会自动给你的类增加属性
 这时我的”懒癌”又犯了,我甚至连godconfig类都不想建">
-<meta property="og:updated_time" content="2016-11-14T15:16:53.000Z">
+<meta property="og:updated_time" content="2016-11-15T04:39:49.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第五回合:我得了懒癌">
 <meta name="twitter:description" content="回顾一下上节课
@@ -355,8 +355,8 @@ prj_author(作者)
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-check-o"></i>
             </span>
-            <time title="Post modified" itemprop="dateModified" datetime="2016-11-14T23:16:53+08:00">
-              2016-11-14
+            <time title="Post modified" itemprop="dateModified" datetime="2016-11-15T12:39:49+08:00">
+              2016-11-15
             </time>
             
           </span>
@@ -460,10 +460,8 @@ prj_author(作者)
 <li>这时我的”懒癌”又犯了,我甚至连godconfig类都不想建立了,可以吗？<br> 当然可以. <code>$gc=new stdClass();</code></li>
 </ol>
 <h3 id="stdClass"><a href="#stdClass" class="headerlink" title="stdClass"></a>stdClass</h3><p>这个PHP内置顶层类,实际上是一个基类,空白的.什么都没有</p>
-<p>如果你临时用用的,其他地方很少用.那么根本不需要新建什么实体类,直接new 一个stdclass就可以了.</p>
-<p>godinit<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">&lt;?php</div><div class="line">    require(&apos;godconfig&apos;);</div><div class="line"></div><div class="line">    class godinit</div><div class="line">    &#123;</div><div class="line">        static $v=&quot;god version is 1.2&quot;;</div><div class="line">        static function init()</div><div class="line">        &#123;</div><div class="line">            $gc=new stdClass();</div><div class="line">            echo &quot;input your project name?&quot;.PHP_EOL;</div><div class="line">            $gc-&gt;prj_name=trim(fgets(STDIN));</div><div class="line">            echo &quot;input your project author?&quot;.PHP_EOL;</div><div class="line">            $gc-&gt;prj_author=trim(fgets(STDIN));</div><div class="line"></div><div class="line">            return initConfig(json_encode($gc));</div><div class="line">        &#125;</div><div class="line">        //xxoo</div></pre></td></tr></table></figure></p>
+<p>如果你临时用用的,其他地方很少用.那么根本不需要新建什么实体类,直接new 一个stdclass就可以了.<br><a id="more"></a><br>godinit<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">&lt;?php</div><div class="line">    require(&apos;godconfig&apos;);</div><div class="line"></div><div class="line">    class godinit</div><div class="line">    &#123;</div><div class="line">        static $v=&quot;god version is 1.2&quot;;</div><div class="line">        static function init()</div><div class="line">        &#123;</div><div class="line">            $gc=new stdClass();</div><div class="line">            echo &quot;input your project name?&quot;.PHP_EOL;</div><div class="line">            $gc-&gt;prj_name=trim(fgets(STDIN));</div><div class="line">            echo &quot;input your project author?&quot;.PHP_EOL;</div><div class="line">            $gc-&gt;prj_author=trim(fgets(STDIN));</div><div class="line"></div><div class="line">            return initConfig(json_encode($gc));</div><div class="line">        &#125;</div><div class="line">        //xxoo</div></pre></td></tr></table></figure></p>
 <p>此时我们已经可以把godconfig删掉了</p>
-<a id="more"></a>
 <h1 id="实战需求来了"><a href="#实战需求来了" class="headerlink" title="实战需求来了"></a>实战需求来了</h1><p>我们在函数文件里写个方法,譬如叫</p>
 <p>function TC() // 就是temp class的意思.代表返回一个临时类(这个类,因为懒 我不高兴新建成一个具体的文件,就是这么任性)</p>
 <p>函数接受一个参数,参数是一个PHP数组,形式如下：</p>
