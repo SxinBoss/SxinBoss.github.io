@@ -644,6 +644,165 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://blog.sxin.me/2016/08/12/scatteredknowledge6/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="SxinBoss">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="http://7xskk8.com1.z0.glb.clouddn.com/blog_touxiang.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="SxinBoss的个人博客">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="SxinBoss的个人博客" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/08/12/scatteredknowledge6/" itemprop="url">
+                  零散知识点:简单理解回调函数
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-08-12T00:00:00+08:00">
+              2016-08-12
+            </time>
+
+            &nbsp;|&nbsp;
+
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-check-o"></i>
+            </span>
+            <time title="Post modified" itemprop="dateModified" datetime="2016-11-14T23:39:50+08:00">
+              2016-11-14
+            </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/零散知识点/" itemprop="url" rel="index">
+                    <span itemprop="name">零散知识点</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/12/scatteredknowledge6/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/12/scatteredknowledge6/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/08/12/scatteredknowledge6/" class="leancloud_visitors" data-flag-title="零散知识点:简单理解回调函数">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>为什么用回调函数？</p>
+<p>1、异步</p>
+<p>2、不知道参数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div></pre></td><td class="code"><pre><div class="line">【讲师】沈逸(6******9) 23:14:12</div><div class="line">回调 就是把 函数B 当做 字符串、数字这样的参数传给函数A</div><div class="line">函数A 理论上会在它执行完成后，手动 执行函数B。 但是如果我的函数A 乱调用 也是可以的</div><div class="line">【讲师】沈逸(6******9) 23:16:26</div><div class="line">function fuck(callback)</div><div class="line">&#123;</div><div class="line">  callbak();//手动调用了</div><div class="line">&#125;</div><div class="line">function shit()</div><div class="line">&#123;</div><div class="line">  shit本身也是一个函数</div><div class="line">&#125;</div><div class="line"></div><div class="line">执行的时候 这么调用 fuck(shit)  //注意shit绝对不能加小括号，否则传的就不是函数，而是“不知道的一个什么玩意儿”</div><div class="line">Fl**r(25******69) 23:21:25</div><div class="line">叔，回调函数可不可以调用在执行它的函数之前？</div><div class="line">【讲师】沈逸(6******9) 23:21:41</div><div class="line">随你啊</div><div class="line">【讲师】沈逸(6******9) 23:22:03</div><div class="line">fuck(callbak)</div><div class="line">&#123;</div><div class="line">  xxoo 执行完后调用 callbak()</div><div class="line">&#125;</div><div class="line">【讲师】沈逸(6******9) 23:22:34</div><div class="line">但是你可以 故意反人类  </div><div class="line">fuck(callbak)</div><div class="line">&#123;</div><div class="line">callbak() //老子就要先调用 这个回调</div><div class="line">  xxoo 再执行 xxoo</div><div class="line">&#125;</div><div class="line">【讲师】沈逸(6******9) 23:23:44</div><div class="line">一般来说 我们懒得抽筋， 连shit都不高兴写 。于是就变成了</div><div class="line">fuck(function()&#123;</div><div class="line">    这里面就是shit的内容 </div><div class="line">&#125;)</div><div class="line">【讲师】沈逸(6******9) 23:24:28</div><div class="line">这也叫做 匿名函数 传参</div><div class="line">【讲师】沈逸(6******9) 23:24:41</div><div class="line">其实就是 连名字老子  都不高兴写 的传参方式 </div><div class="line">【讲师】沈逸(6******9) 23:25:18</div><div class="line">世界上根本不存在  “回调”。 都是人类 发明出来的名词。 如果 我在fuck里面不手工调用传过来的函数， 回死了也没用</div><div class="line">【讲师】沈逸(6******9) 23:27:10</div><div class="line">还有一种是有参数的回调</div><div class="line">fuck(callbak)</div><div class="line">&#123;</div><div class="line"> var xxoo=&apos;fuck&apos;;</div><div class="line">  callback(xxoo);</div><div class="line">&#125;</div><div class="line">function shit(bb)</div><div class="line">&#123;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">看这里调用 fuck(shit)</div><div class="line">【讲师】沈逸(6******9) 23:28:03</div><div class="line">演化成匿名函数 这就是为何 像jquery的ajax方法有n个参数</div><div class="line">$.post(&apos;url&apos;,function(fuck)&#123;</div><div class="line">  这里是回调</div><div class="line">&#125;);</div><div class="line">【讲师】沈逸(6******9) 23:28:20</div><div class="line">这就都是 主函数 在手动调用时，强迫传给你的</div><div class="line">【讲师】沈逸(6******9) 23:29:20</div><div class="line">搞清楚了这个 ，一下子把 所谓的“回调”逼格 全部降下来了 </div><div class="line">【讲师】沈逸(6******9) 23:30:07</div><div class="line">这个再讲个技巧 </div><div class="line">【讲师】沈逸(6******9) 23:31:52</div><div class="line">一般我们写函数应该这么写</div><div class="line"> function bb(fuck)</div><div class="line">&#123;</div><div class="line">  if(fuck==对象)</div><div class="line">    执行某个事情</div><div class="line">  if(fuck==数组)</div><div class="line">   执行另外的事情</div><div class="line">&#125;</div><div class="line"></div><div class="line">这样  我们队友调用我们的bb函数时 既可以</div><div class="line">1、bb(&#123;name:&quot;shenyi&quot;)&#125;</div><div class="line"></div><div class="line">也可以</div><div class="line">bb([&apos;shenyi&apos;]);</div><div class="line">【讲师】沈逸(6******9) 23:31:57</div><div class="line">逼格一下子 提高了N倍</div><div class="line">Fl**r(25******69) 23:32:25</div><div class="line">双击查看原图</div><div class="line">【讲师】沈逸(6******9) 23:33:06</div><div class="line">这就是为何老外的 库，参数 又可以是字符串 又可以是对象 又可以是数组。 看起来好有逼格</div><div class="line"></div><div class="line">其实 就是一个 “障眼法”，没啥稀奇的</div><div class="line">【讲师】沈逸(6******9) 23:34:57</div><div class="line">这种做法的最大好处是 兼容性</div><div class="line"></div><div class="line">以前的函数 譬如 参数只能是数组，现在升级了，为了兼容老的程序，加个 对象参数模式</div><div class="line"></div><div class="line">换汤不换药，继续 装逼</div><div class="line">【讲师】沈逸(6******9) 23:42:24</div><div class="line">function fuck()</div><div class="line">&#123;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">fuck就是函数（注意：没有写小括号）</div><div class="line">fuck() (这里我加了小括号，这就不是函数了，而是执行该函数，不知道是”啥玩意儿，如果没有return ,啥玩意儿都不是）</div><div class="line">【讲师】沈逸(6******9) 23:43:45</div><div class="line">很多同学 搞错了概念。 以为fuck()才是函数</div><div class="line">【讲师】沈逸(6******9) 23:46:52</div><div class="line">callback(xxoo);</div><div class="line">【讲师】沈逸(6******9) 23:47:23</div><div class="line">这里就是 母体(fuck函数就是母亲，手工调用了callbak,而这个callbak 就是shit)</div><div class="line">【讲师】沈逸(6******9) 23:47:56</div><div class="line">callback(xxoo);  就等于 执行了 shit(xxoo)</div><div class="line">【讲师】沈逸(6******9) 23:48:49</div><div class="line">1、fuck(shit)</div><div class="line"></div><div class="line">2、fuck(function(xxoo)&#123;&#125;)</div><div class="line">【讲师】沈逸(6******9) 23:48:57</div><div class="line">如果实在理解不了 就强记</div><div class="line">【讲师】沈逸(6******9) 23:54:02</div><div class="line">你在调用 fuck 的时候（譬如 fuck 就是 ajax ) 你事先知道 响应结果？</div><div class="line">【讲师】沈逸(6******9) 23:54:16</div><div class="line">明显只有 母体 执行 某个事情后 才知道结果，才能传给 shit </div><div class="line">【讲师】沈逸(6******9) 23:55:50</div><div class="line">永远要记住  fuck(shit); 你调用的是啥函数？</div><div class="line">注意：不是 shit，而是调用了 fuck</div><div class="line">【讲师】沈逸(6******9) 23:56:38</div><div class="line">你在调用fuck函数时，根本不知道 得到什么结果，所以只能把 shit函数 传给fuck.</div><div class="line">让fuck得到 结果后，反过来调用shit(这就得到了参数）</div><div class="line">【讲师】沈逸(6******9) 23:58:32</div><div class="line">你只能等待 fuck去 调用shit时 传参 </div><div class="line">【讲师】沈逸(6******9) 0:01:54</div><div class="line">干嘛要回调？</div><div class="line">1、异步</div><div class="line">2、不知道参数</div><div class="line">【讲师】沈逸(6******9) 0:02:07</div><div class="line">否则 传来传去干啥，太空?</div><div class="line">学**尽(17***4***5) 0:03:49</div><div class="line">演化成匿名函数 这就是为何 像jquery的ajax方法有n个参数</div><div class="line">$.post(&apos;url&apos;,function(fuck)&#123;</div><div class="line">  这里是回调</div><div class="line">&#125;);</div><div class="line">学**尽(17***4***5) 0:04:16</div><div class="line">function(fuck是回调函数把)</div><div class="line">【讲师】沈逸(6******9) 0:04:17</div><div class="line">$.post(&apos;url&apos;,function(fuck)&#123;</div><div class="line">  这里的fuck就是 母体通过各种 复杂的事情得到的 </div><div class="line">&#125;);</div><div class="line">【讲师】沈逸(6******9) 0:04:32</div><div class="line">function(fuck) 就是shit函数 </div><div class="line">学**尽(17***4***5) 0:04:57</div><div class="line">那fuck是一个参数</div><div class="line">【讲师】沈逸(6******9) 0:05:00</div><div class="line">function shit(fuck)  把名字（ shit)去掉后 就是 function(fuck)</div><div class="line">【讲师】沈逸(6******9) 0:05:26</div><div class="line">fuck就是一个参数 只不过你事先不知道 是啥</div><div class="line">【讲师】沈逸(6******9) 0:05:40</div><div class="line">你需要 等待 $.post 这个 函数得到结果后，传给 你的匿名函数</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
   <link itemprop="mainEntityOfPage" href="http://blog.sxin.me/2016/08/12/scatteredknowledge7/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -772,165 +931,6 @@
 <p>9、是否能完整的设计一个 业务功能。譬如大数据用户表怎么设计</p>
 <p>10、进阶的,是否懂分布式开发 </p>
 <p>以上均了解，才能称得上是 “不错的PHP程序员”</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://blog.sxin.me/2016/08/12/scatteredknowledge6/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="SxinBoss">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="http://7xskk8.com1.z0.glb.clouddn.com/blog_touxiang.png">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="SxinBoss的个人博客">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="SxinBoss的个人博客" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/12/scatteredknowledge6/" itemprop="url">
-                  零散知识点:简单理解回调函数
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-08-12T00:00:00+08:00">
-              2016-08-12
-            </time>
-
-            &nbsp;|&nbsp;
-
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-check-o"></i>
-            </span>
-            <time title="Post modified" itemprop="dateModified" datetime="2016-11-14T23:39:50+08:00">
-              2016-11-14
-            </time>
-            
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/零散知识点/" itemprop="url" rel="index">
-                    <span itemprop="name">零散知识点</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/08/12/scatteredknowledge6/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/12/scatteredknowledge6/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/08/12/scatteredknowledge6/" class="leancloud_visitors" data-flag-title="零散知识点:简单理解回调函数">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-          
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>为什么用回调函数？</p>
-<p>1、异步</p>
-<p>2、不知道参数</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div></pre></td><td class="code"><pre><div class="line">【讲师】沈逸(6******9) 23:14:12</div><div class="line">回调 就是把 函数B 当做 字符串、数字这样的参数传给函数A</div><div class="line">函数A 理论上会在它执行完成后，手动 执行函数B。 但是如果我的函数A 乱调用 也是可以的</div><div class="line">【讲师】沈逸(6******9) 23:16:26</div><div class="line">function fuck(callback)</div><div class="line">&#123;</div><div class="line">  callbak();//手动调用了</div><div class="line">&#125;</div><div class="line">function shit()</div><div class="line">&#123;</div><div class="line">  shit本身也是一个函数</div><div class="line">&#125;</div><div class="line"></div><div class="line">执行的时候 这么调用 fuck(shit)  //注意shit绝对不能加小括号，否则传的就不是函数，而是“不知道的一个什么玩意儿”</div><div class="line">Fl**r(25******69) 23:21:25</div><div class="line">叔，回调函数可不可以调用在执行它的函数之前？</div><div class="line">【讲师】沈逸(6******9) 23:21:41</div><div class="line">随你啊</div><div class="line">【讲师】沈逸(6******9) 23:22:03</div><div class="line">fuck(callbak)</div><div class="line">&#123;</div><div class="line">  xxoo 执行完后调用 callbak()</div><div class="line">&#125;</div><div class="line">【讲师】沈逸(6******9) 23:22:34</div><div class="line">但是你可以 故意反人类  </div><div class="line">fuck(callbak)</div><div class="line">&#123;</div><div class="line">callbak() //老子就要先调用 这个回调</div><div class="line">  xxoo 再执行 xxoo</div><div class="line">&#125;</div><div class="line">【讲师】沈逸(6******9) 23:23:44</div><div class="line">一般来说 我们懒得抽筋， 连shit都不高兴写 。于是就变成了</div><div class="line">fuck(function()&#123;</div><div class="line">    这里面就是shit的内容 </div><div class="line">&#125;)</div><div class="line">【讲师】沈逸(6******9) 23:24:28</div><div class="line">这也叫做 匿名函数 传参</div><div class="line">【讲师】沈逸(6******9) 23:24:41</div><div class="line">其实就是 连名字老子  都不高兴写 的传参方式 </div><div class="line">【讲师】沈逸(6******9) 23:25:18</div><div class="line">世界上根本不存在  “回调”。 都是人类 发明出来的名词。 如果 我在fuck里面不手工调用传过来的函数， 回死了也没用</div><div class="line">【讲师】沈逸(6******9) 23:27:10</div><div class="line">还有一种是有参数的回调</div><div class="line">fuck(callbak)</div><div class="line">&#123;</div><div class="line"> var xxoo=&apos;fuck&apos;;</div><div class="line">  callback(xxoo);</div><div class="line">&#125;</div><div class="line">function shit(bb)</div><div class="line">&#123;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">看这里调用 fuck(shit)</div><div class="line">【讲师】沈逸(6******9) 23:28:03</div><div class="line">演化成匿名函数 这就是为何 像jquery的ajax方法有n个参数</div><div class="line">$.post(&apos;url&apos;,function(fuck)&#123;</div><div class="line">  这里是回调</div><div class="line">&#125;);</div><div class="line">【讲师】沈逸(6******9) 23:28:20</div><div class="line">这就都是 主函数 在手动调用时，强迫传给你的</div><div class="line">【讲师】沈逸(6******9) 23:29:20</div><div class="line">搞清楚了这个 ，一下子把 所谓的“回调”逼格 全部降下来了 </div><div class="line">【讲师】沈逸(6******9) 23:30:07</div><div class="line">这个再讲个技巧 </div><div class="line">【讲师】沈逸(6******9) 23:31:52</div><div class="line">一般我们写函数应该这么写</div><div class="line"> function bb(fuck)</div><div class="line">&#123;</div><div class="line">  if(fuck==对象)</div><div class="line">    执行某个事情</div><div class="line">  if(fuck==数组)</div><div class="line">   执行另外的事情</div><div class="line">&#125;</div><div class="line"></div><div class="line">这样  我们队友调用我们的bb函数时 既可以</div><div class="line">1、bb(&#123;name:&quot;shenyi&quot;)&#125;</div><div class="line"></div><div class="line">也可以</div><div class="line">bb([&apos;shenyi&apos;]);</div><div class="line">【讲师】沈逸(6******9) 23:31:57</div><div class="line">逼格一下子 提高了N倍</div><div class="line">Fl**r(25******69) 23:32:25</div><div class="line">双击查看原图</div><div class="line">【讲师】沈逸(6******9) 23:33:06</div><div class="line">这就是为何老外的 库，参数 又可以是字符串 又可以是对象 又可以是数组。 看起来好有逼格</div><div class="line"></div><div class="line">其实 就是一个 “障眼法”，没啥稀奇的</div><div class="line">【讲师】沈逸(6******9) 23:34:57</div><div class="line">这种做法的最大好处是 兼容性</div><div class="line"></div><div class="line">以前的函数 譬如 参数只能是数组，现在升级了，为了兼容老的程序，加个 对象参数模式</div><div class="line"></div><div class="line">换汤不换药，继续 装逼</div><div class="line">【讲师】沈逸(6******9) 23:42:24</div><div class="line">function fuck()</div><div class="line">&#123;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">fuck就是函数（注意：没有写小括号）</div><div class="line">fuck() (这里我加了小括号，这就不是函数了，而是执行该函数，不知道是”啥玩意儿，如果没有return ,啥玩意儿都不是）</div><div class="line">【讲师】沈逸(6******9) 23:43:45</div><div class="line">很多同学 搞错了概念。 以为fuck()才是函数</div><div class="line">【讲师】沈逸(6******9) 23:46:52</div><div class="line">callback(xxoo);</div><div class="line">【讲师】沈逸(6******9) 23:47:23</div><div class="line">这里就是 母体(fuck函数就是母亲，手工调用了callbak,而这个callbak 就是shit)</div><div class="line">【讲师】沈逸(6******9) 23:47:56</div><div class="line">callback(xxoo);  就等于 执行了 shit(xxoo)</div><div class="line">【讲师】沈逸(6******9) 23:48:49</div><div class="line">1、fuck(shit)</div><div class="line"></div><div class="line">2、fuck(function(xxoo)&#123;&#125;)</div><div class="line">【讲师】沈逸(6******9) 23:48:57</div><div class="line">如果实在理解不了 就强记</div><div class="line">【讲师】沈逸(6******9) 23:54:02</div><div class="line">你在调用 fuck 的时候（譬如 fuck 就是 ajax ) 你事先知道 响应结果？</div><div class="line">【讲师】沈逸(6******9) 23:54:16</div><div class="line">明显只有 母体 执行 某个事情后 才知道结果，才能传给 shit </div><div class="line">【讲师】沈逸(6******9) 23:55:50</div><div class="line">永远要记住  fuck(shit); 你调用的是啥函数？</div><div class="line">注意：不是 shit，而是调用了 fuck</div><div class="line">【讲师】沈逸(6******9) 23:56:38</div><div class="line">你在调用fuck函数时，根本不知道 得到什么结果，所以只能把 shit函数 传给fuck.</div><div class="line">让fuck得到 结果后，反过来调用shit(这就得到了参数）</div><div class="line">【讲师】沈逸(6******9) 23:58:32</div><div class="line">你只能等待 fuck去 调用shit时 传参 </div><div class="line">【讲师】沈逸(6******9) 0:01:54</div><div class="line">干嘛要回调？</div><div class="line">1、异步</div><div class="line">2、不知道参数</div><div class="line">【讲师】沈逸(6******9) 0:02:07</div><div class="line">否则 传来传去干啥，太空?</div><div class="line">学**尽(17***4***5) 0:03:49</div><div class="line">演化成匿名函数 这就是为何 像jquery的ajax方法有n个参数</div><div class="line">$.post(&apos;url&apos;,function(fuck)&#123;</div><div class="line">  这里是回调</div><div class="line">&#125;);</div><div class="line">学**尽(17***4***5) 0:04:16</div><div class="line">function(fuck是回调函数把)</div><div class="line">【讲师】沈逸(6******9) 0:04:17</div><div class="line">$.post(&apos;url&apos;,function(fuck)&#123;</div><div class="line">  这里的fuck就是 母体通过各种 复杂的事情得到的 </div><div class="line">&#125;);</div><div class="line">【讲师】沈逸(6******9) 0:04:32</div><div class="line">function(fuck) 就是shit函数 </div><div class="line">学**尽(17***4***5) 0:04:57</div><div class="line">那fuck是一个参数</div><div class="line">【讲师】沈逸(6******9) 0:05:00</div><div class="line">function shit(fuck)  把名字（ shit)去掉后 就是 function(fuck)</div><div class="line">【讲师】沈逸(6******9) 0:05:26</div><div class="line">fuck就是一个参数 只不过你事先不知道 是啥</div><div class="line">【讲师】沈逸(6******9) 0:05:40</div><div class="line">你需要 等待 $.post 这个 函数得到结果后，传给 你的匿名函数</div></pre></td></tr></table></figure>
 
           
         
@@ -1846,7 +1846,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://blog.sxin.me/2016/07/30/scatteredknowledge8/">
+  <link itemprop="mainEntityOfPage" href="http://blog.sxin.me/2016/07/30/javacustomannotation/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="SxinBoss">
@@ -1871,8 +1871,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/07/30/scatteredknowledge8/" itemprop="url">
-                  零散知识点:关于后端语言谁能不能替换谁一说
+                <a class="post-title-link" href="/2016/07/30/javacustomannotation/" itemprop="url">
+                  JAVA:自定义注解
                 </a>
               
             
@@ -1894,7 +1894,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-check-o"></i>
             </span>
-            <time title="Post modified" itemprop="dateModified" datetime="2016-11-14T23:42:15+08:00">
+            <time title="Post modified" itemprop="dateModified" datetime="2016-11-14T22:44:22+08:00">
               2016-11-14
             </time>
             
@@ -1909,8 +1909,20 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/零散知识点/" itemprop="url" rel="index">
-                    <span itemprop="name">零散知识点</span>
+                  <a href="/categories/编程语言/" itemprop="url" rel="index">
+                    <span itemprop="name">编程语言</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/编程语言/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
                   </a>
                 </span>
 
@@ -1925,8 +1937,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/07/30/scatteredknowledge8/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/30/scatteredknowledge8/" itemprop="commentCount"></span>
+                <a href="/2016/07/30/javacustomannotation/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/30/javacustomannotation/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1936,7 +1948,7 @@
 
           
           
-             <span id="/2016/07/30/scatteredknowledge8/" class="leancloud_visitors" data-flag-title="零散知识点:关于后端语言谁能不能替换谁一说">
+             <span id="/2016/07/30/javacustomannotation/" class="leancloud_visitors" data-flag-title="JAVA:自定义注解">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1963,11 +1975,9 @@
       
         
           
-            <p><code>问:为啥不用golang代替java?</code></p>
-<p><code>答:自己买了私家车（JAVA），为啥有时候还要骑自行车或打车？</code></p>
-<p><code>问:那要是没买呢</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">答:</div><div class="line">如果还没买，请跑步前行(PHP)</div><div class="line">如果去楼下吃个饭，跑步过去是最快的(PHP)</div><div class="line">如果为了见客户 要把整个城市 跑一遍，自然是私家车最方便、最全面(java)</div><div class="line">但是有些客户所在的地方 私家车根本开不进，人流量很大。这时给你一辆自行车（golang)，就方便的很。</div><div class="line">你可以把自行车折叠后放 汽车后备箱。到了附近后，换自行车（这就是java和 golang为啥要配合运行）</div><div class="line">然而有的地方自行车都没法骑，譬如路况太差，汽车会把屁股也颠破。这时你不得不继续跑步。于是你把自行车停一边，然后开始跑步去目的地。</div><div class="line">这就是为啥 大系统 java+golang(python)+php要一起 运行</div></pre></td></tr></table></figure>
-<p><strong>最后的结论是，除非 你啥也不干，否则汽车、自行车、步行 谁也代替不了谁</strong></p>
+            <p>新建 SxinAnnotation.java<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">@Target(&#123;ElementType.METHOD,ElementType.TYPE&#125;)</div><div class="line">@Retention(RetentionPolicy.RUNTIME)</div><div class="line">public @interface SxinAnnotation &#123;</div><div class="line">    String name() default &quot;sxinboss&quot;;</div><div class="line">    int age() default 18;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>新建TestClass.java<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">public class TestClass &#123;</div><div class="line">    @SxinAnnotation(name = &quot;sxin&quot;,age = 20)</div><div class="line">    public String getName() &#123;</div><div class="line">        return name;</div><div class="line">    &#125;</div><div class="line">    public void setName(String name) &#123;</div><div class="line">        this.name = name;</div><div class="line">    &#125;</div><div class="line">    private String name;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">try &#123;</div><div class="line">	Class c = Class.forName(&quot;test.TestClass&quot;);</div><div class="line">	Object obj = c.newInstance();</div><div class="line">	/* </div><div class="line">	//获取方法名</div><div class="line">	Method[] mList = c.getMethods();</div><div class="line">	for (Method m : mList) &#123;</div><div class="line">      resp.getWriter().write(m.getName()+&quot;&lt;hr /&gt;&quot;);</div><div class="line">	&#125;</div><div class="line">	*/</div><div class="line">	Method m = c.getMethod(&quot;getName&quot;);</div><div class="line">	//执行getName方法</div><div class="line">	write(m.invoke(obj).toString());</div><div class="line">	//获取Class上的注解。</div><div class="line">	Annotation[] alist=c.getAnnotations();</div><div class="line">	for(Annotation a :alist)&#123;</div><div class="line">      write(a.toString());</div><div class="line">	&#125;</div><div class="line">&#125; catch (Exception e) &#123;</div><div class="line">	e.printStackTrace();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
           
         
