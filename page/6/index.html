@@ -278,7 +278,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://blog.sxin.me/2016/06/01/php-Micro-electricity-suppliers-2/">
+  <link itemprop="mainEntityOfPage" href="http://blog.sxin.me/2016/08/03/quicklearnbsdev4/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="SxinBoss">
@@ -303,8 +303,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/06/01/php-Micro-electricity-suppliers-2/" itemprop="url">
-                  跟着沈毅学微电商(PHP):二
+                <a class="post-title-link" href="/2016/08/03/quicklearnbsdev4/" itemprop="url">
+                  第四课-粗糙的玩一玩css的"编译"
                 </a>
               
             
@@ -317,8 +317,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-06-01T00:00:00+08:00">
-              2016-06-01
+            <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-08-03T12:00:00+08:00">
+              2016-08-03
             </time>
 
             &nbsp;|&nbsp;
@@ -326,7 +326,727 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-check-o"></i>
             </span>
-            <time title="Post modified" itemprop="dateModified" datetime="2016-11-14T22:58:20+08:00">
+            <time title="Post modified" itemprop="dateModified" datetime="2016-11-14T20:40:35+08:00">
+              2016-11-14
+            </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端专区/" itemprop="url" rel="index">
+                    <span itemprop="name">前端专区</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端专区/前端速学成财/" itemprop="url" rel="index">
+                    <span itemprop="name">前端速学成财</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/03/quicklearnbsdev4/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/03/quicklearnbsdev4/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/08/03/quicklearnbsdev4/" class="leancloud_visitors" data-flag-title="第四课-粗糙的玩一玩css的"编译"">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>1.读取文件的函数</p>
+<p>2.发明个编译CSS的过程</p>
+<p>上节课我们模拟了一个所以的”JS编译”,今天的问题是:如果是CSS文件咋办？</p>
+<p>我们先新建个test.css<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">*&#123;color:red&#125;</div></pre></td></tr></table></figure></p>
+<p>如果正常引用<br>那么网页文字全部变成红色.</p>
+<p>如果我们按照上节课的思路.require css文件进来</p>
+<p>发现会报错的.它会把require进来的文件当前脚本来解析。</p>
+<p>那么CSS到底要怎么”编译”呢?</p>
+<p>很简单，为了简化思路我们做如下步骤。<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">1、如果是js文件，正常的require</div><div class="line">2、如果是css文件，则直接读取文件内容</div><div class="line">3、然后往编译文件里写个脚本“加入style”</div></pre></td></tr></table></figure></p>
+<p>以上只不过是 一个思路借鉴。不要太过于纠结</p>
+<p>最后代码:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">var getlib=require(&apos;sxin&apos;);</div><div class="line">var getage=require(&quot;./bb&quot;);</div><div class="line">var file=require(&apos;fs&apos;);</div><div class="line"></div><div class="line">function genCode(key,value)</div><div class="line">&#123;</div><div class="line">    return &apos;var &apos;+key+&apos;=&apos;+value+&apos;;\n&apos;;</div><div class="line">&#125;</div><div class="line"></div><div class="line">file.writeFile(&quot;build.js&quot;,&quot;&quot;);</div><div class="line"></div><div class="line">for(var i=0;i&lt; global.process.mainModule.children.length;i++)</div><div class="line">&#123;</div><div class="line">    var child=global.process.mainModule.children[i];</div><div class="line">    for(var bb in child.exports)// child.exports就是我们导出的属性</div><div class="line">        file.appendFile(&apos;build.js&apos;,genCode(bb,child.exports[bb]));</div><div class="line">&#125;</div><div class="line"></div><div class="line">file.readFile(&apos;./test.css&apos;,&apos;utf-8&apos;,function(err,data)&#123;</div><div class="line">    if(err)&#123;</div><div class="line">    &#125;else&#123;</div><div class="line">        file.appendFile(&apos;build.js&apos;,&quot;document.write(&apos;&lt;style&gt;&quot;+data+&quot;&lt;/style&gt;&apos;)&quot;);</div><div class="line">    &#125;</div><div class="line">&#125;)</div><div class="line"></div><div class="line">console.log(&quot;生成成功&quot;);</div></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://blog.sxin.me/2016/07/31/quicklearnbsdev3/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="SxinBoss">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="http://7xskk8.com1.z0.glb.clouddn.com/blog_touxiang.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="SxinBoss的个人博客">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="SxinBoss的个人博客" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/07/31/quicklearnbsdev3/" itemprop="url">
+                  第三课-粗糙的玩一玩javascript的"编译"
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-07-31T13:09:00+08:00">
+              2016-07-31
+            </time>
+
+            &nbsp;|&nbsp;
+
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-check-o"></i>
+            </span>
+            <time title="Post modified" itemprop="dateModified" datetime="2016-11-14T20:40:27+08:00">
+              2016-11-14
+            </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端专区/" itemprop="url" rel="index">
+                    <span itemprop="name">前端专区</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端专区/前端速学成财/" itemprop="url" rel="index">
+                    <span itemprop="name">前端速学成财</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/07/31/quicklearnbsdev3/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/31/quicklearnbsdev3/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/07/31/quicklearnbsdev3/" class="leancloud_visitors" data-flag-title="第三课-粗糙的玩一玩javascript的"编译"">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>1.学会对象属性获取</p>
+<p>2.NodeJS的FS模块使用</p>
+<p>3.发明个”编译”JS的过程</p>
+<p>4.简单了解global对象</p>
+<p>1.根据前两节课我们发现<br>js文件需要考node来解析才能运行,那这个和我们发开前端有什么关系呢?</p>
+<p>比如:我们新建一个HTML(index.html) ,然后在代码里 引用我们上节课的aa.js</p>
+<p><code>&lt;script src=&quot;aa.js&quot;&gt;&lt;/script&gt;</code></p>
+<p>然后我们发现并不能运行。</p>
+<p><code>ReferenceError: require is not defined</code></p>
+<p>因为 目前为止 浏览器里还不支持require(不代表未来不支持)</p>
+<p>我们开动大脑想一想：</p>
+<pre><code>既然node能运行aa.js,name我们是否通过nodejs把require出来的东西给生成一个js文件呢
+</code></pre><p>首先我们把<code>var getlib=require(&#39;./slib&#39;);</code> 这里的getlib打印出来 看看他是什么.</p>
+<p><code>{ age: 20, showName: [Function] }</code><br>
+          <!--noindex-->
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/07/31/quicklearnbsdev3/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://blog.sxin.me/2016/07/30/quicklearnbsdev2/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="SxinBoss">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="http://7xskk8.com1.z0.glb.clouddn.com/blog_touxiang.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="SxinBoss的个人博客">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="SxinBoss的个人博客" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/07/30/quicklearnbsdev2/" itemprop="url">
+                  第二课-知识点速学
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-07-30T10:00:00+08:00">
+              2016-07-30
+            </time>
+
+            &nbsp;|&nbsp;
+
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-check-o"></i>
+            </span>
+            <time title="Post modified" itemprop="dateModified" datetime="2016-11-14T20:40:21+08:00">
+              2016-11-14
+            </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端专区/" itemprop="url" rel="index">
+                    <span itemprop="name">前端专区</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端专区/前端速学成财/" itemprop="url" rel="index">
+                    <span itemprop="name">前端速学成财</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/07/30/quicklearnbsdev2/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/30/quicklearnbsdev2/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/07/30/quicklearnbsdev2/" class="leancloud_visitors" data-flag-title="第二课-知识点速学">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>1、学会外部文件引用</p>
+<p>2、NPM的初步使用</p>
+<p>3、自己创建一个模块</p>
+<p><strong>1.基本语法(不用理解,死记硬背即可):</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">外部引用时 建议写法:</div><div class="line">exports.函数名 = function()</div><div class="line">&#123;</div><div class="line">    //xxoo</div><div class="line">&#125;</div><div class="line">或</div><div class="line">module.exports.函数名</div></pre></td></tr></table></figure></p>
+<p>新建文件 aa.js(后缀随意,通常用js)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var getlib=require(&apos;./slib&apos;);</div><div class="line">getlib.showName();</div><div class="line">console.log(getlib.age);</div></pre></td></tr></table></figure></p>
+<p>新建文件 slib.js(后缀随意,通常用js)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">exports.age=20;</div><div class="line">exports.showName=function()</div><div class="line">&#123;</div><div class="line">	console.log(&quot;name&quot;);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><strong>2.NPM:<code>包管理工具(类似:Maven,Composer)</code></strong><br>
+          <!--noindex-->
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/07/30/quicklearnbsdev2/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://blog.sxin.me/2016/07/30/quicklearnbsdev1/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="SxinBoss">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="http://7xskk8.com1.z0.glb.clouddn.com/blog_touxiang.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="SxinBoss的个人博客">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="SxinBoss的个人博客" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/07/30/quicklearnbsdev1/" itemprop="url">
+                  第一课-JavaScript历史
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-07-30T08:00:00+08:00">
+              2016-07-30
+            </time>
+
+            &nbsp;|&nbsp;
+
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-check-o"></i>
+            </span>
+            <time title="Post modified" itemprop="dateModified" datetime="2016-11-14T20:40:14+08:00">
+              2016-11-14
+            </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端专区/" itemprop="url" rel="index">
+                    <span itemprop="name">前端专区</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端专区/前端速学成财/" itemprop="url" rel="index">
+                    <span itemprop="name">前端速学成财</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/07/30/quicklearnbsdev1/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/30/quicklearnbsdev1/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/07/30/quicklearnbsdev1/" class="leancloud_visitors" data-flag-title="第一课-JavaScript历史">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>本系列为看 <strong><a href="http://www.jtthink.com/course/39" title="前端开发速学成财(nodejs+gulp+webpack基础实战篇)">前端开发速学成财(nodejs+gulp+webpack基础实战篇)</a></strong> 教程所做的笔记</p>
+<p>JavaScript是 Netscape (网景)联合Sun在1995年发布的JavaScript 1.0</p>
+<p>随后微软克隆(chao xi)并命名为jscript.</p>
+<p>那么问题来了。 如果有各种各样的版本，那就乱套了。</p>
+<p>于是,Netscape等公司向ECMP欧洲计算机制造商协会提交草案，正式形成了ECMAScript标准<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">PS:之前的javascript是Netscape联合Sun单独发布的,微软肯定不会认滴</div><div class="line">后来形成了ECMAScript标准 那微软就不得不认了</div><div class="line">但是 微软在自己的浏览器里面捆绑式的对ECMAScript或其他标准做了一些自定义的个性化的修改</div><div class="line">所以IE才那么奇葩 导致了开发者都不考虑兼容IE</div></pre></td></tr></table></figure></p>
+<p>所以我们现在用的JavaScript只是实现ECMAScript标准,JavaScript也不是只有在浏览器才能运行</p>
+<p>JavaScript由三部分组成:ECMAScript,DOM,BOM</p>
+<p>通常来说:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">1、ECMAScript定义了javascript语法</div><div class="line">2、DOM定义了文档对象--由W3C来定义标准</div><div class="line">3、BOM浏览器对象模型(没有同一的标准,由各个浏览器厂商决定)</div></pre></td></tr></table></figure></p>
+          <!--noindex-->
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/07/30/quicklearnbsdev1/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://blog.sxin.me/2016/07/30/javacustomannotation/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="SxinBoss">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="http://7xskk8.com1.z0.glb.clouddn.com/blog_touxiang.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="SxinBoss的个人博客">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="SxinBoss的个人博客" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/07/30/javacustomannotation/" itemprop="url">
+                  JAVA:自定义注解
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-07-30T00:00:00+08:00">
+              2016-07-30
+            </time>
+
+            &nbsp;|&nbsp;
+
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-check-o"></i>
+            </span>
+            <time title="Post modified" itemprop="dateModified" datetime="2016-11-14T22:44:22+08:00">
               2016-11-14
             </time>
             
@@ -353,20 +1073,8 @@
 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/编程语言/PHP/" itemprop="url" rel="index">
-                    <span itemprop="name">PHP</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/编程语言/PHP/跟着沈逸学微电商/" itemprop="url" rel="index">
-                    <span itemprop="name">跟着沈逸学微电商</span>
+                  <a href="/categories/编程语言/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
                   </a>
                 </span>
 
@@ -381,8 +1089,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/06/01/php-Micro-electricity-suppliers-2/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/01/php-Micro-electricity-suppliers-2/" itemprop="commentCount"></span>
+                <a href="/2016/07/30/javacustomannotation/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/30/javacustomannotation/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -392,7 +1100,7 @@
 
           
           
-             <span id="/2016/06/01/php-Micro-electricity-suppliers-2/" class="leancloud_visitors" data-flag-title="跟着沈毅学微电商(PHP):二">
+             <span id="/2016/07/30/javacustomannotation/" class="leancloud_visitors" data-flag-title="JAVA:自定义注解">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -419,1581 +1127,11 @@
       
         
           
-            <p><a href="http://www.jtthink.com/course/1" title="PHP微电商第一季加强版" target="_blank" rel="external"> 沈逸老师：PHP微电商第一季加强版</a></p>
-<p>目录结构:</p>
-<p>根目录:index.php    —路由<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$get_control = isset($_GET[&apos;control&apos;])?trim($_GET[&apos;control&apos;]):&apos;index&apos;;</div><div class="line">$get_action = isset($_GET[&apos;action&apos;])?trim($_GET[&apos;action&apos;]):&apos;index&apos;;</div></pre></td></tr></table></figure></p>
-<pre><code>根据$get_control决定是加载哪个类
-根据$get_action 决定执行类中哪个方法
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">MVC:</div><div class="line">M ---Model:暂时用不到</div><div class="line">C ---Controller:</div><div class="line">所有类名和文件名都要保持一致</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">_Main.c  所有类都基于Main类</div><div class="line">var $_viewName=&apos;&apos;;</div><div class="line">function setViewName();</div><div class="line">function run();</div><div class="line">run方法 加载模板 以及_viewName模板</div><div class="line"></div><div class="line">index.c  首页</div><div class="line">function index()&#123; setViewName(&apos;index&apos;);&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">V ---View:</div><div class="line">模板</div><div class="line">head.tpl</div><div class="line">index.tpl</div><div class="line">footer.tpl</div></pre></td></tr></table></figure>
+            <p>新建 SxinAnnotation.java<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">@Target(&#123;ElementType.METHOD,ElementType.TYPE&#125;)</div><div class="line">@Retention(RetentionPolicy.RUNTIME)</div><div class="line">public @interface SxinAnnotation &#123;</div><div class="line">    String name() default &quot;sxinboss&quot;;</div><div class="line">    int age() default 18;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>新建TestClass.java<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">public class TestClass &#123;</div><div class="line">    @SxinAnnotation(name = &quot;sxin&quot;,age = 20)</div><div class="line">    public String getName() &#123;</div><div class="line">        return name;</div><div class="line">    &#125;</div><div class="line">    public void setName(String name) &#123;</div><div class="line">        this.name = name;</div><div class="line">    &#125;</div><div class="line">    private String name;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">try &#123;</div><div class="line">	Class c = Class.forName(&quot;test.TestClass&quot;);</div><div class="line">	Object obj = c.newInstance();</div><div class="line">	/* </div><div class="line">	//获取方法名</div><div class="line">	Method[] mList = c.getMethods();</div><div class="line">	for (Method m : mList) &#123;</div><div class="line">      resp.getWriter().write(m.getName()+&quot;&lt;hr /&gt;&quot;);</div><div class="line">	&#125;</div><div class="line">	*/</div><div class="line">	Method m = c.getMethod(&quot;getName&quot;);</div><div class="line">	//执行getName方法</div><div class="line">	write(m.invoke(obj).toString());</div><div class="line">	//获取Class上的注解。</div><div class="line">	Annotation[] alist=c.getAnnotations();</div><div class="line">	for(Annotation a :alist)&#123;</div><div class="line">      write(a.toString());</div><div class="line">	&#125;</div><div class="line">&#125; catch (Exception e) &#123;</div><div class="line">	e.printStackTrace();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
           
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://blog.sxin.me/2016/05/30/wincedevutils/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="SxinBoss">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="http://7xskk8.com1.z0.glb.clouddn.com/blog_touxiang.png">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="SxinBoss的个人博客">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="SxinBoss的个人博客" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/05/30/wincedevutils/" itemprop="url">
-                  Wince开发用Utils
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-05-30T00:00:00+08:00">
-              2016-05-30
-            </time>
-
-            &nbsp;|&nbsp;
-
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-check-o"></i>
-            </span>
-            <time title="Post modified" itemprop="dateModified" datetime="2016-11-14T22:09:29+08:00">
-              2016-11-14
-            </time>
-            
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/移动端/" itemprop="url" rel="index">
-                    <span itemprop="name">移动端</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/移动端/Wince/" itemprop="url" rel="index">
-                    <span itemprop="name">Wince</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/05/30/wincedevutils/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/30/wincedevutils/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/05/30/wincedevutils/" class="leancloud_visitors" data-flag-title="Wince开发用Utils">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-          
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p><a href="http://download.csdn.net/detail/sxinboss/9535598" title="连接Mysql数据库">Wince连接Mysql数据库</a></p>
-<p><a href="http://download.csdn.net/detail/sxinboss/9535594" title="mysql.data.cf.dll">Wince连接Mysql数据库所用dll:mysql.data.cf.dll</a></p>
-<p><a href="http://download.csdn.net/download/sxinboss/9535609" title="Wince操作注册表">Wince操作注册表</a></p>
-<p><a href="http://download.csdn.net/detail/sxinboss/9535641" title="Wince 同步/异步 播放声音">Wince 同步/异步 播放声音</a></p>
-          <!--noindex-->
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/05/30/wincedevutils/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://blog.sxin.me/2016/05/30/winceconnectmysqlquestion/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="SxinBoss">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="http://7xskk8.com1.z0.glb.clouddn.com/blog_touxiang.png">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="SxinBoss的个人博客">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="SxinBoss的个人博客" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/05/30/winceconnectmysqlquestion/" itemprop="url">
-                  Wince直连Mysql 坑
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-05-30T00:00:00+08:00">
-              2016-05-30
-            </time>
-
-            &nbsp;|&nbsp;
-
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-check-o"></i>
-            </span>
-            <time title="Post modified" itemprop="dateModified" datetime="2016-11-14T22:09:16+08:00">
-              2016-11-14
-            </time>
-            
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/移动端/" itemprop="url" rel="index">
-                    <span itemprop="name">移动端</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/移动端/Wince/" itemprop="url" rel="index">
-                    <span itemprop="name">Wince</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/05/30/winceconnectmysqlquestion/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/30/winceconnectmysqlquestion/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/05/30/winceconnectmysqlquestion/" class="leancloud_visitors" data-flag-title="Wince直连Mysql 坑">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-          
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>最近一个项目要用Wince 直连Mysql数据库进行操作。 </p>
-<p>测试时connStr中的host 是写的域名。 </p>
-<p>都没有问题</p>
-<p>等全部好了 把host改成了ip ,结果 尼玛 数据库连接不上！</p>
-<p>在PC端用Navicat for MySQL无论是域名还是IP 都是没有问题的。 </p>
-<p>于是网上各种找资料。  无果。</p>
-<p>最后发现是远程服务器的Mysql问题。  </p>
-<p>我换了个本地搭建的Mysql数据库  用IP成功连接、</p>
-<p>只不过 到底是远程主机的Mysql什么问题 还未找到。。。等找到了在和大家分享吧</p>
-<p>下面是在网上找到的一些相关资料</p>
-<p><a href="https://support.microsoft.com/en-us/kb/199370" title="How to load host entries into Windows CE device" target="_blank" rel="external">How to load host entries into Windows CE device</a></p>
-<p><a href="http://stackoverflow.com/questions/8975852/unable-to-connect-to-any-of-the-specified-mysql-hosts-in-smart-device-project" target="_blank" rel="external">“Unable to connect to any of the specified MySQL hosts.” in Smart Device Projects VS2008</a></p>
-<p><a href="http://stackoverflow.com/questions/19536847/how-to-connecting-to-mysql-server-using-mysql-data-cf-from-windows-mobile" title="how to connecting to mysql server using mysql.data.cf from windows mobile" target="_blank" rel="external">How to connecting to MySQL Server using MySQL.Data.CF from windows mobile</a></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://blog.sxin.me/2016/05/28/php-Micro-electricity-suppliers-1/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="SxinBoss">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="http://7xskk8.com1.z0.glb.clouddn.com/blog_touxiang.png">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="SxinBoss的个人博客">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="SxinBoss的个人博客" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/05/28/php-Micro-electricity-suppliers-1/" itemprop="url">
-                  跟着沈毅学微电商(PHP):一
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-05-28T00:00:00+08:00">
-              2016-05-28
-            </time>
-
-            &nbsp;|&nbsp;
-
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-check-o"></i>
-            </span>
-            <time title="Post modified" itemprop="dateModified" datetime="2016-11-14T22:57:21+08:00">
-              2016-11-14
-            </time>
-            
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/编程语言/" itemprop="url" rel="index">
-                    <span itemprop="name">编程语言</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/编程语言/PHP/" itemprop="url" rel="index">
-                    <span itemprop="name">PHP</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/编程语言/PHP/跟着沈逸学微电商/" itemprop="url" rel="index">
-                    <span itemprop="name">跟着沈逸学微电商</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/05/28/php-Micro-electricity-suppliers-1/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/28/php-Micro-electricity-suppliers-1/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/05/28/php-Micro-electricity-suppliers-1/" class="leancloud_visitors" data-flag-title="跟着沈毅学微电商(PHP):一">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-          
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><a href="http://www.jtthink.com/course/1" title="PHP微电商第一季加强版" target="_blank" rel="external">沈逸老师：PHP微电商第一季加强版 系列教学视频</a></p>
-<p>1.PHP(5.3以上)+apache2.2+mysql(5.1以上)</p>
-<p>2.前后台均为bootstrap</p>
-<p>3.数据层使用NotORM</p>
-<p>DB:</p>
-<p>DataBase:phpshop</p>
-<p>Tables:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">shop_user(</div><div class="line">id	int	主键 A,</div><div class="line">user_name		varchar(30),NOT NULL</div><div class="line">user_pass		varchar(30),NOT NULL</div><div class="line">user_regtime	datetimr(30),NOT NULL</div><div class="line">)</div><div class="line"></div><div class="line">shop_news(</div><div class="line">id	int 主键 A, NOT NULL</div><div class="line">news_title		varchar(50), NOT NULL</div><div class="line">news_intr 		varchar(500),</div><div class="line">news_classid	int,</div><div class="line">news_content	 text</div><div class="line">)</div></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://blog.sxin.me/2016/05/25/quicklearnubuntu1/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="SxinBoss">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="http://7xskk8.com1.z0.glb.clouddn.com/blog_touxiang.png">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="SxinBoss的个人博客">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="SxinBoss的个人博客" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/05/25/quicklearnubuntu1/" itemprop="url">
-                  速学Ubuntu系列一:Ubuntu16 编译安装 Apache24&&PHP7&&Mysql57
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-05-25T00:00:00+08:00">
-              2016-05-25
-            </time>
-
-            &nbsp;|&nbsp;
-
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-check-o"></i>
-            </span>
-            <time title="Post modified" itemprop="dateModified" datetime="2016-11-15T08:58:22+08:00">
-              2016-11-15
-            </time>
-            
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux专区/" itemprop="url" rel="index">
-                    <span itemprop="name">Linux专区</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux专区/Ubuntu/" itemprop="url" rel="index">
-                    <span itemprop="name">Ubuntu</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/05/25/quicklearnubuntu1/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/25/quicklearnubuntu1/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/05/25/quicklearnubuntu1/" class="leancloud_visitors" data-flag-title="速学Ubuntu系列一:Ubuntu16 编译安装 Apache24&&PHP7&&Mysql57">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-          
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p><a href="http://www.jtthink.com/course/play/598" title="手工编译安装mysql5.7.x,排坑">沈逸老师.web程序员角度ubuntu自修速学课程:7.手工编译安装mysql5.7.x,排坑</a></p>
-<p><code>sudo apt-get install libxml2-dev libpcre3 libpcre3-dev libzlcore-dev -y</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">#说明：所有环境,我都是安装在/usr/local/sxin目录下 </div><div class="line">#所以 首先要在/usr/local目录下建sxin文件夹 然后更改文件夹所有者</div><div class="line">#这么做不为什么,个人喜好。你也可以建个fuck目录。然后都装在fuck目录下也可以</div><div class="line">$sudo mkdir /usr/local/sxin</div><div class="line">$sudo chown sxin:sxin /usr/local/sxin</div></pre></td></tr></table></figure></p>
-          <!--noindex-->
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/05/25/quicklearnubuntu1/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://blog.sxin.me/2016/05/24/quicklearnubuntu0/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="SxinBoss">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="http://7xskk8.com1.z0.glb.clouddn.com/blog_touxiang.png">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="SxinBoss的个人博客">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="SxinBoss的个人博客" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/05/24/quicklearnubuntu0/" itemprop="url">
-                  作为程序员,安装Ubuntu后我做的事情
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-05-24T00:00:00+08:00">
-              2016-05-24
-            </time>
-
-            &nbsp;|&nbsp;
-
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-check-o"></i>
-            </span>
-            <time title="Post modified" itemprop="dateModified" datetime="2016-11-15T09:08:06+08:00">
-              2016-11-15
-            </time>
-            
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux专区/" itemprop="url" rel="index">
-                    <span itemprop="name">Linux专区</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux专区/Ubuntu/" itemprop="url" rel="index">
-                    <span itemprop="name">Ubuntu</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/05/24/quicklearnubuntu0/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/24/quicklearnubuntu0/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/05/24/quicklearnubuntu0/" class="leancloud_visitors" data-flag-title="作为程序员,安装Ubuntu后我做的事情">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-          
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">sudo apt-get update &amp;&amp; sudo apt-get upgrade</div><div class="line">sudo apt-get install vim</div><div class="line">sudo apt-get install axel --多线程下载</div><div class="line">sudo apt-get install nmap</div><div class="line">sudo apt-get install sqlmap</div><div class="line">sudo apt-get install unrar</div><div class="line">sudo apt-get install flashplugin-installer</div><div class="line">sudo apt-get install git</div><div class="line">sudo apt-get install subversion</div></pre></td></tr></table></figure>
-<p>显示桌面快捷键改为:win+D</p>
-<p>deb安装Teamviewer,wps,sogoupinyin</p>
-<p>下载 jdk,apache,tomcat,php5.6,php7,idea,phpStorm,webStorm</p>
-<p>home下新建sxinboss目录,sxinboss目录下建soft,environment.</p>
-<p>将tomcat,jdk目录移到environment中.</p>
-<p>idea,phpstorm,webstorm移到soft中.</p>
-<p><strong>编译安装apache,php,mysql</strong><br>
-          <!--noindex-->
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/05/24/quicklearnubuntu0/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://blog.sxin.me/2016/05/12/scatteredknowledge4/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="SxinBoss">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="http://7xskk8.com1.z0.glb.clouddn.com/blog_touxiang.png">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="SxinBoss的个人博客">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="SxinBoss的个人博客" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/05/12/scatteredknowledge4/" itemprop="url">
-                  零散知识点:JAVA面试题篇
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-05-12T00:00:00+08:00">
-              2016-05-12
-            </time>
-
-            &nbsp;|&nbsp;
-
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-check-o"></i>
-            </span>
-            <time title="Post modified" itemprop="dateModified" datetime="2016-11-14T23:37:28+08:00">
-              2016-11-14
-            </time>
-            
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/零散知识点/" itemprop="url" rel="index">
-                    <span itemprop="name">零散知识点</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/05/12/scatteredknowledge4/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/12/scatteredknowledge4/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/05/12/scatteredknowledge4/" class="leancloud_visitors" data-flag-title="零散知识点:JAVA面试题篇">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-          
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><code>简述Java的covariant,invariant,contravariant</code></p>
-<p><code>J.U.C 和synchronized区别是什么？</code></p>
-<p><code>简述AQS、Object Monitor原理</code></p>
-<p><code>简述NIO</code></p>
-<p><code>简述TheadLocal实现原理，和线程安全对象有何区别</code></p>
-<p><code>GC算法有哪些？GC收集器有哪些</code></p>
-<p><code>简述DCL失效原因，解决方法</code></p>
-<p><code>简述class加载各阶段过程，class loader有哪些模型</code></p>
-<p><code>简述方法分派</code></p>
-<p><code>简述对象内存分布，字节码文件组成</code></p>
-<p><code>简述常量池，字符串池</code></p>
-<p><code>JVM运行时数据区域有那几部分组成，各自的作用</code></p>
-<p>5道中级 </p>
-<p>10道全会 可以叫高级</p>
-<p>如果4道以下自己就别说自己是java工程师了</p>
-<p>大部分出自JVM</p>
-<p>部分出自java核心编程 高级部分</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://blog.sxin.me/2014/11/15/howtolearn51/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="SxinBoss">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="http://7xskk8.com1.z0.glb.clouddn.com/blog_touxiang.png">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="SxinBoss的个人博客">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="SxinBoss的个人博客" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2014/11/15/howtolearn51/" itemprop="url">
-                  如何学习嵌入式
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time title="Post created" itemprop="dateCreated datePublished" datetime="2014-11-15T00:00:00+08:00">
-              2014-11-15
-            </time>
-
-            &nbsp;|&nbsp;
-
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-check-o"></i>
-            </span>
-            <time title="Post modified" itemprop="dateModified" datetime="2016-11-14T21:54:03+08:00">
-              2016-11-14
-            </time>
-            
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/嵌入式/" itemprop="url" rel="index">
-                    <span itemprop="name">嵌入式</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2014/11/15/howtolearn51/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/11/15/howtolearn51/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2014/11/15/howtolearn51/" class="leancloud_visitors" data-flag-title="如何学习嵌入式">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-          
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p><code>这篇文章是从有道云笔记里翻出来的,好久了.貌似是转载自原子论坛的,不过已经不记得作者了.</code></p>
-<h6 id="一-学会裸奔：从51出发。"><a href="#一-学会裸奔：从51出发。" class="headerlink" title="一.学会裸奔：从51出发。"></a>一.学会裸奔：从51出发。</h6><p>在这个阶段有三个目标:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">1.学会看原理图，熟悉掌握IIC,SPI等等协议（以后会发现不管MCU或是SOC怎么变但是这些协议还是一样的）。</div><div class="line">2.了解51单片机的工作原理，明白其是怎样执行程序的，内部资源有哪些（串口，DAC,ADC等）。</div><div class="line">3.熟悉C语言在单片机编程中的运用（了解C语言基本语法）。</div></pre></td></tr></table></figure></p>
-<p>这个阶段我推荐几个好的资源<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">视频教程:</div><div class="line">1.霖峰的天狼心51单片机入门视频教程（免费的）。</div><div class="line">书籍:</div><div class="line">1.北航的51单片机初级教程（原理性的东西比较多）。</div><div class="line">2.郭天祥的51单片机的书（实用型的东西比较多）。</div><div class="line">可能大家是觉得原理性的东西没用，我觉得非常有用，它能让你明白为什么这么做，而不仅仅教你这样做就好。</div></pre></td></tr></table></figure></p>
-<p>PS:本人(SxinBoss)之前看过金沙滩的教程,感觉挺不错的,最开始接触过郭天祥老师的教程,但是感觉太理论了,听着容易犯困…</p>
-<h6 id="二-初识操作系统：STM32与ucosII。"><a href="#二-初识操作系统：STM32与ucosII。" class="headerlink" title="二.初识操作系统：STM32与ucosII。"></a>二.初识操作系统：STM32与ucosII。</h6><p>在这个阶段有四个目标:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">1.了解一些高级协议如USB（圈圈教你学USB入门最佳），SD卡，TCP/IP(阅读uIP源码)等。</div><div class="line">2.初步接触ARM体系MCU（明白ARM和51的区别，它又是怎样取指、译指的。程序又是怎样烧写到内部的FLASH的。到底RAM是起怎么作用的）。</div><div class="line">3.接触操作系统，ucosII（麻雀虽小五脏俱全）是入门操作系统的神器（明白为什么用操作系统，怎样才能称得上操作系统，任务的切换、调度，怎样动态的分配内存等）。</div><div class="line">4.深入理解C语言，明白结构体（在stm32头文件中到处都是结构体以及结构体指针）怎们用，函数指针（stm32自带的USB协议到处都是函数指针）是什么一回事，链表（ucos的TCB和任务就绪表就是链表结构）用在什么地方。</div></pre></td></tr></table></figure></p>
-<h6 id="在这个阶段我推荐跟着原子"><a href="#在这个阶段我推荐跟着原子" class="headerlink" title="在这个阶段我推荐跟着原子"></a>在这个阶段我推荐跟着原子</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">1.原子的源码是寄存器版本的跟51是无缝对接的.学了51的人很容易上手</div><div class="line">不像市面其他的开发板一开始就是库函数,其实都是MDK自带稍加修改而已.搞的云里雾</div><div class="line">当然库函数开发也是一种很好方法(只是个人认为不适合初学者，初学者总是会去找似成相识的感觉，或是站在以前的基础上学习新知识)</div><div class="line">2.原子的代码质量很高(里面涵盖c语言基本及一些高级用法),几乎上都是他自己实现的。特别是两个综合实验（怎样实现GUI，怎样实现程序的后台执行）是值得我们去研读的。</div><div class="line">3.原子是一个脚踏实地的工程师（实干精神）。为什么呢？因为他代码是一个一个敲出来的(不像本人太浮躁每样东西都学的是半桶水可能还没有吧)</div></pre></td></tr></table></figure>
-          <!--noindex-->
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2014/11/15/howtolearn51/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://blog.sxin.me/2014/11/12/51singlechipbasicknowledge/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="SxinBoss">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="http://7xskk8.com1.z0.glb.clouddn.com/blog_touxiang.png">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="SxinBoss的个人博客">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="SxinBoss的个人博客" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2014/11/12/51singlechipbasicknowledge/" itemprop="url">
-                  单片机基础知识
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time title="Post created" itemprop="dateCreated datePublished" datetime="2014-11-12T00:00:00+08:00">
-              2014-11-12
-            </time>
-
-            &nbsp;|&nbsp;
-
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-check-o"></i>
-            </span>
-            <time title="Post modified" itemprop="dateModified" datetime="2016-11-14T21:52:04+08:00">
-              2016-11-14
-            </time>
-            
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/嵌入式/" itemprop="url" rel="index">
-                    <span itemprop="name">嵌入式</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/嵌入式/51系列/" itemprop="url" rel="index">
-                    <span itemprop="name">51系列</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2014/11/12/51singlechipbasicknowledge/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/11/12/51singlechipbasicknowledge/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2014/11/12/51singlechipbasicknowledge/" class="leancloud_visitors" data-flag-title="单片机基础知识">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-          
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h6 id="一-学单片机需要的一些预备知识"><a href="#一-学单片机需要的一些预备知识" class="headerlink" title="一.学单片机需要的一些预备知识"></a>一.学单片机需要的一些预备知识</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line">1-电平 </div><div class="line">ttl 高+5v  低0v</div><div class="line"></div><div class="line">2-二进制    十六进制 </div><div class="line">B表示二进制 H表示十六进制</div><div class="line"></div><div class="line">3-逻辑运算 </div><div class="line">与(&amp;&amp;)运算符号．</div><div class="line">或(||)运算符号+</div><div class="line">非(!)运算符号-</div><div class="line">异或</div><div class="line"></div><div class="line">80C51</div><div class="line">80C51是MCS-51系列中一个典型的品种。以8051为基核 开发的CMOS单片机产品统称80C51。</div><div class="line"></div><div class="line">C51</div><div class="line">1-数据类型扩充定义</div><div class="line">sfr    特殊功能寄存器声明</div><div class="line">sfr16  sfr的16位数据声明</div><div class="line">sbit   特殊功能位声明</div><div class="line">bit    位变量声明</div><div class="line"></div><div class="line">2-头文件</div><div class="line">reg51.h   reg52.h  math.h  ctype.h  stdio.h  stdlib.h  absacc.h</div><div class="line"></div><div class="line">3-运算符</div><div class="line">+-*/  &gt; &gt;=  &lt;  &lt;=  ==  !=  &amp;&amp;  ||  !</div><div class="line">&lt;&lt; 位右移  &gt;&gt;  位左移  &amp; 按位与   |  按位或 </div><div class="line"></div><div class="line">单片机主要掌握的几点</div><div class="line">A。最小系统能够运行起来的必要条件最小系统能够运行起来的必要条件。  </div><div class="line"> 1.电源 2.晶振3.复位电路</div><div class="line">B。对单片机任意IO口的随意操作 </div><div class="line">1.输出控制电平高低2.输出检测电平高低。</div><div class="line">C。定时器：重点掌握最常用的方式</div><div class="line">D。中断：外部中断、定时器中断、串口中断 </div><div class="line">E。串口通信：单片机之间、单片机与计算机间</div></pre></td></tr></table></figure>
-          <!--noindex-->
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2014/11/12/51singlechipbasicknowledge/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://blog.sxin.me/2014/02/10/intenetdomainhack/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="SxinBoss">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="http://7xskk8.com1.z0.glb.clouddn.com/blog_touxiang.png">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="SxinBoss的个人博客">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="SxinBoss的个人博客" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2014/02/10/intenetdomainhack/" itemprop="url">
-                  内网域渗透
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time title="Post created" itemprop="dateCreated datePublished" datetime="2014-02-10T00:00:00+08:00">
-              2014-02-10
-            </time>
-
-            &nbsp;|&nbsp;
-
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-check-o"></i>
-            </span>
-            <time title="Post modified" itemprop="dateModified" datetime="2016-11-14T19:43:17+08:00">
-              2016-11-14
-            </time>
-            
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Hack/" itemprop="url" rel="index">
-                    <span itemprop="name">Hack</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2014/02/10/intenetdomainhack/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/02/10/intenetdomainhack/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2014/02/10/intenetdomainhack/" class="leancloud_visitors" data-flag-title="内网域渗透">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-          
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="导出本地管理员-Hash"><a href="#导出本地管理员-Hash" class="headerlink" title="导出本地管理员 Hash"></a>导出本地管理员 Hash</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">reg save hklm\sam sam.hive</div><div class="line">reg save hklm\system system.hive</div></pre></td></tr></table></figure>
-<h3 id="获得域管理员帐号"><a href="#获得域管理员帐号" class="headerlink" title="获得域管理员帐号"></a>获得域管理员帐号</h3><p><code>net group &quot;domain admins&quot; /domain</code></p>
-<h3 id="获得域控制器"><a href="#获得域控制器" class="headerlink" title="获得域控制器"></a>获得域控制器</h3><p><code>net group &quot;domain controllers&quot; /domain</code></p>
-<h3 id="获得域名"><a href="#获得域名" class="headerlink" title="获得域名"></a>获得域名</h3><p><code>net view /domain</code><br>
-          <!--noindex-->
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2014/02/10/intenetdomainhack/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
         
       
     </div>
@@ -2025,7 +1163,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/5/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span>
+    <a class="extend prev" rel="prev" href="/page/5/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/7/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
