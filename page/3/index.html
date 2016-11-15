@@ -1846,7 +1846,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://blog.sxin.me/2016/07/30/scatteredknowledge8/">
+  <link itemprop="mainEntityOfPage" href="http://blog.sxin.me/2016/07/30/javacustomannotation/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="SxinBoss">
@@ -1871,8 +1871,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/07/30/scatteredknowledge8/" itemprop="url">
-                  零散知识点:关于后端语言谁能不能替换谁一说
+                <a class="post-title-link" href="/2016/07/30/javacustomannotation/" itemprop="url">
+                  JAVA:自定义注解
                 </a>
               
             
@@ -1894,7 +1894,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-check-o"></i>
             </span>
-            <time title="Post modified" itemprop="dateModified" datetime="2016-11-14T23:42:15+08:00">
+            <time title="Post modified" itemprop="dateModified" datetime="2016-11-14T22:44:22+08:00">
               2016-11-14
             </time>
             
@@ -1909,8 +1909,20 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/零散知识点/" itemprop="url" rel="index">
-                    <span itemprop="name">零散知识点</span>
+                  <a href="/categories/编程语言/" itemprop="url" rel="index">
+                    <span itemprop="name">编程语言</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/编程语言/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
                   </a>
                 </span>
 
@@ -1925,8 +1937,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/07/30/scatteredknowledge8/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/30/scatteredknowledge8/" itemprop="commentCount"></span>
+                <a href="/2016/07/30/javacustomannotation/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/30/javacustomannotation/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1936,7 +1948,7 @@
 
           
           
-             <span id="/2016/07/30/scatteredknowledge8/" class="leancloud_visitors" data-flag-title="零散知识点:关于后端语言谁能不能替换谁一说">
+             <span id="/2016/07/30/javacustomannotation/" class="leancloud_visitors" data-flag-title="JAVA:自定义注解">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1963,11 +1975,9 @@
       
         
           
-            <p><code>问:为啥不用golang代替java?</code></p>
-<p><code>答:自己买了私家车（JAVA），为啥有时候还要骑自行车或打车？</code></p>
-<p><code>问:那要是没买呢</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">答:</div><div class="line">如果还没买，请跑步前行(PHP)</div><div class="line">如果去楼下吃个饭，跑步过去是最快的(PHP)</div><div class="line">如果为了见客户 要把整个城市 跑一遍，自然是私家车最方便、最全面(java)</div><div class="line">但是有些客户所在的地方 私家车根本开不进，人流量很大。这时给你一辆自行车（golang)，就方便的很。</div><div class="line">你可以把自行车折叠后放 汽车后备箱。到了附近后，换自行车（这就是java和 golang为啥要配合运行）</div><div class="line">然而有的地方自行车都没法骑，譬如路况太差，汽车会把屁股也颠破。这时你不得不继续跑步。于是你把自行车停一边，然后开始跑步去目的地。</div><div class="line">这就是为啥 大系统 java+golang(python)+php要一起 运行</div></pre></td></tr></table></figure>
-<p><strong>最后的结论是，除非 你啥也不干，否则汽车、自行车、步行 谁也代替不了谁</strong></p>
+            <p>新建 SxinAnnotation.java<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">@Target(&#123;ElementType.METHOD,ElementType.TYPE&#125;)</div><div class="line">@Retention(RetentionPolicy.RUNTIME)</div><div class="line">public @interface SxinAnnotation &#123;</div><div class="line">    String name() default &quot;sxinboss&quot;;</div><div class="line">    int age() default 18;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>新建TestClass.java<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">public class TestClass &#123;</div><div class="line">    @SxinAnnotation(name = &quot;sxin&quot;,age = 20)</div><div class="line">    public String getName() &#123;</div><div class="line">        return name;</div><div class="line">    &#125;</div><div class="line">    public void setName(String name) &#123;</div><div class="line">        this.name = name;</div><div class="line">    &#125;</div><div class="line">    private String name;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">try &#123;</div><div class="line">	Class c = Class.forName(&quot;test.TestClass&quot;);</div><div class="line">	Object obj = c.newInstance();</div><div class="line">	/* </div><div class="line">	//获取方法名</div><div class="line">	Method[] mList = c.getMethods();</div><div class="line">	for (Method m : mList) &#123;</div><div class="line">      resp.getWriter().write(m.getName()+&quot;&lt;hr /&gt;&quot;);</div><div class="line">	&#125;</div><div class="line">	*/</div><div class="line">	Method m = c.getMethod(&quot;getName&quot;);</div><div class="line">	//执行getName方法</div><div class="line">	write(m.invoke(obj).toString());</div><div class="line">	//获取Class上的注解。</div><div class="line">	Annotation[] alist=c.getAnnotations();</div><div class="line">	for(Annotation a :alist)&#123;</div><div class="line">      write(a.toString());</div><div class="line">	&#125;</div><div class="line">&#125; catch (Exception e) &#123;</div><div class="line">	e.printStackTrace();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
           
         
