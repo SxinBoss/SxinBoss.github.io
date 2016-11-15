@@ -278,7 +278,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://blog.sxin.me/2016/06/26/quicklearnubuntu6/">
+  <link itemprop="mainEntityOfPage" href="http://blog.sxin.me/2016/06/26/php-devil-level-training-assignment/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="SxinBoss">
@@ -303,8 +303,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/06/26/quicklearnubuntu6/" itemprop="url">
-                  速学Ubuntu系列六:Composer学习(3):超简单的实现ORM框架的依赖加载
+                <a class="post-title-link" href="/2016/06/26/php-devil-level-training-assignment/" itemprop="url">
+                  PHP魔鬼训练班课后作业
                 </a>
               
             
@@ -326,7 +326,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-check-o"></i>
             </span>
-            <time title="Post modified" itemprop="dateModified" datetime="2016-11-14T20:11:15+08:00">
+            <time title="Post modified" itemprop="dateModified" datetime="2016-11-14T23:11:47+08:00">
               2016-11-14
             </time>
             
@@ -341,8 +341,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux专区/" itemprop="url" rel="index">
-                    <span itemprop="name">Linux专区</span>
+                  <a href="/categories/编程语言/" itemprop="url" rel="index">
+                    <span itemprop="name">编程语言</span>
                   </a>
                 </span>
 
@@ -353,8 +353,20 @@
 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux专区/Ubuntu/" itemprop="url" rel="index">
-                    <span itemprop="name">Ubuntu</span>
+                  <a href="/categories/编程语言/PHP/" itemprop="url" rel="index">
+                    <span itemprop="name">PHP</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/编程语言/PHP/PHP魔鬼训练班/" itemprop="url" rel="index">
+                    <span itemprop="name">PHP魔鬼训练班</span>
                   </a>
                 </span>
 
@@ -369,8 +381,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/06/26/quicklearnubuntu6/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/26/quicklearnubuntu6/" itemprop="commentCount"></span>
+                <a href="/2016/06/26/php-devil-level-training-assignment/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/26/php-devil-level-training-assignment/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -380,7 +392,7 @@
 
           
           
-             <span id="/2016/06/26/quicklearnubuntu6/" class="leancloud_visitors" data-flag-title="速学Ubuntu系列六:Composer学习(3):超简单的实现ORM框架的依赖加载">
+             <span id="/2016/06/26/php-devil-level-training-assignment/" class="leancloud_visitors" data-flag-title="PHP魔鬼训练班课后作业">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -406,15 +418,18 @@
 
       
         
-          
-            <p><a href="http://pkg.phpcomposer.com" title="Packagist / Composer" target="_blank" rel="external">Packagist / Composer 使用</a></p>
-<p>以NotORM为例,去官网 <a href="https://packagist.org/" target="_blank" rel="external">https://packagist.org/</a> 搜索 notorm</p>
-<p><code>vrana/notorm</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">进入项目根目录,执行:</div><div class="line">composer config repo.packagist composer https://packagist.phpcomposer.com</div></pre></td></tr></table></figure></p>
-<p>修改composer.json-&gt;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&quot;requies&quot; : &#123;</div><div class="line">    &quot;vrana/notorm&quot; : &quot;dev-master&quot;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p><code>composer install</code></p>
-<p>简单测试NotORM<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$pdo = new PDO(&quot;mysql:dbname=test;host=localhost&quot;,&apos;root&apos;,&apos;123456&apos;);</div><div class="line">$db = new NotORM($pdo);</div><div class="line"></div><div class="line">foreach ($db-&gt;tbl_user() as $user) &#123;</div><div class="line">    echo &quot;$user[username]\n&quot;; </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-
-          
+          <p>第一课：</p>
+<p>要求：写一个PHP程序,当参数带有-v 输出版本信息,如果没有参数 则什么都不输出。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">#!/usr/local/sxin/php7/bin/php</div><div class="line">&lt;?php</div><div class="line">    $result=&apos;&apos;;</div><div class="line">    $argc &gt; 1 &amp;&amp; array_search(&quot;-v&quot;,$argv) &amp;&amp; $result=&apos;god version is 1.0&apos;;</div><div class="line">    echo $result.PHP_EOL;</div></pre></td></tr></table></figure></p>
+<p>第二节课</p>
+<p>god<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">#!/usr/local/sxin/php7/bin/php</div><div class="line">&lt;?php</div><div class="line">    require(&apos;god_func&apos;.substr(PHP_VERSION,0,1));</div><div class="line">    $result=&apos;&apos;;</div><div class="line">    $argc &gt; 1 &amp;&amp; (array_search(&quot;-v&quot;,$argv) &amp;&amp; $result=&apos;god version is 1.0&apos;) || (array_search(&quot;init&quot;,$argv) &amp;&amp; $result=initConfig());</div><div class="line">    echo $result.PHP_EOL;</div></pre></td></tr></table></figure></p>
+<p>god_func7<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;?php</div><div class="line">    function initConfig():string</div><div class="line">    &#123;</div><div class="line">        return file_put_contents(getcwd().&apos;/god.json&apos;,&apos;&#123;&#125;&apos;).&apos; of bytes is written&apos;.PHP_EOL.&apos;god config is created&apos;;</div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
+          <!--noindex-->
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/06/26/php-devil-level-training-assignment/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
