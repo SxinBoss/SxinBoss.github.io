@@ -104,7 +104,7 @@ done1echo &apos;密码&apos;|sudo -S /bin/bash -c &apos;cp god* /">
 写一个脚本来把god等文件拷贝到/usr/local/bin文件夹中
 
 done1echo &apos;密码&apos;|sudo -S /bin/bash -c &apos;cp god* /">
-<meta property="og:updated_time" content="2016-11-23T03:44:05.000Z">
+<meta property="og:updated_time" content="2016-11-23T03:44:58.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第三回合：自言自语">
 <meta name="twitter:description" content="我们先做一些准备工作
@@ -343,7 +343,7 @@ done1echo &apos;密码&apos;|sudo -S /bin/bash -c &apos;cp god* /">
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-check-o"></i>
             </span>
-            <time title="Post modified" itemprop="dateModified" datetime="2016-11-23T11:44:05+08:00">
+            <time title="Post modified" itemprop="dateModified" datetime="2016-11-23T11:44:58+08:00">
               2016-11-23
             </time>
             
@@ -459,8 +459,7 @@ godinit<figure class="highlight xml"><table><tr><td class="gutter"><pre><div cla
 <p>大家有没有发现,这么多文件拷贝到/usr/local/bin 太low了</p>
 <p>那么今天我们再学一个php打包的功能.如果不懂,请照抄.<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$pchar=<span class="keyword">new</span> Phar(<span class="string">"god.phar"</span>);</div><div class="line">$pchar-&gt;buildFromDirectory(dirname(__FILE_));</div><div class="line">$pchar-&gt;setStub($pchar-&gt;createDefaultStub(<span class="string">'god'</span>));</div><div class="line">$pchar-&gt;compressFiles(Phar::GZ);</div></pre></td></tr></table></figure></p>
 <p>PS:如果保错<br><code>Fatal error: Uncaught UnexpectedValueException: creating archive &quot;god.phar&quot; disabled by the php.ini setting phar.readonly</code></p>
-<p>则需要修改php.ini</p>
-<p>[Phar]<br>phar.readonly = Off</p>
+<p>则需要修改php.ini<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[Phar]</div><div class="line">phar<span class="selector-class">.readonly</span> = Off</div></pre></td></tr></table></figure></p>
 <p>生成好之后我们来运行</p>
 <p><code>php god.phar -v</code> </p>
 <p><code>god version is 1.1</code></p>
@@ -520,8 +519,8 @@ godinit<figure class="highlight xml"><table><tr><td class="gutter"><pre><div cla
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/09/01/mysql-knowledge-0/" rel="next" title="MYSQL查询延伸下来的知识点">
-                <i class="fa fa-chevron-left"></i> MYSQL查询延伸下来的知识点
+              <a href="/2016/09/08/scatteredknowledge12/" rel="next" title="零散知识点:项目经理是否要写代码">
+                <i class="fa fa-chevron-left"></i> 零散知识点:项目经理是否要写代码
               </a>
             
           </div>
@@ -530,8 +529,8 @@ godinit<figure class="highlight xml"><table><tr><td class="gutter"><pre><div cla
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/09/08/scatteredknowledge12/" rel="prev" title="零散知识点:项目经理是否要写代码">
-                零散知识点:项目经理是否要写代码 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/09/11/php-devil-level-training-4/" rel="prev" title="第四回合:烦不烦?火不火?">
+                第四回合:烦不烦?火不火? <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
