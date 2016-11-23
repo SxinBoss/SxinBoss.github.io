@@ -104,7 +104,7 @@ done1echo &apos;密码&apos;|sudo -S /bin/bash -c &apos;cp god* /">
 写一个脚本来把god等文件拷贝到/usr/local/bin文件夹中
 
 done1echo &apos;密码&apos;|sudo -S /bin/bash -c &apos;cp god* /">
-<meta property="og:updated_time" content="2016-11-14T15:18:26.000Z">
+<meta property="og:updated_time" content="2016-11-23T03:41:54.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第三回合：自言自语">
 <meta name="twitter:description" content="我们先做一些准备工作
@@ -343,8 +343,8 @@ done1echo &apos;密码&apos;|sudo -S /bin/bash -c &apos;cp god* /">
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-check-o"></i>
             </span>
-            <time title="Post modified" itemprop="dateModified" datetime="2016-11-14T23:18:26+08:00">
-              2016-11-14
+            <time title="Post modified" itemprop="dateModified" datetime="2016-11-23T11:41:54+08:00">
+              2016-11-23
             </time>
             
           </span>
@@ -459,18 +459,14 @@ godinit<figure class="highlight xml"><table><tr><td class="gutter"><pre><div cla
 <p>大家有没有发现,这么多文件拷贝到/usr/local/bin 太low了</p>
 <p>那么今天我们再学一个php打包的功能.如果不懂,请照抄.<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$pchar=<span class="keyword">new</span> Phar(<span class="string">"god.phar"</span>);</div><div class="line">$pchar-&gt;buildFromDirectory(dirname(__FILE_));</div><div class="line">$pchar-&gt;setStub($pchar-&gt;createDefaultStub(<span class="string">'god'</span>));</div><div class="line">$pchar-&gt;compressFiles(Phar::GZ);</div></pre></td></tr></table></figure></p>
 <p>PS:如果保错<br><code>Fatal error: Uncaught UnexpectedValueException: creating archive &quot;god.phar&quot; disabled by the php.ini setting phar.readonly</code></p>
-<p>则需要修改php.ini<br><figure class="highlight clean"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">[Phar]</div><div class="line">phar.readonly = Off</div><div class="line">``` </div><div class="line"></div><div class="line">生成好之后我们来运行</div><div class="line"></div><div class="line">`php god.phar -v` </div><div class="line"></div><div class="line">`god version is <span class="number">1.1</span>`</div><div class="line">没问题.ok</div><div class="line"></div><div class="line">god</div></pre></td></tr></table></figure></p>
-<p>&lt;?php<br>    require(‘god_func’.substr(PHP_VERSION,0,1));<br>    require(‘godinit’);<br>    $result=’’;<br>    (array_search(“-v”,$argv) &amp;&amp; $result=godinit::$VERSION)<br>    || (array_search(“init”,$argv) &amp;&amp; $result=godinit::init())<br>    || (array_search(“make”,$argv) &amp;&amp; $result=godinit::make());<br>    echo $result.PHP_EOL;<br><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="attribute">godinit</span></div></pre></td></tr></table></figure></p>
-<p>&lt;?php<br>    class godinit<br>    {<br>        //XXOO</p>
-<pre><code>    static function make()
-    {
-        $pchar=new Phar(&quot;god.phar&quot;);
-        $pchar-&gt;buildFromDirectory(dirname(__FILE_));
-        $pchar-&gt;setStub($pchar-&gt;createDefaultStub(&apos;god&apos;));
-        $pchar-&gt;compressFiles(Phar::GZ);
-    }
-}
-</code></pre><p>```</p>
+<p>则需要修改php.ini</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[Phar]</div><div class="line">phar<span class="selector-class">.readonly</span> = Off</div></pre></td></tr></table></figure>
+<p>生成好之后我们来运行</p>
+<p><code>php god.phar -v</code> </p>
+<p><code>god version is 1.1</code></p>
+<p>没问题.ok</p>
+<p>god<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;?php</div><div class="line">    <span class="keyword">require</span>(<span class="string">'god_func'</span>.substr(PHP_VERSION,<span class="number">0</span>,<span class="number">1</span>));</div><div class="line">    <span class="keyword">require</span>(<span class="string">'godinit'</span>);</div><div class="line">    $result=<span class="string">''</span>;</div><div class="line">    (array_search(<span class="string">"-v"</span>,$argv) &amp;&amp; $result=godinit::$VERSION)</div><div class="line">    <span class="params">||</span> (array_search(<span class="string">"init"</span>,$argv) &amp;&amp; $result=godinit::init())</div><div class="line">    <span class="params">||</span> (array_search(<span class="string">"make"</span>,$argv) &amp;&amp; $result=godinit::make());</div><div class="line">    echo $result.PHP_EOL;</div></pre></td></tr></table></figure></p>
+<p>godinit<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="php"><span class="meta">&lt;?php</span></span></div><div class="line">    <span class="class"><span class="keyword">class</span> <span class="title">godinit</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="comment">//XXOO</span></div><div class="line"></div><div class="line">        <span class="keyword">static</span> <span class="function"><span class="keyword">function</span> <span class="title">make</span><span class="params">()</span></span></div><div class="line">        &#123;</div><div class="line">            $pchar=<span class="keyword">new</span> Phar(<span class="string">"god.phar"</span>);</div><div class="line">            $pchar-&gt;buildFromDirectory(dirname(__FILE_));</div><div class="line">            $pchar-&gt;setStub($pchar-&gt;createDefaultStub(<span class="string">'god'</span>));</div><div class="line">            $pchar-&gt;compressFiles(Phar::GZ);</div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -524,8 +520,8 @@ godinit<figure class="highlight xml"><table><tr><td class="gutter"><pre><div cla
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/09/01/mysql-knowledge-0/" rel="next" title="MYSQL查询延伸下来的知识点">
-                <i class="fa fa-chevron-left"></i> MYSQL查询延伸下来的知识点
+              <a href="/2016/09/08/scatteredknowledge12/" rel="next" title="零散知识点:项目经理是否要写代码">
+                <i class="fa fa-chevron-left"></i> 零散知识点:项目经理是否要写代码
               </a>
             
           </div>
@@ -534,8 +530,8 @@ godinit<figure class="highlight xml"><table><tr><td class="gutter"><pre><div cla
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/09/08/scatteredknowledge12/" rel="prev" title="零散知识点:项目经理是否要写代码">
-                零散知识点:项目经理是否要写代码 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/09/11/php-devil-level-training-4/" rel="prev" title="第四回合:烦不烦?火不火?">
+                第四回合:烦不烦?火不火? <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -608,7 +604,7 @@ godinit<figure class="highlight xml"><table><tr><td class="gutter"><pre><div cla
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">61</span>
+              <span class="site-state-item-count">62</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

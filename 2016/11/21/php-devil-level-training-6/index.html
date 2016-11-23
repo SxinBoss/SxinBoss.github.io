@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Delphi,Indy10," />
+  <meta name="keywords" content="程序员, IT, PHP, JAVA, C#, Android" />
 
 
 
@@ -84,34 +84,16 @@
 
 
 
-<meta name="description" content="由于软件需求,需要在本地开放一个HttpServer. 然后通过web传值过来  然后进行xxxx操作
-环境
-jquery 2.0 + ajax + post
-delphi 7 + indy 10 + TIdHTTPServer
-
-Bug前端Post后 delphi-HttpServer-&amp;gt;Request.Params 中是空的 (没有获取到参数)">
+<meta name="description" content="本博客为个人博客,记载开发中的心得,经验和踩过的各种坑...">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Delphi Indy10坑 之 TIdHTTPServer无法接收Post过来的值">
-<meta property="og:url" content="http://blog.sxin.me/2016/10/28/delphiindy10requestparamsisempty/index.html">
+<meta property="og:title" content="php-devil-level-training-6">
+<meta property="og:url" content="http://blog.sxin.me/2016/11/21/php-devil-level-training-6/index.html">
 <meta property="og:site_name" content="SxinBoss的个人博客">
-<meta property="og:description" content="由于软件需求,需要在本地开放一个HttpServer. 然后通过web传值过来  然后进行xxxx操作
-环境
-jquery 2.0 + ajax + post
-delphi 7 + indy 10 + TIdHTTPServer
-
-Bug前端Post后 delphi-HttpServer-&amp;gt;Request.Params 中是空的 (没有获取到参数)">
-<meta property="og:image" content="http://7xskk8.com1.z0.glb.clouddn.com/delphi-indy10-parse-post-params-bug.jpg">
-<meta property="og:image" content="http://7xskk8.com1.z0.glb.clouddn.com/delphi-indy10-parse-post-params-bug2.jpg">
-<meta property="og:updated_time" content="2016-11-15T04:38:59.000Z">
+<meta property="og:description" content="本博客为个人博客,记载开发中的心得,经验和踩过的各种坑...">
+<meta property="og:updated_time" content="2016-11-21T06:48:29.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Delphi Indy10坑 之 TIdHTTPServer无法接收Post过来的值">
-<meta name="twitter:description" content="由于软件需求,需要在本地开放一个HttpServer. 然后通过web传值过来  然后进行xxxx操作
-环境
-jquery 2.0 + ajax + post
-delphi 7 + indy 10 + TIdHTTPServer
-
-Bug前端Post后 delphi-HttpServer-&amp;gt;Request.Params 中是空的 (没有获取到参数)">
-<meta name="twitter:image" content="http://7xskk8.com1.z0.glb.clouddn.com/delphi-indy10-parse-post-params-bug.jpg">
+<meta name="twitter:title" content="php-devil-level-training-6">
+<meta name="twitter:description" content="本博客为个人博客,记载开发中的心得,经验和踩过的各种坑...">
 
 
 
@@ -139,13 +121,13 @@ Bug前端Post后 delphi-HttpServer-&amp;gt;Request.Params 中是空的 (没有�
 
 
 
-  <link rel="canonical" href="http://blog.sxin.me/2016/10/28/delphiindy10requestparamsisempty/"/>
+  <link rel="canonical" href="http://blog.sxin.me/2016/11/21/php-devil-level-training-6/"/>
 
 
 
 
 
-  <title> Delphi Indy10坑 之 TIdHTTPServer无法接收Post过来的值 | SxinBoss的个人博客 </title>
+  <title> php-devil-level-training-6 | SxinBoss的个人博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -295,7 +277,7 @@ Bug前端Post后 delphi-HttpServer-&amp;gt;Request.Params 中是空的 (没有�
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://blog.sxin.me/2016/10/28/delphiindy10requestparamsisempty/">
+  <link itemprop="mainEntityOfPage" href="http://blog.sxin.me/2016/11/21/php-devil-level-training-6/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="SxinBoss">
@@ -319,7 +301,7 @@ Bug前端Post后 delphi-HttpServer-&amp;gt;Request.Params 中是空的 (没有�
             
             
               
-                Delphi Indy10坑 之 TIdHTTPServer无法接收Post过来的值
+                php-devil-level-training-6
               
             
           </h1>
@@ -331,8 +313,8 @@ Bug前端Post后 delphi-HttpServer-&amp;gt;Request.Params 中是空的 (没有�
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-10-28T16:30:00+08:00">
-              2016-10-28
+            <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-21T14:48:29+08:00">
+              2016-11-21
             </time>
 
             &nbsp;|&nbsp;
@@ -340,51 +322,20 @@ Bug前端Post后 delphi-HttpServer-&amp;gt;Request.Params 中是空的 (没有�
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-check-o"></i>
             </span>
-            <time title="Post modified" itemprop="dateModified" datetime="2016-11-15T12:38:59+08:00">
-              2016-11-15
+            <time title="Post modified" itemprop="dateModified" datetime="2016-11-21T14:48:29+08:00">
+              2016-11-21
             </time>
             
           </span>
 
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/编程语言/" itemprop="url" rel="index">
-                    <span itemprop="name">编程语言</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/编程语言/Delphi/" itemprop="url" rel="index">
-                    <span itemprop="name">Delphi</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
           
 
           
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/10/28/delphiindy10requestparamsisempty/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/28/delphiindy10requestparamsisempty/" itemprop="commentCount"></span>
+                <a href="/2016/11/21/php-devil-level-training-6/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/21/php-devil-level-training-6/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -394,7 +345,7 @@ Bug前端Post后 delphi-HttpServer-&amp;gt;Request.Params 中是空的 (没有�
 
           
           
-             <span id="/2016/10/28/delphiindy10requestparamsisempty/" class="leancloud_visitors" data-flag-title="Delphi Indy10坑 之 TIdHTTPServer无法接收Post过来的值">
+             <span id="/2016/11/21/php-devil-level-training-6/" class="leancloud_visitors" data-flag-title="php-devil-level-training-6">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -419,20 +370,7 @@ Bug前端Post后 delphi-HttpServer-&amp;gt;Request.Params 中是空的 (没有�
       
 
       
-        <p>由于软件需求,需要在本地开放一个HttpServer. 然后通过web传值过来  然后进行xxxx操作</p>
-<h3 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h3><ul>
-<li>jquery 2.0 + ajax + post</li>
-<li>delphi 7 + indy 10 + TIdHTTPServer</li>
-</ul>
-<h3 id="Bug"><a href="#Bug" class="headerlink" title="Bug"></a>Bug</h3><p>前端Post后 delphi-HttpServer-&gt;Request.Params 中是空的 (没有获取到参数)<br><a id="more"></a></p>
-<h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><p>跟踪源码发现<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">if ParseParams then <span class="keyword">begin</span></div><div class="line">    //<span class="keyword">if</span> LowerCase(LRequestInfo.ContentType) = <span class="string">'application/x-www-form-urlencoded'</span> <span class="keyword">then</span> <span class="keyword">begin</span>    &#123;<span class="keyword">Do</span> <span class="keyword">not</span> Localize&#125;</div><div class="line">    <span class="keyword">if</span> (pos(<span class="string">'application/x-www-form-urlencoded'</span>,(LowerCase(LRequestInfo.ContentType)))&gt;<span class="number">0</span>) <span class="keyword">then</span> <span class="keyword">begin</span>    &#123;<span class="keyword">Do</span> <span class="keyword">not</span> Localize&#125;</div><div class="line">        LRequestInfo.DecodeAndSetParams(LRequestInfo.UnparsedParams);</div><div class="line">    <span class="keyword">end</span></div><div class="line">    <span class="keyword">else</span> <span class="keyword">begin</span></div><div class="line">        // <span class="keyword">Parse</span> <span class="keyword">only</span> <span class="keyword">query</span> params <span class="keyword">when</span> <span class="keyword">content</span> <span class="keyword">type</span> <span class="keyword">is</span> <span class="keyword">not</span> <span class="string">'application/x-www-form-urlencoded'</span>    &#123;<span class="keyword">Do</span> <span class="keyword">not</span> Localize&#125;</div><div class="line">        LRequestInfo.DecodeAndSetParams(LRequestInfo.QueryParams);</div><div class="line">    <span class="keyword">end</span>;</div><div class="line"><span class="keyword">end</span>;</div></pre></td></tr></table></figure></p>
-<p><img src="http://7xskk8.com1.z0.glb.clouddn.com/delphi-indy10-parse-post-params-bug.jpg" alt="image"></p>
-<p>注释掉的<code>//if LowerCase(LRequestInfo.ContentType) = &#39;application/x-www-form-urlencoded&#39; then</code>是原本的源码</p>
-<p>我们可以看出 它是比较ContentType的内容.</p>
-<p>如果ContentType是application/x-www-form-urlencoded,那么解析UnparsedParams.</p>
-<p><img src="http://7xskk8.com1.z0.glb.clouddn.com/delphi-indy10-parse-post-params-bug2.jpg" alt="image"><br>但是我们传过来的ContentType的内容是application/x-www-form-urlencoded;charset: UTF-8  这就导致等式不成立 从而解析了QueryParams.</p>
-<h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><p>将 LowerCase(LRequestInfo.ContentType) = ‘application/x-www-form-urlencoded’<br>改成 pos(‘application/x-www-form-urlencoded’,(LowerCase(LRequestInfo.ContentType)))&gt;0</p>
-
+        
       
     </div>
 
@@ -474,21 +412,13 @@ Bug前端Post后 delphi-HttpServer-&amp;gt;Request.Params 中是空的 (没有�
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/Delphi/" rel="tag"># Delphi</a>
-          
-            <a href="/tags/Indy10/" rel="tag"># Indy10</a>
-          
-        </div>
-      
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/09/11/php-devil-level-training-5/" rel="next" title="第五回合:我得了懒癌">
-                <i class="fa fa-chevron-left"></i> 第五回合:我得了懒癌
+              <a href="/2016/11/15/shellbackuphexo/" rel="next" title="Shell定时备份Hexo博文">
+                <i class="fa fa-chevron-left"></i> Shell定时备份Hexo博文
               </a>
             
           </div>
@@ -496,10 +426,6 @@ Bug前端Post后 delphi-HttpServer-&amp;gt;Request.Params 中是空的 (没有�
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/11/15/Why-do-we-think-JavaScript-is-hard-to-learn/" rel="prev" title="【转】为什么我们觉得javascript很难学?">
-                【转】为什么我们觉得javascript很难学? <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -525,8 +451,8 @@ Bug前端Post后 delphi-HttpServer-&amp;gt;Request.Params 中是空的 (没有�
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/10/28/delphiindy10requestparamsisempty/"
-           data-title="Delphi Indy10坑 之 TIdHTTPServer无法接收Post过来的值" data-url="http://blog.sxin.me/2016/10/28/delphiindy10requestparamsisempty/">
+      <div class="ds-thread" data-thread-key="2016/11/21/php-devil-level-training-6/"
+           data-title="php-devil-level-training-6" data-url="http://blog.sxin.me/2016/11/21/php-devil-level-training-6/">
       </div>
     
   </div>
@@ -550,17 +476,8 @@ Bug前端Post后 delphi-HttpServer-&amp;gt;Request.Params 中是空的 (没有�
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="http://7xskk8.com1.z0.glb.clouddn.com/blog_touxiang.png"
@@ -655,22 +572,6 @@ Bug前端Post后 delphi-HttpServer-&amp;gt;Request.Params 中是空的 (没有�
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#环境"><span class="nav-number">1.</span> <span class="nav-text">环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Bug"><span class="nav-number">2.</span> <span class="nav-text">Bug</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#原因"><span class="nav-number">3.</span> <span class="nav-text">原因</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解决方法"><span class="nav-number">4.</span> <span class="nav-text">解决方法</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
     </div>
