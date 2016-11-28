@@ -90,7 +90,7 @@
 <meta property="og:url" content="http://blog.sxin.me/2016/05/24/quicklearnubuntu0/index.html">
 <meta property="og:site_name" content="SxinBoss的个人博客">
 <meta property="og:description" content="123456789sudo apt-get update &amp;amp;&amp;amp; sudo apt-get upgradesudo apt-get install vimsudo apt-get install axel --多线程下载sudo apt-get install nmapsudo apt-get install sqlmapsudo apt-get install unrarsudo">
-<meta property="og:updated_time" content="2016-11-15T01:08:06.000Z">
+<meta property="og:updated_time" content="2016-11-28T08:06:58.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="作为程序员,安装Ubuntu后我做的事情">
 <meta name="twitter:description" content="123456789sudo apt-get update &amp;amp;&amp;amp; sudo apt-get upgradesudo apt-get install vimsudo apt-get install axel --多线程下载sudo apt-get install nmapsudo apt-get install sqlmapsudo apt-get install unrarsudo">
@@ -322,8 +322,8 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-check-o"></i>
             </span>
-            <time title="Post modified" itemprop="dateModified" datetime="2016-11-15T09:08:06+08:00">
-              2016-11-15
+            <time title="Post modified" itemprop="dateModified" datetime="2016-11-28T16:06:58+08:00">
+              2016-11-28
             </time>
             
           </span>
@@ -408,17 +408,17 @@
 <p>home下新建sxinboss目录,sxinboss目录下建soft,environment.</p>
 <p>将tomcat,jdk目录移到environment中.</p>
 <p>idea,phpstorm,webstorm移到soft中.</p>
-<p><strong>编译安装apache,php,mysql</strong><br><a id="more"></a><br>请看另一篇文章:<a href="http://blog.sxin.me/2016/05/25/quicklearnubuntu1" title="编译安装apache&amp;&amp;PHP&amp;&amp;mysql">编译安装Apache&amp;&amp;PHP</a></p>
-<p><strong>配置java环境变量:</strong><br><figure class="highlight vim"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo <span class="keyword">vim</span> /etc/<span class="keyword">profile</span></div></pre></td></tr></table></figure></p>
+<h3 id="编译安装apache-php-mysql"><a href="#编译安装apache-php-mysql" class="headerlink" title="编译安装apache,php,mysql"></a>编译安装apache,php,mysql</h3><a id="more"></a>
+<p>请看另一篇文章:<a href="http://blog.sxin.me/2016/05/25/quicklearnubuntu1" title="编译安装apache&amp;&amp;PHP&amp;&amp;mysql">编译安装Apache&amp;&amp;PHP</a></p>
+<h3 id="配置java环境变量"><a href="#配置java环境变量" class="headerlink" title="配置java环境变量:"></a>配置java环境变量:</h3><figure class="highlight vim"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo <span class="keyword">vim</span> /etc/<span class="keyword">profile</span></div></pre></td></tr></table></figure>
 <p>在尾部加<br><figure class="highlight crystal"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">export JAVA_HOME=<span class="regexp">/home/sxinboss</span><span class="regexp">/sxinboss/environment</span><span class="regexp">/jdk1.8.0_91</span></div><div class="line">export PATH=$JAVA_HOME/bin:$PATH </div><div class="line">export CLASSPATH=.:$JAVA_HOME/<span class="class"><span class="keyword">lib</span>/<span class="title">dt</span>.<span class="title">jar</span>:$<span class="title">JAVA_HOME</span>/<span class="title">lib</span>/<span class="title">tools</span>.<span class="title">jar</span></span></div></pre></td></tr></table></figure></p>
-<p><strong>安装IDE(IDEA,WebStorm,PhpStorm)</strong><br>创建Idea桌面快捷方式:<br>新建idea.desktop<br><figure class="highlight ini"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="section">[Desktop Entry]</span></div><div class="line"><span class="attr">Categories</span>=Development;</div><div class="line"><span class="attr">Exec</span>=/home/sxinboss/sxinboss/soft/idea/bin/idea.sh</div><div class="line"><span class="attr">GenericName[zh_CN]</span>=IDEA</div><div class="line"><span class="attr">GenericName</span>=IDEA</div><div class="line"><span class="attr">Icon</span>=/home/sxinboss/sxinboss/soft/idea/bin/idea.png</div><div class="line"><span class="attr">MimeType</span>=</div><div class="line"><span class="attr">Name</span>=Idea</div><div class="line"><span class="attr">Name[zh_CN]</span>=Idea</div><div class="line"><span class="attr">Path</span>=</div><div class="line"><span class="attr">StartupNotify</span>=<span class="literal">true</span></div><div class="line"><span class="attr">Terminal</span>=<span class="literal">false</span></div><div class="line"><span class="attr">Type</span>=Application</div><div class="line"><span class="attr">X-DBUS-ServiceName</span>=</div><div class="line"><span class="attr">X-DBUS-StartupType</span>=</div><div class="line"><span class="attr">X-KDE-SubstituteUID</span>=<span class="literal">false</span></div><div class="line"><span class="attr">X-KDE-Username</span>=sxinboss</div></pre></td></tr></table></figure></p>
+<h3 id="安装IDE-IDEA-WebStorm-PhpStorm"><a href="#安装IDE-IDEA-WebStorm-PhpStorm" class="headerlink" title="安装IDE(IDEA,WebStorm,PhpStorm)"></a>安装IDE(IDEA,WebStorm,PhpStorm)</h3><p>创建Idea桌面快捷方式:<br>新建idea.desktop<br><figure class="highlight ini"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="section">[Desktop Entry]</span></div><div class="line"><span class="attr">Categories</span>=Development;</div><div class="line"><span class="attr">Exec</span>=/home/sxinboss/sxinboss/soft/idea/bin/idea.sh</div><div class="line"><span class="attr">GenericName[zh_CN]</span>=IDEA</div><div class="line"><span class="attr">GenericName</span>=IDEA</div><div class="line"><span class="attr">Icon</span>=/home/sxinboss/sxinboss/soft/idea/bin/idea.png</div><div class="line"><span class="attr">MimeType</span>=</div><div class="line"><span class="attr">Name</span>=Idea</div><div class="line"><span class="attr">Name[zh_CN]</span>=Idea</div><div class="line"><span class="attr">Path</span>=</div><div class="line"><span class="attr">StartupNotify</span>=<span class="literal">true</span></div><div class="line"><span class="attr">Terminal</span>=<span class="literal">false</span></div><div class="line"><span class="attr">Type</span>=Application</div><div class="line"><span class="attr">X-DBUS-ServiceName</span>=</div><div class="line"><span class="attr">X-DBUS-StartupType</span>=</div><div class="line"><span class="attr">X-KDE-SubstituteUID</span>=<span class="literal">false</span></div><div class="line"><span class="attr">X-KDE-Username</span>=sxinboss</div></pre></td></tr></table></figure></p>
 <p>最后别忘了 chmod 授权给它<br>同理:<br>webstorm.desktop<br><figure class="highlight ini"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="section">[Desktop Entry]</span></div><div class="line"><span class="attr">Categories</span>=Development;</div><div class="line"><span class="attr">Exec</span>=/home/sxinboss/sxinboss/soft/webstorm/bin/webstorm.sh</div><div class="line"><span class="attr">GenericName[zh_CN]</span>=WebStorm</div><div class="line"><span class="attr">GenericName</span>=WebStorm</div><div class="line"><span class="attr">Icon</span>=/home/sxinboss/sxinboss/soft/webstorm/bin/webstorm.svg</div><div class="line"><span class="attr">MimeType</span>=</div><div class="line"><span class="attr">Name</span>=WebStorm</div><div class="line"><span class="attr">Name[zh_CN]</span>=WebStorm</div><div class="line"><span class="attr">Path</span>=</div><div class="line"><span class="attr">StartupNotify</span>=<span class="literal">true</span></div><div class="line"><span class="attr">Terminal</span>=<span class="literal">false</span></div><div class="line"><span class="attr">Type</span>=Application</div><div class="line"><span class="attr">X-DBUS-ServiceName</span>=</div><div class="line"><span class="attr">X-DBUS-StartupType</span>=</div><div class="line"><span class="attr">X-KDE-SubstituteUID</span>=<span class="literal">false</span></div><div class="line"><span class="attr">X-KDE-Username</span>=sxinboss</div></pre></td></tr></table></figure></p>
 <p>phpstorm.desktop<br><figure class="highlight ini"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="section">[Desktop Entry]</span></div><div class="line"><span class="attr">Categories</span>=Development;</div><div class="line"><span class="attr">Exec</span>=/home/sxinboss/sxinboss/soft/phpstorm/bin/phpstorm.sh</div><div class="line"><span class="attr">GenericName[zh_CN]</span>=PhpStorm</div><div class="line"><span class="attr">GenericName</span>=PhpStorm</div><div class="line"><span class="attr">Icon</span>=/home/sxinboss/sxinboss/soft/phpstorm/bin/webide.png</div><div class="line"><span class="attr">MimeType</span>=</div><div class="line"><span class="attr">Name</span>=PhpStorm</div><div class="line"><span class="attr">Name[zh_CN]</span>=PhpStorm</div><div class="line"><span class="attr">Path</span>=</div><div class="line"><span class="attr">StartupNotify</span>=<span class="literal">true</span></div><div class="line"><span class="attr">Terminal</span>=<span class="literal">false</span></div><div class="line"><span class="attr">Type</span>=Application</div><div class="line"><span class="attr">X-DBUS-ServiceName</span>=</div><div class="line"><span class="attr">X-DBUS-StartupType</span>=</div><div class="line"><span class="attr">X-KDE-SubstituteUID</span>=<span class="literal">false</span></div><div class="line"><span class="attr">X-KDE-Username</span>=sxinboss</div></pre></td></tr></table></figure></p>
 <p>关于上述产品的注册.<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">本人搭建了个<span class="string">LicenseServer:</span> <span class="string">http:</span><span class="comment">//idea.sxin.me </span></div><div class="line">注册界面选择 License server </div><div class="line">然后License server <span class="string">address:</span>填写 <span class="string">http:</span><span class="comment">//idea.sxin.me</span></div></pre></td></tr></table></figure></p>
 <p>如果在IDE中不能输入中文(系统输入中文正常),在启动sh文件中加入如下代码:<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">export</span> XMODIFIERS=<span class="string">"@im=fcitx"</span></div><div class="line"><span class="keyword">export</span> GTK_IM_MODULE=<span class="string">"fcitx"</span></div><div class="line"><span class="keyword">export</span> QT_IM_MODULE=<span class="string">"fcitx"</span></div></pre></td></tr></table></figure></p>
 <p>创建 项目目录:<br><figure class="highlight dos"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">mkdir</span> workspaces</div><div class="line"><span class="built_in">cd</span> workspaces/</div><div class="line"><span class="built_in">mkdir</span> phpstorm</div><div class="line"><span class="built_in">mkdir</span> webstorm</div><div class="line"><span class="built_in">mkdir</span> idea</div></pre></td></tr></table></figure></p>
-<p><strong>Hexo 3.2</strong></p>
-<p>安装 Node.js<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">wget https://raw.github.com/creationix/nvm/master/install.sh </div><div class="line">chmod +x install.sh</div><div class="line">./install.sh</div><div class="line">nvm install 4</div><div class="line">npm install -g hexo-cli</div><div class="line"></div><div class="line">hexo init blog</div><div class="line">cd blog</div><div class="line">npm install</div></pre></td></tr></table></figure></p>
+<h3 id="Hexo-3-2"><a href="#Hexo-3-2" class="headerlink" title="Hexo 3.2"></a>Hexo 3.2</h3><p>安装 Node.js<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">wget https://raw.github.com/creationix/nvm/master/install.sh </div><div class="line">chmod +x install.sh</div><div class="line">./install.sh</div><div class="line">nvm install 4</div><div class="line">npm install -g hexo-cli</div><div class="line"></div><div class="line">hexo init blog</div><div class="line">cd blog</div><div class="line">npm install</div></pre></td></tr></table></figure></p>
 <p>本地生成ssh-keygen:<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">ssh-keygen</span> <span class="selector-tag">-t</span> <span class="selector-tag">rsa</span> <span class="selector-tag">-C</span> "<span class="selector-tag">boss</span>@<span class="keyword">mrsong</span>.<span class="keyword">xin</span>"</div><div class="line"></div><div class="line">cat id_rsa.pub</div></pre></td></tr></table></figure></p>
 <figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git config --global user<span class="selector-class">.name</span> <span class="string">"SxinBoss"</span></div><div class="line">git config --global user<span class="selector-class">.email</span> boss@mrsong.xin</div></pre></td></tr></table></figure>
 <p>GitHub:</p>
@@ -436,13 +436,11 @@
 <p><strong>绑定域名</strong></p>
 <p>添加A记录：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">192<span class="selector-class">.30</span><span class="selector-class">.252</span><span class="selector-class">.154</span></div><div class="line">192<span class="selector-class">.30</span><span class="selector-class">.252</span><span class="selector-class">.153</span></div></pre></td></tr></table></figure></p>
 <p>在source文件夹里创建CNAME文件，不带任何后缀，里面添加你的域名信息，如：blog.sxin.me（注意前面不添加http://） </p>
-<p><strong>docker</strong></p>
-<p>安装：<code>curl -fsSL https://get.docker.com/ | sh</code><br><figure class="highlight elixir"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$ </span>sudo groupadd docker</div><div class="line"><span class="variable">$ </span>sudo gpasswd -a <span class="variable">$&#123;</span>USER&#125; docker</div></pre></td></tr></table></figure></p>
+<h3 id="docker"><a href="#docker" class="headerlink" title="docker"></a>docker</h3><p>安装：<code>curl -fsSL https://get.docker.com/ | sh</code><br><figure class="highlight elixir"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$ </span>sudo groupadd docker</div><div class="line"><span class="variable">$ </span>sudo gpasswd -a <span class="variable">$&#123;</span>USER&#125; docker</div></pre></td></tr></table></figure></p>
 <p>注销 重新登陆</p>
 <p>查看镜像：<code>docker search xxx</code></p>
 <p>下载镜像：<code>docker pull xxx</code></p>
-<p><strong>未完待续。。。</strong></p>
-
+<h4 id="未完待续。。。"><a href="#未完待续。。。" class="headerlink" title="未完待续。。。"></a>未完待续。。。</h4>
       
     </div>
 
@@ -562,8 +560,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="http://7xskk8.com1.z0.glb.clouddn.com/blog_touxiang.png"
@@ -658,6 +665,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#编译安装apache-php-mysql"><span class="nav-number">1.</span> <span class="nav-text">编译安装apache,php,mysql</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置java环境变量"><span class="nav-number">2.</span> <span class="nav-text">配置java环境变量:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装IDE-IDEA-WebStorm-PhpStorm"><span class="nav-number">3.</span> <span class="nav-text">安装IDE(IDEA,WebStorm,PhpStorm)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hexo-3-2"><span class="nav-number">4.</span> <span class="nav-text">Hexo 3.2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#docker"><span class="nav-number">5.</span> <span class="nav-text">docker</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#未完待续。。。"><span class="nav-number">5.1.</span> <span class="nav-text">未完待续。。。</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
     </div>
