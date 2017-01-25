@@ -967,7 +967,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://blog.sxin.me/2016/06/28/shell4centos6andubuntuinstalllamp/">
+  <link itemprop="mainEntityOfPage" href="http://blog.sxin.me/2016/06/28/centosinstallconfigsubversion/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="SxinBoss">
@@ -992,8 +992,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/06/28/shell4centos6andubuntuinstalllamp/" itemprop="url">
-                  SHELL实现CentOS6,Ubuntu16下自动下载,编译安装LAMP
+                <a class="post-title-link" href="/2016/06/28/centosinstallconfigsubversion/" itemprop="url">
+                  Centos安装配置Subversion
                 </a>
               
             
@@ -1015,7 +1015,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-check-o"></i>
             </span>
-            <time title="Post modified" itemprop="dateModified" datetime="2016-11-14T19:49:12+08:00">
+            <time title="Post modified" itemprop="dateModified" datetime="2016-11-14T19:46:04+08:00">
               2016-11-14
             </time>
             
@@ -1058,8 +1058,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/06/28/shell4centos6andubuntuinstalllamp/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/28/shell4centos6andubuntuinstalllamp/" itemprop="commentCount"></span>
+                <a href="/2016/06/28/centosinstallconfigsubversion/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/28/centosinstallconfigsubversion/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1069,7 +1069,7 @@
 
           
           
-             <span id="/2016/06/28/shell4centos6andubuntuinstalllamp/" class="leancloud_visitors" data-flag-title="SHELL实现CentOS6,Ubuntu16下自动下载,编译安装LAMP">
+             <span id="/2016/06/28/centosinstallconfigsubversion/" class="leancloud_visitors" data-flag-title="Centos安装配置Subversion">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1095,12 +1095,13 @@
 
       
         
-          <p>shell暂时没时间去写了， 等有时间慢慢来~  未完待续。。。</p>
-<figure class="highlight cmake"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">目前第一版:</div><div class="line">本人在Centos6上运行成功。 </div><div class="line">使用方法：先用root账号运行<span class="keyword">install</span>脚本,然后用普通账号运行init(root账户也可以，不过我没试过).</div><div class="line">init 参数说明:</div><div class="line">--<span class="keyword">install</span>-path  安装目录,**当前执行的用户必须有这个目录的权限！！！并且不可使用相对目录！**</div><div class="line">比如:</div><div class="line"></div><div class="line">./init --<span class="keyword">install</span>-path=/home/sxin/soft    这个是对的</div><div class="line">./init --<span class="keyword">install</span>-path=~/soft             这个是错的</div></pre></td></tr></table></figure>
-<p>目前存在的问题:<br>mysql编译安装完执行生成data目录的随机密码暂时获取不到,以及mysql配置文件的内容没有修改.<br>
+          <h3 id="安装Subversion"><a href="#安装Subversion" class="headerlink" title="安装Subversion"></a>安装Subversion</h3><p><code>#yum install -y subversion</code></p>
+<p><code>iptables -I INPUT -p tcp --dport 3690 -j ACCEPT</code></p>
+<p><code>service iptables save</code></p>
+<h4 id="创建svn版本库目录"><a href="#创建svn版本库目录" class="headerlink" title="创建svn版本库目录"></a><strong>创建svn版本库目录</strong></h4><figure class="highlight gams"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta"><span class="meta-keyword">$mkdir</span> -p ~/svn/</span></div><div class="line"><span class="meta"><span class="meta-keyword">$mkdir</span> ~/svn/test</span></div><div class="line"><span class="meta"><span class="meta-keyword">$cd</span> ~/svn</span></div><div class="line"><span class="meta"><span class="meta-keyword">$svnadmin</span> create test</span></div><div class="line"><span class="meta"><span class="meta-keyword">$cd</span> test/conf</span></div></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/06/28/shell4centos6andubuntuinstalllamp/#more" rel="contents">
+            <a class="btn" href="/2016/06/28/centosinstallconfigsubversion/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1275,14 +1276,16 @@
       <div class="footer-inner">
         <div class="copyright" >
   
-  &copy; 
-  <span itemprop="copyrightYear">2016</span>
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">SxinBoss</span>
 </div>
-
+<div>
+    吉ICP备17000506号
+</div>
 
 <div class="powered-by">
   由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
